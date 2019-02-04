@@ -1,0 +1,24 @@
+		NUEVO PROJECTO
+composer create-project symfony/framework-standard-edition my_project_name
+
+
+		CREAR BASE DE DATOS
+php bin/console doctrine:database:create
+
+
+		CREAR ENTIDADES
+php bin/console doctrine:generate:entity
+
+		ACTUALIZAR BASE DE DATOS
+php bin/console doctrine:schema:update --force
+
+
+		INICIAR SERVIDOR
+php bin/console server:run
+
+
+		CREAR FORMULARIO
+php bin/console doctrine:generate:form AppBundle:Productos
+
+		GENERAR CRUD
+php bin/console doctrine:generate:crud AppBundle:Productos
