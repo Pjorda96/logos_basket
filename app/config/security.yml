@@ -21,7 +21,7 @@ security:
 
         main:
             anonymous: ~
-            pattern: ^/evento
+            pattern: ^/
             provider: our_db_provider
             # activate different ways to authenticate
 
@@ -29,9 +29,14 @@ security:
             http_basic: ~
 
             # https://symfony.com/doc/current/security/form_login_setup.html
-            form_login: ~
-                login_path: login
-                check_path: login
+            form_login:
+                login_path: /security/login
+                check_path: /security/login
             logout:
                 path:   /logout
                 target: /
+
+    #access_control:
+        #- { path: ^/security/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/, roles: ROLE_RESTO }
+        #- { path: ^/security, roles: ROLE_BATMAN }
