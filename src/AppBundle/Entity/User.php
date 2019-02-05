@@ -170,7 +170,7 @@ class User implements UserInterface
 
     public function getUsername()
     {
-        $this->dni;
+        return $this->dni;
     }
 }
 
