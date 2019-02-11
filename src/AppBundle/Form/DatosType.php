@@ -3,6 +3,12 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,34 +19,76 @@ class DatosType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre')
-            ->add('apellido1')
-            ->add('apellido2')
-            ->add('fechaNacimiento')
-            ->add('lugarNacimiento')
-            ->add('dni')
-            ->add('sip')
-            ->add('direccion')
-            ->add('cp')
-            ->add('poblacion')
-            ->add('id_tutor')
-            ->add('email')
-            ->add('telefono')
-            ->add('categoria')
-            ->add('club')
-            ->add('equipo')
-            ->add('loteria')
-            ->add('titular')
-            ->add('dni_titular')
-            ->add('direccion_titular')
-            ->add('cp_titular')
-            ->add('poblacion_titular')
-            ->add('iban')
-            ->add('jugador')
-            ->add('entrenador')
-            ->add('tutor')
-            ->add('documentos')
-            ->add('confirmado');
+        $builder->add('nombre', TextType::class, array(
+            'label' => 'Nombre'))
+            ->add('apellido1', TextType::class, array(
+                'label' => 'Primer apellido'))
+            ->add('apellido2', TextType::class, array(
+                'label' => 'Segundo apellido',
+                'required' => false))
+            ->add('DNI', TextType::class, array(
+                'label' => 'DNI'))
+            ->add('fechaNacimiento', DateType::class, array(
+                'label' => 'Fecha de Nacimiento'), [
+                'widget' => 'choice',
+                'attr' => ['class' => 'js-datepicker'],
+                'format' => 'dd-mm-yyyy',
+                ])
+            ->add('lugarNacimiento', TextType::class, array(
+                'label' => 'Lugar de nacimiento'))
+            ->add('sip', TextType::class, array(
+                'label' => 'SIP'))
+            ->add('direccion', TextType::class, array(
+                'label' => 'Dirección'))
+            ->add('cp', NumberType::class, array(
+                'label' => 'Código Postal'))
+            ->add('poblacion', TextType::class, array(
+                'label' => 'Población'))
+            ->add('email', EmailType::class, array(
+                'label' => 'Email',
+                'required' => false))
+            ->add('telefono', NumberType::class, array(
+                'label' => 'Teléfono',
+                'required' => false))
+            ->add('categoria', TextType::class, array(
+                'label' => 'Categoría',
+                'required' => false))
+            ->add('loteria', CheckboxType::class, array(
+                'label' => 'Lotería',
+                'required' => false))
+            ->add('titular', TextType::class, array(
+                'label' => 'Titular',
+                'required' => false))
+            ->add('dni_titular', TextType::class, array(
+                'label' => 'DNI',
+                'required' => false))
+            ->add('direccion_titular', TextType::class, array(
+                'label' => 'Dirección',
+                'required' => false))
+            ->add('cp_titular', NumberType::class, array(
+                'label' => 'Código Postal',
+                'required' => false))
+            ->add('poblacion_titular', TextType::class, array(
+                'label' => 'Población',
+                'required' => false))
+            ->add('iban', TextType::class, array(
+                'label' => 'IBAN',
+                'required' => false))
+            ->add('jugador', CheckboxType::class, array(
+                'label' => 'Jugador',
+                'required' => false))
+            ->add('entrenador', CheckboxType::class, array(
+                'label' => 'Entrenador',
+                'required' => false))
+            ->add('tutor', CheckboxType::class, array(
+                'label' => 'Tutor',
+                'required' => false))
+            ->add('documentos', FileType::class, array(
+                'label' => 'Documentos',
+                'required' => false))
+            ->add('confirmado', CheckboxType::class, array(
+                'label' => 'Confirmación',
+                'required' => false));
     }/**
      * {@inheritdoc}
      */
