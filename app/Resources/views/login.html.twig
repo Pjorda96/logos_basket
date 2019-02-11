@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if error %}
+    {#{% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
@@ -14,5 +14,52 @@
 
         <button type="submit">login</button>
         <a href="{{ path('user_registration') }}">Registro</a>
-    </form>
+    </form>#}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Entrar</h5>
+                        {% if error %}
+                            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        <form class="form-signin" action="{{ path('login') }}" method="post">
+                            <div class="form-label-group">
+                                <label for="emailOrUser">Email o usuario:</label>
+                                <input type="text" id="emailOrUser" class="form-control" name="_username" value="{{ last_username }}"
+                                       placeholder="Email o usuario" required autofocus>
+
+                            </div>
+
+                            <div class="form-label-group">
+                                <label for="inputPassword">Contraseña:</label>
+                                <input type="password" id="inputPassword" name="_password" class="form-control" placeholder="Contraseña"
+                                       required>
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Recordar usuario</label>
+                                <a href="{{ path('user_registration') }}">Regístrarse</a>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar
+                            </button>
+                            <hr class="my-4">
+                            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
+                                        class="fab fa-google mr-2"></i> Entrar con Google
+                            </button>
+                            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
+                                        class="fab fa-facebook-f mr-2"></i> Entrar con Facebook
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 {% endblock %}

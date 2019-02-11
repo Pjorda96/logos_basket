@@ -20,7 +20,7 @@ class DatosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nombre', TextType::class, array(
-            'label' => 'Nombre'))
+                'label' => 'Nombre'))
             ->add('apellido1', TextType::class, array(
                 'label' => 'Primer apellido'))
             ->add('apellido2', TextType::class, array(
