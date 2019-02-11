@@ -109,8 +109,7 @@ class Datos
 
     /**
      * @var string
-     *
-     * @Assert\NotBlank
+     * 
      * @ORM\Column(name="email", type="string", length=50)
      */
     private $email;
