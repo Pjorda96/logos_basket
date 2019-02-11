@@ -109,7 +109,7 @@ class Datos
 
     /**
      * @var string
-     *     
+     * 
      * @ORM\Column(name="email", type="string", length=50)
      */
     private $email;
