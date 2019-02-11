@@ -20,3 +20,4 @@ Homestead.yaml
 Vagrantfile
 .vagrant
 /web/css/bootstrap*
+/web/js/bootstrap*
