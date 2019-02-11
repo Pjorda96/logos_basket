@@ -1,0 +1,210 @@
+{% extends 'ficha.html.twig' %}
+
+{% block ficha %}
+    <div class="imagenusuario">
+        <!-- Imagen Usuario -->
+        <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario">
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Nombre</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>Juan</p>
+        </div>
+
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>DNI</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>XXXXXXXR</p>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>PrimerApellido</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>Alarcó</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>DNI</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>XXXXXXXR</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>SegundoApellido</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>Garijo</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>SegundoApellido</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>Garijo</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Telefono</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>XX XXX XX XX</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Email</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>penepenepenepene@gmail.com</p>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-12 col-sm-12 icons">
+        <i class="fas fa-plus-circle fa-2x"></i>
+        <i class="fas fa-ban fa-2x"></i>
+        <i class="fas fa-pencil-alt fa-2x"></i>
+        <i class="fas fa-upload fa-2x"></i>
+    </div>
+
+    <div class="text-center">
+        <button class="boton" type="submit">Enviar</button>
+    </div>
+
+    {#<h1>Dato</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dato.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ dato.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellido1</th>
+                <td>{{ dato.apellido1 }}</td>
+            </tr>
+            <tr>
+                <th>Apellido2</th>
+                <td>{{ dato.apellido2 }}</td>
+            </tr>
+            <tr>
+                <th>Fechanacimiento</th>
+                <td>{% if dato.fechaNacimiento %}{{ dato.fechaNacimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lugarnacimiento</th>
+                <td>{{ dato.lugarNacimiento }}</td>
+            </tr>
+            <tr>
+                <th>Dni</th>
+                <td>{{ dato.dni }}</td>
+            </tr>
+            <tr>
+                <th>Sip</th>
+                <td>{{ dato.sip }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ dato.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Cp</th>
+                <td>{{ dato.cp }}</td>
+            </tr>
+            <tr>
+                <th>Poblacion</th>
+                <td>{{ dato.poblacion }}</td>
+            </tr>
+            <tr>
+                <th>Id_tutor</th>
+                <td>{{ dato.idtutor }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ dato.email }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ dato.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Categoria</th>
+                <td>{{ dato.categoria }}</td>
+            </tr>
+            <tr>
+                <th>Club</th>
+                <td>{{ dato.club }}</td>
+            </tr>
+            <tr>
+                <th>Equipo</th>
+                <td>{{ dato.equipo }}</td>
+            </tr>
+            <tr>
+                <th>Loteria</th>
+                <td>{% if dato.loteria %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Titular</th>
+                <td>{{ dato.titular }}</td>
+            </tr>
+            <tr>
+                <th>Dni_titular</th>
+                <td>{{ dato.dnititular }}</td>
+            </tr>
+            <tr>
+                <th>Direccion_titular</th>
+                <td>{{ dato.direcciontitular }}</td>
+            </tr>
+            <tr>
+                <th>Cp_titular</th>
+                <td>{{ dato.cptitular }}</td>
+            </tr>
+            <tr>
+                <th>Poblacion_titular</th>
+                <td>{{ dato.poblaciontitular }}</td>
+            </tr>
+            <tr>
+                <th>Iban</th>
+                <td>{{ dato.iban }}</td>
+            </tr>
+            <tr>
+                <th>Jugador</th>
+                <td>{% if dato.jugador %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Entrenador</th>
+                <td>{% if dato.entrenador %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>{% if dato.tutor %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Documentos</th>
+                <td>{{ dato.documentos }}</td>
+            </tr>
+            <tr>
+                <th>Confirmado</th>
+                <td>{% if dato.confirmado %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('datos_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('datos_edit', { 'id': dato.id }) }}">Edit</a>
+        </li>
+        <li>
+            <a href="{{ path('datos_delete', { 'id': dato.id }) }}">delete</a>
+        </li>
+    </ul>#}
+{% endblock %}
+

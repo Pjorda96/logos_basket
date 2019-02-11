@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administración{% endblock %}
+
+{% block body %}
+    <div class="container-fluid fill">
+        <div class="row caja">
+
+
+            <div class="col-md-2 menu">
+                <div class="row logos">
+                    <img class="logo" src="{{ asset('img/imagenlogo.png') }}">
+                </div>
+
+                <div class="row filtro1">
+                    <form>
+                        <div class="form-check checkblock">
+                            <input type="checkbox" class="form-check-input" id="jugador">
+                            <label class="form-check-label" for="jugador">Jugador</label>
+                        </div>
+                        <div class="form-check checkblock">
+                            <input type="checkbox" class="form-check-input" id="Entrenador">
+                            <label class="form-check-label" for="Entrenador">Entrenador</label>
+                        </div>
+                        <div class="form-check checkblock">
+                            <input type="checkbox" class="form-check-input" id="Tutor">
+                            <label class="form-check-label" for="Tutor">Tutor</label>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row filtro1">
+                    <select class="selectpicker" multiple data-live-search="true">
+                        <option>juvenil</option>
+                        <option>cadete</option>
+                        <option>infantil</option>
+                    </select>
+
+                </div>
+
+                <div class="row ">
+                    <i class="fas fa-plus-circle fa-2x adminIcon"></i>
+                    <i class="fas fa-ban fa-2x adminIcon"></i>
+                    <i class="fas fa-pencil-alt fa-2x adminIcon"></i>
+                    <i class="far fa-file-pdf fa-2x adminIcon"></i>
+                </div>
+
+
+
+                <div class="row logout">
+                    <div class="col-md-1 offset-md-3 col-sm-1 offset-sm-3 col-1 offset-3">
+                        <button type="button" class="btn btn-danger">Cerrar sesión</button>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- ACABA MENU DE FILTROS Y LOGOUT -->
+
+            <div class="col-md-10  info" style="padding-right: 0px; padding-left: 0px;">
+
+                <table class="table table-hover table-dark">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
