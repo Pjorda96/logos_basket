@@ -1,0 +1,125 @@
+body {
+    background: url("../img/fondohorizontal.jpg") no-repeat 100%;
+    background-size: 100%;
+
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #222222;
+    height: 200px;
+}
+
+.mapa {
+    padding-top: 20px;
+}
+
+.social {
+    padding-top: 30px;
+    text-align: center;
+    word-spacing: 25px;
+}
+
+/* ICONOS REDES SOCIALES */
+
+
+.paginas {
+    text-align: center;
+    font-family: 'Quicksand', Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    word-spacing: 5px;
+}
+
+.paginas a {
+    color: white;
+    text-decoration: none;
+
+}
+
+.footer2 {
+    /* FONDO */
+    background-color: #222222;
+    width: 100%;
+    height: 110px;
+    /* COMENTARIO */
+    text-align: center;
+    font-family: 'Raleway', Arial, sans-serif;
+    text-transform: uppercase;
+    /* padding-top: 10px; */
+
+    color: white;
+    font-weight: bold;
+}
+
+img {
+    margin-right: 15px;
+}
+
+.footer2 img {
+    width: 80px;
+    height: 70px;
+    text-align: left;
+}
+
+#circuloredsocial {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 2px;
+    /* border-radius:0px ; */
+    background-color: aliceblue;
+    display: inline-block;
+
+}
+
+#iconos {
+    padding-top: 8px;
+}
+
+
+.imagenusuario img {
+    width: 75px;
+    height: 75px;
+    margin-top: 30px;
+    margin-left: 45%;
+
+}
+
+.camposUsuario {
+    text-align: center;
+}
+
+.cuadroExteriorInfo {
+    width: 80%;
+    min-height: 550px;
+    border: 2px solid black;
+    margin: 50px 0 50px 0;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(231, 220, 220, 0.712);
+
+}
+
+.icons {
+    text-align: center;
+    letter-spacing: 10px;
+}
+
+.boton {
+
+    border-radius: 20px 20px 20px 20px;
+    background-color: #FE5E00;
+    width: 50%;
+    height: 50px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+
+
+}
+
+
+

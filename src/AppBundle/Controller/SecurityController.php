@@ -30,4 +30,12 @@ class SecurityController extends Controller
             'error'         => $error,
         ]);
     }
+
+    /**
+     * @Route("/admin", name="admin")
+     */
+    public function adminAction(Request $request)
+    {
+        return $this->render('admin.html.twig');
+    }
 }
