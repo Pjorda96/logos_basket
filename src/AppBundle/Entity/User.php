@@ -193,5 +193,6 @@ class User implements UserInterface
             $context->addViolationAtSubPath('dni', 'La letra no coincide con el número del DNI. Comprueba que has escrito bien tanto el número como la letra', array(), null);
         }
     }
+    
 
 }
