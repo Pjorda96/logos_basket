@@ -39,7 +39,7 @@ class DatosController extends Controller
      */
     public function newAction(Request $request)
     {
-        $dato = new Dato();
+        $dato = new Datos();
         $form = $this->createForm('AppBundle\Form\DatosType', $dato);
         $form->handleRequest($request);
 
