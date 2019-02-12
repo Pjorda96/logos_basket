@@ -7,23 +7,17 @@
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('datos_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}
 
 {% block javascripts %}
-    <script>
+    {#<script>
       $(document).ready(function() {
         // you may need to change this code if you are not using Bootstrap Datepicker
         $('.js-datepicker').datepicker({
           format: 'dd-mm-yyyy'
         });
       });
-    </script>
+    </script>#}
     <script src="{{ asset('js/iban.js') }}"></script>
     {#<script>
       // the API is now accessible from the window.IBAN global object
