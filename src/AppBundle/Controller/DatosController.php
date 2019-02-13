@@ -55,12 +55,14 @@ class DatosController extends Controller
         $dato = $em->getRepository(Datos::class)->findOneById(1);
 
         $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
+        $fechastring = date_format($fechaNacimiento, 'Y-m-d');
         dump($fechaNacimiento);
         $olderAge =  $this->isAdult($fechaNacimiento);
         dump($olderAge);
 
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
+            'fechanac' => $fechastring,
             'olderAge' => $olderAge,
         ));
     }
