@@ -22,11 +22,6 @@ class UserType extends AbstractType
                 'type' => PasswordType::class,
                 'first_options'  => ['label' => 'Contraseña'],
                 'second_options' => ['label' => 'Repetir contraseña'],
-            ])
-            /*->add('roles')*/
-            ->add('termsAccepted', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => new IsTrue(),
             ]);
     }/**
      * {@inheritdoc}

@@ -1,0 +1,25 @@
+body {
+    background: url("../img/fondologin.jpg") no-repeat 100%;
+    background-size: 100%;
+
+}
+
+
+.logo{
+    width: 80px;
+    height: 80px;
+}
+
+.card-body{
+    background-color: rgba(223, 153, 48, 0.616);
+    border-radius: 30px 30px 30px 30px;
+
+}
+
+/* .pass{
+    margin-top: 20px;
+    text-align: center;
+} */
+
+
+
