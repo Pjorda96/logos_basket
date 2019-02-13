@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Datos;
+use AppBundle\Form\DatosType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +24,7 @@ class DatosController extends Controller
     public function newAction(Request $request)
     {
         $dato = new Datos();
-        $form = $this->createForm('AppBundle\Form\DatosType', $dato);
+        $form = $this->createForm(DatosType::class, $dato);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -49,7 +50,7 @@ class DatosController extends Controller
     public function showAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-        //$dato = $em->getRepository(Datos::class)->findOneByDni();
+        //$dato = $em->getRepository(Datos::class)->findOneByDni($this->getUser());
         $dato = $em->getRepository(Datos::class)->findOneById(1);
 
         $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
