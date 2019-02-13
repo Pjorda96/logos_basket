@@ -215,7 +215,7 @@ class Datos
     /**
      * @var string
      *
-     * @ORM\Column(name="documentos", type="json_array")
+     * @ORM\Column(name="documentos", type="json_array", nullable=true)
      */
     private $documentos;
 
