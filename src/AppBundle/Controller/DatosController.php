@@ -6,7 +6,8 @@ use AppBundle\Entity\Datos;
 use AppBundle\Form\DatosType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Dato controller.
@@ -54,12 +55,14 @@ class DatosController extends Controller
         $dato = $em->getRepository(Datos::class)->findOneById(1);
 
         $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
+        $fechastring = date_format($fechaNacimiento, 'Y-m-d');
         dump($fechaNacimiento);
         $olderAge =  $this->isAdult($fechaNacimiento);
         dump($olderAge);
 
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
+            'fechanac' => $fechastring,
             'olderAge' => $olderAge,
         ));
     }
@@ -109,8 +112,11 @@ class DatosController extends Controller
      * @return boolean
      */
     private function isAdult($fechaNacimiento)
+
     {
-        $then=strtotime($fechaNacimiento);
+        $fechastring=date_format($fechaNacimiento, 'Y-m-d');
+        dump($fechastring);
+        $then=strtotime($fechastring);
         $min = strtotime('+18 years', $then);
         if(time() < $min)  {
             return false;
