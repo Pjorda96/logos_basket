@@ -63,12 +63,17 @@ class DatosController extends Controller
      * @Route("/{id}", name="datos_show")
      * @Method("GET")
      */
-    public function showAction(Datos $dato)
+    public function showAction(Datos $dato, $id)
     {
         $deleteForm = $this->createDeleteForm($dato);
-
+        $em = $this->getDoctrine()->getManager();
+        $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
+        dump($fechaNacimiento);
+        $olderAge =  $this->olderAge($fechaNacimiento);
+        dump($olderAge);
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
+            'olderAge' => $olderAge,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -126,5 +131,23 @@ class DatosController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * Compare age to 18.
+     *
+     * @param Datos $fechaNacimiento The dato entity
+     *
+     * @return boolean
+     */
+    private function olderAge($fechaNacimiento)
+    {
+        $then=strtotime($fechaNacimiento);
+        $min = strtotime('+18 years', $then);
+        if(time() < $min)  {
+            return false;
+        }
+        return true;
+
     }
 }
