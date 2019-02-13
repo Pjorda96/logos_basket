@@ -1,7 +1,7 @@
 body {
     background: url("../img/fondohorizontal.jpg") no-repeat 100%;
     background-size: 100%;
-
+    background-attachment:fixed;
 }
 
 /* FOOTER */

@@ -41,23 +41,24 @@
                                         {# SIRVE PARA DAR FORMATO AL SELECT #}
                                         <div class="dropdown">
                                             <select class="form-control" id="select">
-                                                <option selected>Choose one...</option>
-                                                <option>DNI</option>
+                                                <option seleted >DNI</option>
                                                 <option>PASAPORTE</option>
                                                 <option>NIE</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="emailOrUser">Usuario:</label>
-                                        <input type="text" id="emailOrUser" class="form-control" name="_username" value="{{ last_username }}" placeholder="Usuario" required autofocus></div>
+                                        <label for="emailOrUser">NIF:</label>
+                                        <input type="text" id="emailOrUser" class="form-control" name="_username" value="{{ last_username }}" placeholder="NIF" required autofocus></div>
                                     </div>
                                     <div class="form-label-group pass">
                                         <label for="inputPassword">Contraseña:</label>
                                         <input class="form-control" id="inputPassword" name="_password" placeholder="Contraseña" required type="password"></div>
                                         <br>
+                                         <p>¿Todavía no tienes cuenta? <a href="{{path("user_registration")}}">Registro</a></p>
                                             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar
                                             </button>
+                                            
                                         </form>
                                     </div>
                                 </div>
