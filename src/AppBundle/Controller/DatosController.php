@@ -15,23 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 class DatosController extends Controller
 {
     /**
-     * Lists all dato entities.
-     *
-     * @Route("/", name="datos_index")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $datos = $em->getRepository('AppBundle:Datos')->findAll();
-
-        return $this->render('datos/index.html.twig', array(
-            'datos' => $datos,
-        ));
-    }
-
-    /**
      * Creates a new dato entity.
      *
      * @Route("/new", name="datos_new")
@@ -63,18 +46,20 @@ class DatosController extends Controller
      * @Route("/{id}", name="datos_show")
      * @Method("GET")
      */
-    public function showAction(Datos $dato, $id)
+    public function showAction(Request $request, $id)
     {
-        $deleteForm = $this->createDeleteForm($dato);
         $em = $this->getDoctrine()->getManager();
+        //$dato = $em->getRepository(Datos::class)->findOneByDni();
+        $dato = $em->getRepository(Datos::class)->findOneById(1);
+
         $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
         dump($fechaNacimiento);
-        $olderAge =  $this->olderAge($fechaNacimiento);
+        $olderAge =  $this->isAdult($fechaNacimiento);
         dump($olderAge);
+
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
             'olderAge' => $olderAge,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -86,7 +71,6 @@ class DatosController extends Controller
      */
     public function editAction(Request $request, Datos $dato)
     {
-        $deleteForm = $this->createDeleteForm($dato);
         $editForm = $this->createForm('AppBundle\Form\DatosType', $dato);
         $editForm->handleRequest($request);
 
@@ -99,7 +83,6 @@ class DatosController extends Controller
         return $this->render('datos/edit.html.twig', array(
             'dato' => $dato,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -118,29 +101,13 @@ class DatosController extends Controller
     }
 
     /**
-     * Creates a form to delete a dato entity.
-     *
-     * @param Datos $dato The dato entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Datos $dato)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('datos_delete', array('id' => $dato->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
-
-    /**
      * Compare age to 18.
      *
      * @param Datos $fechaNacimiento The dato entity
      *
      * @return boolean
      */
-    private function olderAge($fechaNacimiento)
+    private function isAdult($fechaNacimiento)
     {
         $then=strtotime($fechaNacimiento);
         $min = strtotime('+18 years', $then);
