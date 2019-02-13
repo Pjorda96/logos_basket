@@ -32,7 +32,7 @@
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>Fecha Nacimiento</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>{{ dato.fecha_nacimiento }}</p>
+            <p>{{ fechanac }}</p>
         </div>
     </div>
 
@@ -45,7 +45,7 @@
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>Lugar Nacimiento</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>{{ dato.lugar_nacimiento }}</p>
+            <p>{{ dato.lugarNacimiento}}</p>
         </div>
     </div>
     <div class="row">
@@ -69,7 +69,7 @@
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>Poblacion</h5>
                 <!-- Poner datos desde la base de datos -->
-                <p>{{ dato.poblaciom }}</p>
+                <p>{{ dato.poblacion }}</p>
             </div>
     </div>
     <div class="row">
@@ -85,29 +85,30 @@
     </div>
 </div>
 
-<label><input type="checkbox" name="checkbox">Soy Jugador</label>
-<label><input type="checkbox" name="checkbox1">Soy Entrenador</label>
-<label><input type="checkbox" name="checkbox2">Soy Tutor</label>
-{% if  node.checkbox.value == '1' %}
-    {% set dato = dato|merge({'jugador': 'true'}) %}
-{% else %}
-    {%  set dato = dato|merge({'jugador': 'false'})  %}
-{% endif %}
-
-{% if node.checkbox1.value == '1' %}
-    {%  set dato = dato|merge({'entrenador': 'true'}) %}
-{% else %}
-    {% set dato = dato|merge({'entrenador': 'false'}) %}
-{% endif %}
-
-{% if node.checkbox2.value == '1' %}
-    {% set dato = dato|merge({'tutor': 'true'})%}
-{% else %}
-    {% set dato = dato|merge({'tutor': 'false'}) %}
-{% endif %}
 
 
-    {{ if olderAge === false }}
+
+
+    {% if  dato.jugador == '1' %}
+        <label><input type="checkbox" name="test"  checked="checked" readonly="readonly" />Soy Jugador</label>
+    {% else %}
+        <label><input type="checkbox" name="test" readonly="readonly" />Soy Jugador</label>
+    {% endif %}
+
+    {% if dato.entrenador == '1' %}
+        <label><input type="checkbox" name="checkbox1" checked="checked" readonly="readonly" />Soy Entrenador</label>
+    {% else %}
+        <label><input type="checkbox" name="checkbox1" readonly="readonly" />Soy Entrenador</label>
+    {% endif %}
+
+    {% if dato.tutor == '1' %}
+        <label><input type="checkbox" name="checkbox2" checked="checked" readonly="readonly" /> Soy Tutor</label>
+    {% else %}
+        <label><input type="checkbox" name="checkbox2" readonly="readonly" />Soy Tutor</label>
+    {% endif %}
+
+
+    {% if olderAge is same as(false) %}
     <div class="row">
     <div class="col-md-6 col-sm-6  camposUsuario">
         <h5>Titular</h5>
