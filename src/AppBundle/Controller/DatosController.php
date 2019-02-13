@@ -47,14 +47,20 @@ class DatosController extends Controller
      * @Route("/{id}", name="datos_show")
      * @Method("GET")
      */
-    public function showAction(Request $request)
+    public function showAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
         //$dato = $em->getRepository(Datos::class)->findOneByDni($this->getUser());
         $dato = $em->getRepository(Datos::class)->findOneById(1);
 
+        $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
+        dump($fechaNacimiento);
+        $olderAge =  $this->isAdult($fechaNacimiento);
+        dump($olderAge);
+
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
+            'olderAge' => $olderAge,
         ));
     }
 
@@ -93,5 +99,23 @@ class DatosController extends Controller
         $em->getRepository(Datos::class)->delete($id);
 
         return $this->redirectToRoute('datos_index');
+    }
+
+    /**
+     * Compare age to 18.
+     *
+     * @param Datos $fechaNacimiento The dato entity
+     *
+     * @return boolean
+     */
+    private function isAdult($fechaNacimiento)
+    {
+        $then=strtotime($fechaNacimiento);
+        $min = strtotime('+18 years', $then);
+        if(time() < $min)  {
+            return false;
+        }
+        return true;
+
     }
 }
