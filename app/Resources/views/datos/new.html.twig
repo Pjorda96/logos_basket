@@ -1,18 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'ficha.html.twig' %}
 
 {% block ficha %}
     <h1>Dato creation</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Crear" />
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('datos_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}
 
 {% block javascripts %}
@@ -25,9 +19,8 @@
       });
     </script>
     <script src="{{ asset('js/iban.js') }}"></script>
-    {#<script>
+    <script>
       // the API is now accessible from the window.IBAN global object
-      IBAN.isValid('hello world'); // false
       IBAN.isValid('BE68539007547034'); // true
-    </script>#}
+    </script>
 {% endblock %}

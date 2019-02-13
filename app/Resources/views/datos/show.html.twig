@@ -12,59 +12,179 @@
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>Nombre</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>Juan</p>
+            <p>{{ dato.nombre }}</p>
         </div>
 
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>DNI</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>XXXXXXXR</p>
+            <p>{{ dato.dni }}</p>
         </div>
 
     </div>
+
     <div class="row">
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>PrimerApellido</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>Alarcó</p>
+            <p>{{ dato.apellido1 }}</p>
         </div>
         <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>DNI</h5>
+            <h5>Fecha Nacimiento</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>XXXXXXXR</p>
+            <p>{{ dato.fecha_nacimiento }}</p>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>SegundoApellido</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>Garijo</p>
+            <p>{{ dato.apellido2 }}</p>
         </div>
         <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>SegundoApellido</h5>
+            <h5>Lugar Nacimiento</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>Garijo</p>
+            <p>{{ dato.lugar_nacimiento }}</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>Telefono</h5>
+            <h5>SIP</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>XX XXX XX XX</p>
+            <p>{{ dato.sip }}</p>
         </div>
         <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>Email</h5>
+            <h5>Direccion</h5>
             <!-- Poner datos desde la base de datos -->
-            <p>penepenepenepene@gmail.com</p>
+            <p>{{ dato.direccion }}</p>
         </div>
     </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>CP</h5>
+                <!-- Poner datos desde la base de datos -->
+                <p>{{ dato.cp }}</p>
+            </div>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>Poblacion</h5>
+                <!-- Poner datos desde la base de datos -->
+                <p>{{ dato.poblaciom }}</p>
+            </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6 col-sm-6  camposUsuario">
+        <h5>Email</h5>
+        <!-- Poner datos desde la base de datos -->
+        <p>{{ dato.email }}</p>
+    </div>
+    <div class="col-md-6 col-sm-6  camposUsuario">
+        <h5>Telefono</h5>
+        <!-- Poner datos desde la base de datos -->
+        <p>{{ dato.telefono }}</p>
+    </div>
+</div>
+
+<label><input type="checkbox" name="checkbox">Soy Jugador</label>
+<label><input type="checkbox" name="checkbox1">Soy Entrenador</label>
+<label><input type="checkbox" name="checkbox2">Soy Tutor</label>
+{% if  node.checkbox.value == '1' %}
+    {% set dato = dato|merge({'jugador': 'true'}) %}
+{% else %}
+    {%  set dato = dato|merge({'jugador': 'false'})  %}
+{% endif %}
+
+{% if node.checkbox1.value == '1' %}
+    {%  set dato = dato|merge({'entrenador': 'true'}) %}
+{% else %}
+    {% set dato = dato|merge({'entrenador': 'false'}) %}
+{% endif %}
+
+{% if node.checkbox2.value == '1' %}
+    {% set dato = dato|merge({'tutor': 'true'})%}
+{% else %}
+    {% set dato = dato|merge({'tutor': 'false'}) %}
+{% endif %}
+
+
+    {{ if olderAge === false }}
+    <div class="row">
+    <div class="col-md-6 col-sm-6  camposUsuario">
+        <h5>Titular</h5>
+        <!-- Poner datos desde la base de datos -->
+        <p>dato.titular</p>
+    </div>
+    <div class="col-md-6 col-sm-6  camposUsuario">
+        <h5>DNI Titular</h5>
+        <!-- Poner datos desde la base de datos -->
+        <p>dato.dni_titular</p>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Direccion Titular</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>dato.direccion_titular</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>CP Titular</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>dato.cp_titular</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Poblacion Titular</h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>dato.direccion_titular</p>
+        </div>
+
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>IBAN </h5>
+            <!-- Poner datos desde la base de datos -->
+            <p>dato.iban</p>
+        </div>
+    </div>
+    {% endif %}
+
+     {% if dato.jugador %}
+         <div class="row">
+             <div class="col-md-6 col-sm-6  camposUsuario">
+                 <h5>Categoria</h5>
+                 <!-- Poner datos desde la base de datos -->
+                 <p>{{ dato.categoria }}</p>
+             </div>
+             <div class="col-md-6 col-sm-6  camposUsuario">
+                 <h5>Club</h5>
+                 <!-- Poner datos desde la base de datos -->
+                 <p>{{ dato.club }}</p>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-md-6 col-sm-6  camposUsuario">
+                 <h5>Equipo</h5>
+                 <!-- Poner datos desde la base de datos -->
+                 <p>{{ dato.equipo }}</p>
+             </div>
+             <div class="col-md-6 col-sm-6  camposUsuario">
+                 <h5>Loteria</h5>
+                 <!-- Poner datos desde la base de datos -->
+                 <p>{{ dato.loteria }}</p>
+             </div>
+         </div>
+     {% endif %}
+
+
+
+
+
 
 
 
     <div class="col-md-12 col-sm-12 icons">
-        <i class="fas fa-plus-circle fa-2x"></i>
-        <i class="fas fa-ban fa-2x"></i>
-        <i class="fas fa-pencil-alt fa-2x"></i>
+        <a href="{{ path('datos_new', { 'id': dato.id }) }}"><i class="fas fa-plus-circle fa-2x"></i></a>
+        <a href="{{ path('datos_delete', { 'id': dato.id }) }}"><i class="fas fa-ban fa-2x"></i></a>
+        <a href="{{ path('datos_edit', { 'id': dato.id }) }}"><i class="fas fa-pencil-alt fa-2x"></i></a>
         <i class="fas fa-upload fa-2x"></i>
     </div>
 
