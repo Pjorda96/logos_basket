@@ -108,8 +108,11 @@ class DatosController extends Controller
      * @return boolean
      */
     private function isAdult($fechaNacimiento)
+
     {
-        $then=strtotime($fechaNacimiento);
+        $fechastring=date_format($fechaNacimiento, 'Y-m-d');
+        dump($fechastring);
+        $then=strtotime($fechastring);
         $min = strtotime('+18 years', $then);
         if(time() < $min)  {
             return false;
