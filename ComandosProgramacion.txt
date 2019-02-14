@@ -22,3 +22,19 @@ php bin/console doctrine:generate:form AppBundle:Productos
 
 		GENERAR CRUD
 php bin/console doctrine:generate:crud AppBundle:Productos
+
+
+
+		RELACIONES
+
+
+	INSTALACION
+	composer require symfony/maker-bundle --dev
+	composer require doctrine/doctrine-migrations-bundle "^2.0"
+
+			GENERAR RELACION
+	php bin/console make:entity Category
+
+			APLICAR CAMBIOS EN LA BBDD
+	php bin/console doctrine:migrations:diff
+	php bin/console doctrine:migrations:migrate

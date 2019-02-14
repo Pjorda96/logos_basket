@@ -18,6 +18,7 @@ class Category
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\OneToMany(targetEntity="App\Entity\Datos", mappedBy="categoria")
      */
     private $id;
 

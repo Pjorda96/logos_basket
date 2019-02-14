@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping\OneToMany;
 
 /**
  * Datos
@@ -122,9 +123,10 @@ class Datos
     private $telefono;
 
     /**
-     * @var string
+     * @var string     
      *
      * @ORM\Column(name="categoria", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="id")
      */
     private $categoria;
 
