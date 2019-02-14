@@ -123,10 +123,10 @@ class Datos
     private $telefono;
 
     /**
-     * @var string     
+     * @var integer
      *
      * @ORM\Column(name="categoria", type="integer", nullable=true)
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="id")
+     * @ORM\OneToOne(targetEntity="App\Entity\Category")
      */
     private $categoria;
 
