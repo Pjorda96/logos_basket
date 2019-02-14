@@ -17,6 +17,7 @@ class User implements UserInterface
     /**
      * @var int
      *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Datos", inversedBy="tutor")
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

@@ -211,6 +211,7 @@ class Datos
      * @var string
      *
      * @ORM\Column(name="tutor", type="boolean")
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="id")
      */
     private $tutor;
 
