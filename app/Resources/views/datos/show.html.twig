@@ -85,14 +85,14 @@
     </div>
 </div>
 
+<hr>
 
 
 
-
-    {% if  dato.jugador == '1' %}
-        <label><input type="checkbox" name="test"  checked="checked" readonly="readonly" />Soy Jugador</label>
+    {# {% if  dato.jugador == '1' %}
+        <label><input readonly type="checkbox" name="test"  checked="checked" />Soy Jugador</label>
     {% else %}
-        <label><input type="checkbox" name="test" readonly="readonly" />Soy Jugador</label>
+        <label><input readonly type="checkbox" name="test" readonly="readonly" />Soy Jugador</label>
     {% endif %}
 
     {% if dato.entrenador == '1' %}
@@ -105,8 +105,10 @@
         <label><input type="checkbox" name="checkbox2" checked="checked" readonly="readonly" /> Soy Tutor</label>
     {% else %}
         <label><input type="checkbox" name="checkbox2" readonly="readonly" />Soy Tutor</label>
-    {% endif %}
+    {% endif %} #}
 
+<hr>
+   
 
     {% if olderAge is same as(false) %}
     <div class="row">
@@ -127,6 +129,7 @@
             <!-- Poner datos desde la base de datos -->
             <p>dato.direccion_titular</p>
         </div>
+
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>CP Titular</h5>
             <!-- Poner datos desde la base de datos -->
@@ -148,13 +151,17 @@
     </div>
     {% endif %}
 
+    <hr>
+
+
      {% if dato.jugador %}
          <div class="row">
-             <div class="col-md-6 col-sm-6  camposUsuario">
-                 <h5>Categoria</h5>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                 <h5>Equipo</h5>
                  <!-- Poner datos desde la base de datos -->
-                 <p>{{ dato.categoria }}</p>
+                 <p>{{ dato.equipo }}</p>
              </div>
+             
              <div class="col-md-6 col-sm-6  camposUsuario">
                  <h5>Club</h5>
                  <!-- Poner datos desde la base de datos -->
@@ -162,10 +169,10 @@
              </div>
          </div>
          <div class="row">
-             <div class="col-md-6 col-sm-6  camposUsuario">
-                 <h5>Equipo</h5>
+          <div class="col-md-6 col-sm-6  camposUsuario">
+                 <h5>Categoria</h5>
                  <!-- Poner datos desde la base de datos -->
-                 <p>{{ dato.equipo }}</p>
+                 <p>{{ dato.categoria }}</p>
              </div>
              <div class="col-md-6 col-sm-6  camposUsuario">
                  <h5>Loteria</h5>
@@ -190,7 +197,7 @@
     </div>
 
     <div class="text-center">
-        <button class="boton" type="submit">Enviar</button>
+        <button class="boton mb-4" type="submit">Enviar</button>
     </div>
 
     {#<h1>Dato</h1>
