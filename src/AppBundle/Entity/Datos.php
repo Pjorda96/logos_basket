@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\OneToMany;
 
@@ -125,8 +126,8 @@ class Datos
     /**
      * @var integer
      *
-     * @ORM\Column(name="categoria", type="integer", nullable=true)
-     * @ORM\OneToOne(targetEntity="App\Entity\Category")
+     * @ORM\OneToOne(targetEntity="Category")
+     * @JoinColumn(name="categoria_id", referencedColumnName="id")
      */
     private $categoria;
 
