@@ -3,9 +3,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Datos;
+use AppBundle\Form\DatosType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Dato controller.
@@ -23,7 +25,7 @@ class DatosController extends Controller
     public function newAction(Request $request)
     {
         $dato = new Datos();
-        $form = $this->createForm('AppBundle\Form\DatosType', $dato);
+        $form = $this->createForm(DatosType::class, $dato);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -46,14 +48,22 @@ class DatosController extends Controller
      * @Route("/{id}", name="datos_show")
      * @Method("GET")
      */
-    public function showAction(Request $request)
+    public function showAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
-        dump($request);
-        $dato = $em->getRepository(Datos::class)->findOneByDni();
+        //$dato = $em->getRepository(Datos::class)->findOneByDni($this->getUser());
+        $dato = $em->getRepository(Datos::class)->findOneById(1);
+
+        $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
+        $fechastring = date_format($fechaNacimiento, 'Y-m-d');
+        dump($fechaNacimiento);
+        $olderAge =  $this->isAdult($fechaNacimiento);
+        dump($olderAge);
 
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
+            'fechanac' => $fechastring,
+            'olderAge' => $olderAge,
         ));
     }
 
@@ -92,5 +102,26 @@ class DatosController extends Controller
         $em->getRepository(Datos::class)->delete($id);
 
         return $this->redirectToRoute('datos_index');
+    }
+
+    /**
+     * Compare age to 18.
+     *
+     * @param Datos $fechaNacimiento The dato entity
+     *
+     * @return boolean
+     */
+    private function isAdult($fechaNacimiento)
+
+    {
+        $fechastring=date_format($fechaNacimiento, 'Y-m-d');
+        dump($fechastring);
+        $then=strtotime($fechastring);
+        $min = strtotime('+18 years', $then);
+        if(time() < $min)  {
+            return false;
+        }
+        return true;
+
     }
 }

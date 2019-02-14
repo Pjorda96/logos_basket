@@ -26,9 +26,9 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="dni", type="string", length=10, unique=true)
+     * @ORM\Column(name="nif", type="string", length=10, unique=true)
      */
-    private $dni;
+    private $nif;
 
     /**
      * @Assert\Regex(
@@ -71,27 +71,27 @@ class User implements UserInterface
     }
 
     /**
-     * Set dni
+     * Set nif
      *
-     * @param string $dni
+     * @param string $nif
      *
      * @return User
      */
-    public function setDni($dni)
+    public function setNif($nif)
     {
-        $this->dni = $dni;
+        $this->nif = $nif;
 
         return $this;
     }
 
     /**
-     * Get dni
+     * Get nif
      *
      * @return string
      */
-    public function getDni()
+    public function getNif()
     {
-        return $this->dni;
+        return $this->nif;
     }
 
     /**
@@ -170,29 +170,26 @@ class User implements UserInterface
 
     public function getUsername()
     {
-        return $this->dni;
+        return $this->nif;
     }
 
 
-    //No sé qué estoy haciendo jaja equisdé salu3
-    public function esDniValido(ExecutionContext $context)
+    public function esNifValido(ExecutionContext $context)
     {
-        $dni = $this->getDni();
+        $nif = $this->getNif();
 
         // Comprobar que el formato sea correcto
-        if (0 === preg_match("/\d{1,8}[a-z]/i", $dni)) {
-            $context->addViolationAtSubPath('dni', 'El DNI introducido no tiene el formato correcto (entre 1 y 8 números seguidos de una letra, sin guiones y sin dejar ningún espacio en blanco)', array(), null);
+        if (0 === preg_match("/\d{1,8}[a-z]/i", $nif)) {
+            $context->addViolationAtSubPath('nif', 'El NIF introducido no tiene el formato correcto (entre 1 y 8 números seguidos de una letra, sin guiones y sin dejar ningún espacio en blanco)', array(), null);
 
             return;
         }
 
         // Comprobar que la letra cumple con el algoritmo
-        $numero = substr($dni, 0, -1);
-        $letra  = strtoupper(substr($dni, -1));
+        $numero = substr($nif, 0, -1);
+        $letra  = strtoupper(substr($nif, -1));
         if ($letra != substr("TRWAGMYFPDXBNJZSQVHLCKE", strtr($numero, "XYZ", "012")%23, 1)) {
-            $context->addViolationAtSubPath('dni', 'La letra no coincide con el número del DNI. Comprueba que has escrito bien tanto el número como la letra', array(), null);
+            $context->addViolationAtSubPath('nif', 'La letra no coincide con el número del NIF. Comprueba que has escrito bien tanto el número como la letra', array(), null);
         }
     }
-    
-
 }

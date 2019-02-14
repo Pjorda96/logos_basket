@@ -1,27 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'ficha.html.twig' %}
 
 {% block ficha %}
     <h1>Dato creation</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Crear" />
     {{ form_end(form) }}
 {% endblock %}
 
 {% block javascripts %}
-    {#<script>
+    <script>
       $(document).ready(function() {
         // you may need to change this code if you are not using Bootstrap Datepicker
         $('.js-datepicker').datepicker({
           format: 'dd-mm-yyyy'
         });
       });
-    </script>#}
+    </script>
     <script src="{{ asset('js/iban.js') }}"></script>
-    {#<script>
+    <script>
       // the API is now accessible from the window.IBAN global object
-      IBAN.isValid('hello world'); // false
       IBAN.isValid('BE68539007547034'); // true
-    </script>#}
+    </script>
 {% endblock %}
