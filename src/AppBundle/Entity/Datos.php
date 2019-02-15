@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\OneToMany;
 
@@ -103,11 +104,18 @@ class Datos
     private $poblacion;
 
     /**
+     * One Category has Many Categories.
+     * @OneToMany(targetEntity="Datos", mappedBy="tutor")
+     */
+    private $children;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="id_tutor", type="integer", nullable=true)
+     * @ManyToOne(targetEntity="Datos", inversedBy="children")
+     * @JoinColumn(name="tutor_id", referencedColumnName="id")
      */
-    private $id_tutor;
+    private $tutor;
 
     /**
      * @var string
@@ -197,24 +205,23 @@ class Datos
     /**
      * @var string
      *
-     * @ORM\Column(name="jugador", type="boolean")
+     * @ORM\Column(name="is_jugador", type="boolean")
      */
-    private $jugador;
+    private $isJugador;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="entrenador", type="boolean")
+     * @ORM\Column(name="is_entrenador", type="boolean")
      */
-    private $entrenador;
+    private $isEntrenador;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tutor", type="boolean") 
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="id")
+     * @ORM\Column(name="tutor", type="boolean")
      */
-    private $tutor;
+    private $isTutor;
 
     /**
      * @var string
@@ -234,6 +241,7 @@ class Datos
     public function __construct()
     {
         $this->club = 'Logos Basket Sedaví';
+        $this->phonenumbers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -487,27 +495,47 @@ class Datos
     }
 
     /**
+     * Remove child
+     *
+     * @param \AppBundle\Entity\Datos $child
+     */
+    public function removeChild(\AppBundle\Entity\Datos $child)
+    {
+        $this->children->removeElement($child);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
      * Set idTutor
      *
      * @param integer $idTutor
      *
      * @return Datos
      */
-    public function setIdTutor($idTutor)
+    public function setTutorId($tutorId)
     {
-        $this->id_tutor = $idTutor;
+        $this->tutor_id = $tutorId;
 
         return $this;
     }
 
     /**
-     * Get idTutor
+     * Get tutorId
      *
      * @return integer
      */
-    public function getIdTutor()
+    public function getTutorId()
     {
-        return $this->id_tutor;
+        return $this->tutor;
     }
 
     /**
@@ -807,7 +835,7 @@ class Datos
      */
     public function setJugador($jugador)
     {
-        $this->jugador = $jugador;
+        $this->isJugador = $jugador;
 
         return $this;
     }
@@ -819,7 +847,7 @@ class Datos
      */
     public function getJugador()
     {
-        return $this->jugador;
+        return $this->isJugador;
     }
 
     /**
@@ -831,7 +859,7 @@ class Datos
      */
     public function setEntrenador($entrenador)
     {
-        $this->entrenador = $entrenador;
+        $this->isEntrenador = $entrenador;
 
         return $this;
     }
@@ -843,7 +871,7 @@ class Datos
      */
     public function getEntrenador()
     {
-        return $this->entrenador;
+        return $this->isEntrenador;
     }
 
     /**
@@ -855,7 +883,7 @@ class Datos
      */
     public function setTutor($tutor)
     {
-        $this->tutor = $tutor;
+        $this->isTutor = $tutor;
 
         return $this;
     }
@@ -867,7 +895,7 @@ class Datos
      */
     public function getTutor()
     {
-        return $this->tutor;
+        return $this->isTutor;
     }
 
     /**
@@ -917,5 +945,94 @@ class Datos
     {
         return $this->confirmado;
     }
-}
 
+    public function __toString() {
+        return $this->nombre.$this->apellido1.$this->apellido2;
+    }
+
+    /**
+     * Set isJugador
+     *
+     * @param boolean $isJugador
+     *
+     * @return Datos
+     */
+    public function setIsJugador($isJugador)
+    {
+        $this->isJugador = $isJugador;
+
+        return $this;
+    }
+
+    /**
+     * Get isJugador
+     *
+     * @return boolean
+     */
+    public function getIsJugador()
+    {
+        return $this->isJugador;
+    }
+
+    /**
+     * Set isEntrenador
+     *
+     * @param boolean $isEntrenador
+     *
+     * @return Datos
+     */
+    public function setIsEntrenador($isEntrenador)
+    {
+        $this->isEntrenador = $isEntrenador;
+
+        return $this;
+    }
+
+    /**
+     * Get isEntrenador
+     *
+     * @return boolean
+     */
+    public function getIsEntrenador()
+    {
+        return $this->isEntrenador;
+    }
+
+    /**
+     * Set isTutor
+     *
+     * @param boolean $isTutor
+     *
+     * @return Datos
+     */
+    public function setIsTutor($isTutor)
+    {
+        $this->isTutor = $isTutor;
+
+        return $this;
+    }
+
+    /**
+     * Get isTutor
+     *
+     * @return boolean
+     */
+    public function getIsTutor()
+    {
+        return $this->isTutor;
+    }
+
+    /**
+     * Add child
+     *
+     * @param \AppBundle\Entity\Datos $child
+     *
+     * @return Datos
+     */
+    public function addChild(\AppBundle\Entity\Datos $child)
+    {
+        $this->children[] = $child;
+
+        return $this;
+    }
+}
