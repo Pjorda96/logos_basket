@@ -49,9 +49,9 @@ class DatosType extends AbstractType
             ->add('telefono', NumberType::class, array(
                 'label' => 'Teléfono',
                 'required' => false))
-            ->add('categoria', TextType::class, array(
+            /*->add('categoria', TextType::class, array(
                 'label' => 'Categoría',
-                'required' => false))
+                'required' => false))*/
             ->add('loteria', CheckboxType::class, array(
                 'label' => 'Lotería',
                 'required' => false))
@@ -85,6 +85,10 @@ class DatosType extends AbstractType
             ->add('documentos', FileType::class, array(
                 'data_class' => null,
                 'label' => 'Documentos',
+                'required' => false))
+            ->add('image', FileType::class, array(
+                'data_class' => null,
+                'label' => 'Foto de perfil',
                 'required' => false))
             ->add('confirmado', CheckboxType::class, array(
                 'label' => 'Confirmación',

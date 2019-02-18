@@ -238,6 +238,14 @@ class Datos
     private $confirmado;
 
 
+    /**
+     * @var blob
+     *
+     * @ORM\Column(name="image", type="blob", nullable=true)
+     */
+    private $image;
+
+
     public function __construct()
     {
         $this->club = 'Logos Basket Sedaví';
@@ -1035,4 +1043,30 @@ class Datos
 
         return $this;
     }
+
+       /**
+     * Set image
+     *
+     * @param string $nombre
+     *
+     * @return Datos
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    
 }
