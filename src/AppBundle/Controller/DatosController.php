@@ -52,7 +52,7 @@ class DatosController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         //$dato = $em->getRepository(Datos::class)->findOneByDni($this->getUser());
-        $dato = $em->getRepository(Datos::class)->findOneById(1);
+        $dato = $em->getRepository(Datos::class)->findOneById($id);
 
         $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
         $fechastring = date_format($fechaNacimiento, 'd-m-Y');
