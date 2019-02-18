@@ -30,8 +30,7 @@ class DatosType extends AbstractType
                 'label' => 'DNI'))
             ->add('fechaNacimiento', DateType::class, array(
                 'label' => 'Date',
-                'years' => range(date('1950'), date('Y')),
-                'required' => true
+                'years' => range(date('1950'), date('Y'))
                 ))
             ->add('lugarNacimiento', TextType::class, array(
                 'label' => 'Lugar de nacimiento'))
@@ -49,9 +48,9 @@ class DatosType extends AbstractType
             ->add('telefono', NumberType::class, array(
                 'label' => 'Teléfono',
                 'required' => false))
-            ->add('categoria', TextType::class, array(
+            /*->add('categoria', TextType::class, array(
                 'label' => 'Categoría',
-                'required' => false))
+                'required' => false))*/
             ->add('loteria', CheckboxType::class, array(
                 'label' => 'Lotería',
                 'required' => false))
@@ -85,6 +84,10 @@ class DatosType extends AbstractType
             ->add('documentos', FileType::class, array(
                 'data_class' => null,
                 'label' => 'Documentos',
+                'required' => false))
+            ->add('image', FileType::class, array(
+                'data_class' => null,
+                'label' => 'Foto de perfil',
                 'required' => false))
             ->add('confirmado', CheckboxType::class, array(
                 'label' => 'Confirmación',
