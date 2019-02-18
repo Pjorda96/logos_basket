@@ -35,6 +35,6 @@ php bin/console doctrine:generate:crud AppBundle:Productos
 			GENERAR RELACION
 	php bin/console make:entity Category
 
-			APLICAR CAMBIOS EN LA BBDD
+			MIGRAR EN LA BBDD
 	php bin/console doctrine:migrations:diff
 	php bin/console doctrine:migrations:migrate
