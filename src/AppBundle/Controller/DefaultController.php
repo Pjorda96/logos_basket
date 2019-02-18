@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
+
 
 class DefaultController extends Controller
 {
@@ -16,6 +18,7 @@ class DefaultController extends Controller
      */
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+        $date =  $this->Time();
         // 1) build the form
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -40,12 +43,27 @@ class DefaultController extends Controller
             // maybe set a "flash" success message for the user
 
             return $this->redirectToRoute('homepage');
+
         }
 
         return $this->render(
-            'registro.html.twig',
-            ['form' => $form->createView()]
-        );
+            'registro.html.twig',array(
+            'tiempo' => $date,
+            'form' => $form->createView()
+        ));
+    }
+
+    /**
+     * Compare date.
+     *
+     *
+     * @return date
+     */
+    private function Time()
+    {
+        $time= new \DateTime("now");
+        $timestringed= date_format($time, 'Y-m-d');
+        return $timestringed;
     }
 
     
