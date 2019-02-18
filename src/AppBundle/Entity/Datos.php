@@ -241,7 +241,7 @@ class Datos
     public function __construct()
     {
         $this->club = 'Logos Basket Sedaví';
-        $this->phonenumbers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
