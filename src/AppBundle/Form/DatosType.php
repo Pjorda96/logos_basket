@@ -30,8 +30,7 @@ class DatosType extends AbstractType
                 'label' => 'DNI'))
             ->add('fechaNacimiento', DateType::class, array(
                 'label' => 'Date',
-                'years' => range(date('1950'), date('Y')),
-                'required' => true
+                'years' => range(date('1950'), date('Y'))
                 ))
             ->add('lugarNacimiento', TextType::class, array(
                 'label' => 'Lugar de nacimiento'))
