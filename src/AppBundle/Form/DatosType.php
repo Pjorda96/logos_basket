@@ -29,11 +29,9 @@ class DatosType extends AbstractType
             ->add('DNI', TextType::class, array(
                 'label' => 'DNI'))
             ->add('fechaNacimiento', DateType::class, array(
-                'label' => 'Fecha de Nacimiento'), [
-                'widget' => 'choice',
-                'attr' => ['class' => 'js-datepicker'],
-                'format' => 'dd-mm-yyyy',
-                ])
+                'label' => 'Date',
+                'years' => range(date('1950'), date('Y'))
+                ))
             ->add('lugarNacimiento', TextType::class, array(
                 'label' => 'Lugar de nacimiento'))
             ->add('sip', TextType::class, array(
@@ -84,6 +82,7 @@ class DatosType extends AbstractType
                 'label' => 'Tutor',
                 'required' => false))
             ->add('documentos', FileType::class, array(
+                'data_class' => null,
                 'label' => 'Documentos',
                 'required' => false))
             ->add('confirmado', CheckboxType::class, array(

@@ -56,12 +56,12 @@ class DatosController extends Controller
 
         $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
         $fechastring = date_format($fechaNacimiento, 'd-m-Y');
-        $olderAge =  $this->isAdult($fechaNacimiento);
+        $adult =  $this->isAdult($fechaNacimiento);
 
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
             'fechanac' => $fechastring,
-            'olderAge' => $olderAge,
+            'adult' => $adult,
         ));
     }
 
@@ -71,21 +71,21 @@ class DatosController extends Controller
      * @Route("/{id}/edit", name="datos_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Datos $dato)
+    public function editAction(Request $request, $id)
     {
-        $editForm = $this->createForm('AppBundle\Form\DatosType', $dato);
+        $user = $this->getDoctrine()->getRepository('AppBundle:Datos')->find($id);
+        dump($user);
+        $editForm = $this->createForm(DatosType::class, $user);
         $editForm->handleRequest($request);
+
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('datos_edit', array('id' => $dato->getId()));
+            return $this->redirectToRoute('datos_show', array('id' => $user->getId()));
         }
 
         return $this->render('datos/edit.html.twig', array(
-            'dato' => $dato,
-            'edit_form' => $editForm->createView(),
-        ));
+            'edit_form' => $editForm->createView()));
     }
 
     /**
