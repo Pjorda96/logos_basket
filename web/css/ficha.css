@@ -80,8 +80,8 @@ img {
 
 
 .imagenusuario img {
-    width: 75px;
-    height: 75px;
+    width: 110px;
+    height: 110px;
     margin-top: 30px;
     margin-left: 45%;
 
@@ -119,6 +119,10 @@ img {
     font-size: 18px;
 
 
+}
+
+hr{
+    background-color: black;
 }
 
 

@@ -11,41 +11,27 @@
                         <img alt="Logo" class="mx-auto logo" src="{{ asset('img/imagenlogo.png') }}"></div>
                     <h5 class="card-title text-center carta">Entrar</h5>
                     <div class="container">
-                        {{ form_start(form) }} {#TODO: comprobar si el campo nif es valido#}
+                        {{ form_start(form, {'attr': {'validate': 'validation()'}}) }}
                         <div class="row">
                             <div class="col-md-6 mx-auto">
                                 <label for="selector">Escoja uno:</label>
                                 <select class="form-control dropdown" id="selector">
-                                    <option selected>DNI</option>
-                                    <option>PASAPORTE</option>
-                                    <option>NIE</option>
+                                    <option value="dni" selected>DNI</option>
+                                    <option value="pasaporte">PASAPORTE</option>
+                                    <option value="nie">NIE</option>
                                 </select>
                             </div>
-                            {#<div class="col-md-6">
-                                <label for="nif">NIF:</label>
-                                <input type="text" id="nif" class="form-control" name="_nif"
-                                       placeholder="NIF" required autofocus></div>#}
                             <div class="col-md-6">
                                 {{ form_label(form.nif, 'NIF') }}<br>
-                                {{ form_widget(form.nif, {'attr': {'placeholder': 'NIF', 'class': 'form-control', 'autofocus': 'autofocus' }}) }}<br>
+                                {{ form_widget(form.nif, {'attr': {'placeholder': 'NIF', 'class': 'form-control', 'autofocus': 'autofocus', 'id': 'nif' }}) }}<br>
                                 {{ form_errors(form.nif) }}
                             </div>
                         </div>
-                        {#<div class="form-label-group pass">
-                            <label for="inputPassword">Contraseña:</label>
-                            <input class="form-control" id="inputPassword" name="_password" placeholder="Contraseña"
-                                   required type="password">
-                        </div>#}
                         <div class="form-label-group pass">
                             {{ form_label(form.plainPassword.first) }}<br>
                             {{ form_widget(form.plainPassword.first, {'attr': {'placeholder': 'Contraseña', 'class': 'form-control' }}) }}<br>
                             {{ form_errors(form.plainPassword.first) }}
                         </div>
-                        {#<div class="form-label-group pass mt-3">
-                            <label for="inputPassword2">Repetir Contraseña:</label>
-                            <input class="form-control" id="inputPassword2" name="_password"
-                                   placeholder=" Repetir Contraseña" required type="password">
-                        </div>#}
                         <div class="form-label-group pass mt-1">
                             {{ form_label(form.plainPassword.second) }}<br>
                             {{ form_widget(form.plainPassword.second, {'attr': {'placeholder': 'Repetir contraseña', 'class': 'form-control' }}) }}<br>
@@ -66,3 +52,6 @@
     <link rel="stylesheet" href="{{ asset('css/registro.css') }}">
 {% endblock %}
                 
+{% block javascripts %}
+    <script src="{{ asset('js/validation.js') }}"></script>
+{% endblock %}
