@@ -26,6 +26,11 @@
                                 {{ form_widget(form.nif, {'attr': {'placeholder': 'NIF', 'class': 'form-control', 'autofocus': 'autofocus', 'id': 'nif' }}) }}<br>
                                 {{ form_errors(form.nif) }}
                             </div>
+
+                        </div>
+                        <div class="form-label-group pass">
+                            <label for="fechaNac">Fecha de Nacimiento</label><br>
+                            <input type="date" id="fechaNac" name="fechaNac" min="1930-01-01" max="{{ tiempo }} "/>
                         </div>
                         <div class="form-label-group pass">
                             {{ form_label(form.plainPassword.first) }}<br>

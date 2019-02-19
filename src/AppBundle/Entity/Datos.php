@@ -170,30 +170,30 @@ class Datos
     /**
      * @var string
      *
-     * @ORM\Column(name="dni_titular", type="string", length=50, nullable=true)
+     * @ORM\Column(name="dni_itular", type="string", length=10, nullable=true)
      */
-    private $dni_titular;
+    private $dniTitular;
 
     /**
      * @var string
      *
      * @ORM\Column(name="direccion_titular", type="string", length=50, nullable=true)
      */
-    private $direccion_titular;
+    private $direccionTitular;
 
     /**
      * @var string
      *
      * @ORM\Column(name="cp_titular", type="string", length=50, nullable=true)
      */
-    private $cp_titular;
+    private $cpTitular;
 
     /**
      * @var string
      *
      * @ORM\Column(name="poblacion_titular", type="string", length=50, nullable=true)
      */
-    private $poblacion_titular;
+    private $poblacionTitular;
 
     /**
      * @var string
@@ -236,6 +236,14 @@ class Datos
      * @ORM\Column(name="confirmado", type="boolean")
      */
     private $confirmado;
+
+
+    /**
+     * @var blob
+     *
+     * @ORM\Column(name="image", type="blob", nullable=true)
+     */
+    private $image;
 
 
     public function __construct()
@@ -715,7 +723,7 @@ class Datos
      */
     public function setDniTitular($dniTitular)
     {
-        $this->dni_titular = $dniTitular;
+        $this->dniTitular = $dniTitular;
 
         return $this;
     }
@@ -727,7 +735,7 @@ class Datos
      */
     public function getDniTitular()
     {
-        return $this->dni_titular;
+        return $this->dniTitular;
     }
 
     /**
@@ -739,7 +747,7 @@ class Datos
      */
     public function setDireccionTitular($direccionTitular)
     {
-        $this->direccion_titular = $direccionTitular;
+        $this->direccionTitular = $direccionTitular;
 
         return $this;
     }
@@ -751,7 +759,7 @@ class Datos
      */
     public function getDireccionTitular()
     {
-        return $this->direccion_titular;
+        return $this->direccionTitular;
     }
 
     /**
@@ -763,7 +771,7 @@ class Datos
      */
     public function setCpTitular($cpTitular)
     {
-        $this->cp_titular = $cpTitular;
+        $this->cpTitular = $cpTitular;
 
         return $this;
     }
@@ -775,7 +783,7 @@ class Datos
      */
     public function getCpTitular()
     {
-        return $this->cp_titular;
+        return $this->cpTitular;
     }
 
     /**
@@ -787,7 +795,7 @@ class Datos
      */
     public function setPoblacionTitular($poblacionTitular)
     {
-        $this->poblacion_titular = $poblacionTitular;
+        $this->poblacionTitular = $poblacionTitular;
 
         return $this;
     }
@@ -799,7 +807,7 @@ class Datos
      */
     public function getPoblacionTitular()
     {
-        return $this->poblacion_titular;
+        return $this->poblacionTitular;
     }
 
     /**
@@ -1035,4 +1043,30 @@ class Datos
 
         return $this;
     }
+
+       /**
+     * Set image
+     *
+     * @param string $nombre
+     *
+     * @return Datos
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    
 }

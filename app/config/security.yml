@@ -38,5 +38,5 @@ security:
 
     #access_control:
         #- { path: ^/security/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        #- { path: ^/, roles: ROLE_OTRO }
-        #- { path: ^/security, roles: ROLE_JUGADOR }
+        #- { path: ^/datos, roles: ROLE_JUGADOR }
+        #- { path: ^/security, roles: ROLE_ADMIN }
