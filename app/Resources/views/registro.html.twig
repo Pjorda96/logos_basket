@@ -30,7 +30,9 @@
                         </div>
                         <div class="form-label-group pass">
                             <label for="fechaNac">Fecha de Nacimiento</label><br>
-                            <input type="date" id="fechaNac" name="fechaNac" min="1930-01-01" max="{{ tiempo }} "/>
+                            <input onchange="dateCheck()" type="date" id="fechaNac" name="fechaNac" required min="1930-01-01" max="{{ tiempo }} "/>
+
+                            <p id="advertencia" style="display: none">No se pueden registrar menores</p>
                         </div>
                         <div class="form-label-group pass mt-3">
                             {{ form_label(form.plainPassword.first) }}<br>
@@ -42,8 +44,10 @@
                             {{ form_widget(form.plainPassword.second, {'attr': {'placeholder': 'Repetir contraseña', 'class': 'form-control' }}) }}<br>
                             {{ form_errors(form.plainPassword.second) }}
                         </div>
-                        <p class="mt-2">¿Ya tienes cuenta? <a href="{{ path("login") }}">Login</a></p>
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrarse
+
+                        <p class="mt-4">¿Ya tienes cuenta? <a href="{{ path("login") }}">Login</a></p>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" id="registrarse"  type="submit">Registrarse
+
                         </button>
                         {{ form_end(form) }}
                     </div>
