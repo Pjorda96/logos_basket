@@ -193,4 +193,6 @@ class User implements UserInterface
             $context->addViolationAtSubPath('nif', 'La letra no coincide con el número del NIF. Comprueba que has escrito bien tanto el número como la letra', array(), null);
         }
     }
+
+
 }
