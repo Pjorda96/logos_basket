@@ -85,7 +85,9 @@ class DatosController extends Controller
         }
 
         return $this->render('datos/edit.html.twig', array(
-            'edit_form' => $editForm->createView()));
+            'dato' => $user,
+            'edit_form' => $editForm->createView()
+        ));
     }
 
     /**
