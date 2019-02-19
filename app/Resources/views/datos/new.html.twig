@@ -1,26 +1,145 @@
 {% extends 'ficha.html.twig' %}
-
 {% block ficha %}
-    <h1>Dato creation</h1>
+    <div class="imagenusuario">
+        <!-- Imagen Usuario -->
+        <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario">
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Nombre</h5>
+            <p>{{ dato.nombre }}</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>DNI</h5>
+            <p>{{ dato.dni }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>PrimerApellido</h5>
+            <p>{{ dato.apellido1 }}</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Fecha Nacimiento</h5>
+            {# <p>{{ fechanac }}</p> #}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>SegundoApellido</h5>
+            <p>{{ dato.apellido2 }}</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Lugar Nacimiento</h5>
+            <p>{{ dato.lugarNacimiento }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>SIP</h5>
+            <p>{{ dato.sip }}</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Direccion</h5>
+            <p>{{ dato.direccion }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>CP</h5>
+            <p>{{ dato.cp }}</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Poblacion</h5>
+            <p>{{ dato.poblacion }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Email</h5>
+            <p>{{ dato.email }}</p>
+        </div>
+        <div class="col-md-6 col-sm-6  camposUsuario">
+            <h5>Telefono</h5>
+            <p>{{ dato.telefono ? dato.telefono : 0 }}</p>
+        </div>
+    </div>
+    {# {% if  dato.jugador == '1' %}
+        <label><input readonly type="checkbox" name="test"  checked="checked" />Soy Jugador</label>
+    {% else %}
+        <label><input readonly type="checkbox" name="test" readonly="readonly" />Soy Jugador</label>
+    {% endif %}
+    {% if dato.entrenador == '1' %}
+        <label><input type="checkbox" name="checkbox1" checked="checked" readonly="readonly" />Soy Entrenador</label>
+    {% else %}
+        <label><input type="checkbox" name="checkbox1" readonly="readonly" />Soy Entrenador</label>
+    {% endif %}
+    {% if dato.tutor == '1' %}
+        <label><input type="checkbox" name="checkbox2" checked="checked" readonly="readonly" /> Soy Tutor</label>
+    {% else %}
+        <label><input type="checkbox" name="checkbox2" readonly="readonly" />Soy Tutor</label>
+    {% endif %} #}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Crear" />
-    {{ form_end(form) }}
-{% endblock %}
+        <hr>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>Titular</h5>
+                <p>{{ dato.titular ? dato.titular : 0 }}</p>
+            </div>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>DNI Titular</h5>
+                <p>{{ dato.dniTitular ? dato.dniTitular : 0 }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>Direccion Titular</h5>
+                <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p>
+            </div>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>CP Titular</h5>
+                <p>{{ dato.cpTitular ? dato.cpTitular : 0 }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>Poblacion Titular</h5>
+                <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p>
+            </div>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>IBAN </h5>
+                <p>{{ dato.iban ? dato.iban : 0 }}</p>
+            </div>
+        </div>
 
-{% block javascripts %}
-    <script>
-      $(document).ready(function() {
-        // you may need to change this code if you are not using Bootstrap Datepicker
-        $('.js-datepicker').datepicker({
-          format: 'dd-mm-yyyy'
-        });
-      });
-    </script>
-    <script src="{{ asset('js/iban.js') }}"></script>
-    <script>
-      // the API is now accessible from the window.IBAN global object
-      IBAN.isValid('BE68539007547034'); // true
-    </script>
+    {% if dato.jugador %}
+        <hr>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>Equipo</h5>
+                <p>{{ dato.equipo ? dato.equipo : 0 }}</p>
+            </div>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>Club</h5>
+                <p>{{ dato.club }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>Categoria</h5>
+                <p>{{ dato.categoria }}</p>
+            </div>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>Loteria</h5>
+                <p>{{ dato.loteria ? "Sí (+30€)" : "No (+0€)" }}</p>
+            </div>
+        </div>
+    {% endif %}
+    <div class="col-md-12 col-sm-12 icons">
+        <i class="fas fa-upload fa-2x"></i>
+    </div>
+    <div class="text-center">
+        <button class="boton mb-4" type="submit">Enviar</button>
+    </div>
 {% endblock %}
