@@ -1,12 +1,14 @@
-let type = document.getElementById('selector');
-let nif = document.getElementById('nif');
+function validation() {
+  let type = document.getElementById('selector');
+  let nif = document.getElementById('nif');
 
-if (type === 'dni') {
-  validateDNI(nif);
-} else if (type === 'pasaporte') {
-  validateDNI(nif);
-} else if (type === 'nie') {
-  passaport(nif);
+  if (type === 'dni') {
+    validateDNI(nif);
+  } else if (type === 'pasaporte') {
+    validateDNI(nif);
+  } else if (type === 'nie') {
+    passaport(nif);
+  }
 }
 
 function validateDNI(dni) {

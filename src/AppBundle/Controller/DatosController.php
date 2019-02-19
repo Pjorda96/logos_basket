@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Dato controller.
@@ -78,7 +79,6 @@ class DatosController extends Controller
     public function editAction(Request $request, $id)
     {
         $user = $this->getDoctrine()->getRepository('AppBundle:Datos')->find($id);
-        dump($user);
         $editForm = $this->createForm(DatosType::class, $user);
         $editForm->handleRequest($request);
 
@@ -98,12 +98,12 @@ class DatosController extends Controller
      * @Route("/{id}", name="datos_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Datos $dato, $id)
+    public function deleteAction(Request $request, Datos $dato, $id, UserInterface $user)
     {
         $em = $this->getDoctrine()->getManager();
         $em->getRepository(Datos::class)->delete($id);
 
-        return $this->redirectToRoute('datos_index');
+        return $this->redirectToRoute('datos_show', array('id' => $user->getId()));
     }
 
     /**
