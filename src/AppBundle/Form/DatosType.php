@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -48,9 +49,18 @@ class DatosType extends AbstractType
             ->add('telefono', NumberType::class, array(
                 'label' => 'Teléfono',
                 'required' => false))
-            /*->add('categoria', TextType::class, array(
+            ->add('categoria', ChoiceType::class, array(
                 'label' => 'Categoría',
-                'required' => false))*/
+                'required' => false), [
+                'choices' => [
+                    'In Stock' => true,
+                    'Out of Stock' => false],
+            ])
+            ->add('equipo', ChoiceType::class, array(
+                'label' => 'Equipo',
+                'required' => false), [
+                'choices' => ['A' => 'a', 'B' => 'b', 'C' => 'c'],
+            ])
             ->add('loteria', CheckboxType::class, array(
                 'label' => 'Lotería',
                 'required' => false))
