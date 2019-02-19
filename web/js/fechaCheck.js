@@ -1,5 +1,8 @@
 let date= document.getElementById('fechaNac');
 let button=document.getElementById("registrarse");
+
+let advertencia = document.getElementById('advertencia');
+
 function dateCheck() {
     let fechaactual = new Date();
     let fechActualStringed = String(fechaactual);
@@ -17,5 +20,7 @@ function dateCheck() {
 
     if (fechaCliente > fechaDated) {
         button.disabled = true;
+
+        advertencia.style.display = 'inline';
     }
 }
