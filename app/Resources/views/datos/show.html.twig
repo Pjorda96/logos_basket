@@ -1,8 +1,13 @@
 {% extends 'ficha.html.twig' %}
+
 {% block ficha %}
     <div class="imagenusuario">
         <!-- Imagen Usuario -->
-        <img  alt="Foto de perfil" src="data:image/png;base64,{{image}}"/>
+        {% if image is same as(null) %}
+            <img  alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
+        {% else %}
+            <img  alt="Foto de perfil" src="data:image/png;base64,{{ image }}"/>
+        {% endif %}
         
     </div>
     <div class="row">
@@ -80,6 +85,7 @@
     {% else %}
         <label><input type="checkbox" name="checkbox2" readonly="readonly" />Soy Tutor</label>
     {% endif %} #}
+
     {% if adult %}
         <hr>
         <div class="row">
@@ -113,6 +119,7 @@
             </div>
         </div>
     {% endif %}
+
     {% if dato.jugador %}
         <hr>
         <div class="row">
@@ -136,6 +143,7 @@
             </div>
         </div>
     {% endif %}
+
     <div class="col-md-12 col-sm-12 icons">
         <a href="{{ path('datos_new', { 'id': dato.id }) }}"><i class="fas fa-plus-circle fa-2x"></i></a>
         <a href="{{ path('datos_delete', { 'id': dato.id }) }}"><i class="fas fa-ban fa-2x"></i></a>
