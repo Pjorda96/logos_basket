@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DatosType extends AbstractType
@@ -87,11 +88,24 @@ class DatosType extends AbstractType
                 'required' => false))
             ->add('image', FileType::class, array(
                 'data_class' => null,
-                'label' => 'Foto de perfil',
-                'required' => false))
+                'label' => 'Foto de perfil',                
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '5M',
+                        'mimeTypes' => [
+                            "image/png", 
+                            "image/jpeg",
+                        ],
+                        'mimeTypesMessage' => 'Seleccione una imagen válida',
+                        ])
+                ]
+            ))
             ->add('confirmado', CheckboxType::class, array(
                 'label' => 'Confirmación',
                 'required' => false));
+
+            
     }/**
      * {@inheritdoc}
      */
