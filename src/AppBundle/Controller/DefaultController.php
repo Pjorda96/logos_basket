@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 
@@ -53,6 +54,24 @@ class DefaultController extends Controller
             'tiempo' => $date,
             'form' => $form->createView()
         ));
+    }
+
+    /**
+     * @Route("/redirect", name="redirect")
+     */
+    public function redirectionAction(Request $request, UserInterface $user)
+    {
+        $dbUser = $this->getDoctrine()->getRepository('AppBundle:Datos')->find($user->getUsername());
+
+        dump($dbUser);
+
+        if (true) {
+            dump('hola');
+        } else if ($dbUser !== null) {
+            return $this->redirectToRoute('datos_show', array('id' => $dbUser.id));
+        } else {
+            return $this->redirectToRoute('datos_new');
+        }
     }
 
     /**

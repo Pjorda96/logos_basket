@@ -170,6 +170,11 @@ class User implements UserInterface
         return $this->nif;
     }
 
+    public function setUsername($username)
+    {
+        $this->nif = $username;
+    }
+
     public function __construct()
     {
         $this->roles = array('ROLE_TUTOR');
