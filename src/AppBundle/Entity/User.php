@@ -170,6 +170,11 @@ class User implements UserInterface
         return $this->nif;
     }
 
+    public function __construct()
+    {
+        $this->roles = array('ROLE_TUTOR');
+    }
+
 
     public function esNifValido(ExecutionContext $context)
     {
