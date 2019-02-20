@@ -51,6 +51,7 @@ class DatosType extends AbstractType
             /*->add('categoria', TextType::class, array(
                 'label' => 'Categoría',
                 'required' => false))*/
+                                    
             ->add('loteria', CheckboxType::class, array(
                 'label' => 'Lotería',
                 'required' => false))

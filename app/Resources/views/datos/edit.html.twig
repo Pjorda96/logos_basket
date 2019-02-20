@@ -152,6 +152,34 @@
 
     
         <hr>
+
+ <div class="row">
+ 
+            <div class="col-md-3 col-sm-3  camposUsuario">
+        
+{# AÑADIR EN DATOSTYPE EQUIPO #}
+                <h5>{{ form_label(edit_form.equipo) }}<h5>
+               {{ form_widget(edit_form.equipo, {'attr': {'placeholder': 'Equipo', 'class': 'form-control centrar' }}) }}<br>
+               {{ form_errors(edit_form.equipo) }}
+            </div>
+{# AÑADIR EN DATOSTYPE CLUB #}
+                   <h5>{{ form_label(edit_form.club) }}<h5>
+               {{ form_widget(edit_form.club, {'attr': {'placeholder': 'Club', 'class': 'form-control centrar' }}) }}<br>
+               {{ form_errors(edit_form.club) }}
+            </div>
+
+
+{# CREAR SELECT  #}
+              <h5>{{ form_label(edit_form.categoria) }}<h5>
+               {{ form_widget(edit_form.categoria, {'attr': {'placeholder': 'Categoria', 'class': 'form-control centrar shadow-none' }}) }}<br>
+               {{ form_errors(edit_form.categoria) }}
+            </div>
+
+
+        </div>
+
+           <hr>
+
         
         <div class="row">
  
