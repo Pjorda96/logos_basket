@@ -63,7 +63,16 @@ class DatosController extends Controller
         $fechastring = date_format($fechaNacimiento, 'd-m-Y');
         $adult =  $this->isAdult($fechaNacimiento);
 
-       $image = base64_encode(stream_get_contents($dato->getImage()));
+        dump($dato->getImage() === null);
+        $dato->getImage() !== null ?
+        $image = base64_encode(stream_get_contents($dato->getImage())) :
+        $image = null;
+
+        /*if ($dato->getImage() === null) {
+            $image = base64_encode(stream_get_contents($dato->getImage()));
+        } else {
+            $image = null;
+        }*/
        //$img_str = 'image/png;base64,'.$image;
 
         return $this->render('datos/show.html.twig', array(
