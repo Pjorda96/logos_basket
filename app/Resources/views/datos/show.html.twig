@@ -1,27 +1,20 @@
 {% extends 'ficha.html.twig' %}
-
 {% block ficha %}
     <div class="imagenusuario">
         <!-- Imagen Usuario -->
         <img  alt="Foto de perfil" src="data:image/png;base64,{{image}}"/>
         
     </div>
-
-
-
     <div class="row">
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>Nombre</h5>
             <p>{{ dato.nombre }}</p>
         </div>
-
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>DNI</h5>
             <p>{{ dato.dni }}</p>
         </div>
-
     </div>
-
     <div class="row">
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>PrimerApellido</h5>
@@ -32,7 +25,6 @@
             <p>{{ fechanac }}</p>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-6 col-sm-6  camposUsuario">
             <h5>SegundoApellido</h5>
@@ -73,31 +65,23 @@
             <p>{{ dato.telefono ? dato.telefono : 0 }}</p>
         </div>
     </div>
-
-
-
     {# {% if  dato.jugador == '1' %}
         <label><input readonly type="checkbox" name="test"  checked="checked" />Soy Jugador</label>
     {% else %}
         <label><input readonly type="checkbox" name="test" readonly="readonly" />Soy Jugador</label>
     {% endif %}
-
     {% if dato.entrenador == '1' %}
         <label><input type="checkbox" name="checkbox1" checked="checked" readonly="readonly" />Soy Entrenador</label>
     {% else %}
         <label><input type="checkbox" name="checkbox1" readonly="readonly" />Soy Entrenador</label>
     {% endif %}
-
     {% if dato.tutor == '1' %}
         <label><input type="checkbox" name="checkbox2" checked="checked" readonly="readonly" /> Soy Tutor</label>
     {% else %}
         <label><input type="checkbox" name="checkbox2" readonly="readonly" />Soy Tutor</label>
     {% endif %} #}
-
-
     {% if adult %}
         <hr>
-
         <div class="row">
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>Titular</h5>
@@ -113,7 +97,6 @@
                 <h5>Direccion Titular</h5>
                 <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p>
             </div>
-
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>CP Titular</h5>
                 <p>{{ dato.cpTitular ? dato.cpTitular : 0 }}</p>
@@ -124,23 +107,19 @@
                 <h5>Poblacion Titular</h5>
                 <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p>
             </div>
-
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>IBAN </h5>
                 <p>{{ dato.iban ? dato.iban : 0 }}</p>
             </div>
         </div>
     {% endif %}
-
     {% if dato.jugador %}
         <hr>
-
         <div class="row">
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>Equipo</h5>
                 <p>{{ dato.equipo ? dato.equipo : 0 }}</p>
             </div>
-
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>Club</h5>
                 <p>{{ dato.club }}</p>
@@ -157,16 +136,13 @@
             </div>
         </div>
     {% endif %}
-
     <div class="col-md-12 col-sm-12 icons">
         <a href="{{ path('datos_new', { 'id': dato.id }) }}"><i class="fas fa-plus-circle fa-2x"></i></a>
         <a href="{{ path('datos_delete', { 'id': dato.id }) }}"><i class="fas fa-ban fa-2x"></i></a>
         <a href="{{ path('datos_edit', { 'id': dato.id }) }}"><i class="fas fa-pencil-alt fa-2x"></i></a>
         <i class="fas fa-upload fa-2x"></i>
     </div>
-
     <div class="text-center">
         <button class="boton mb-4" type="submit">Enviar</button>
     </div>
 {% endblock %}
-

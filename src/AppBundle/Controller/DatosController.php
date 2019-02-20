@@ -2,12 +2,14 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Category;
 use AppBundle\Entity\Datos;
 use AppBundle\Form\DatosType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Dato controller.
@@ -24,12 +26,14 @@ class DatosController extends Controller
      */
     public function newAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository(Category::class)->findAll();
+
         $dato = new Datos();
         $form = $this->createForm(DatosType::class, $dato);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $em->persist($dato);
             $em->flush();
 
@@ -39,6 +43,7 @@ class DatosController extends Controller
         return $this->render('datos/new.html.twig', array(
             'dato' => $dato,
             'form' => $form->createView(),
+            'categorias' => $category,
         ));
     }
 
@@ -77,8 +82,8 @@ class DatosController extends Controller
      */
     public function editAction(Request $request, $id)
     {
-        $user = $this->getDoctrine()->getRepository('AppBundle:Datos')->find($id);
-        dump($user);
+        $user = $this->getDoctrine()->getRepository(Datos::class)->find($id);
+        $category = $this->getDoctrine()->getRepository(Category::class)->findAll();
         $editForm = $this->createForm(DatosType::class, $user);
         $editForm->handleRequest($request);
 
@@ -89,7 +94,10 @@ class DatosController extends Controller
         }
 
         return $this->render('datos/edit.html.twig', array(
-            'edit_form' => $editForm->createView()));
+            'dato' => $user,
+            'edit_form' => $editForm->createView(),
+            'categorias' => $category,
+        ));
     }
 
     /**
@@ -98,12 +106,12 @@ class DatosController extends Controller
      * @Route("/{id}", name="datos_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Datos $dato, $id)
+    public function deleteAction(Request $request, Datos $dato, $id, UserInterface $user)
     {
         $em = $this->getDoctrine()->getManager();
         $em->getRepository(Datos::class)->delete($id);
 
-        return $this->redirectToRoute('datos_index');
+        return $this->redirectToRoute('datos_show', array('id' => $user->getId()));
     }
 
     /**
@@ -116,8 +124,7 @@ class DatosController extends Controller
     private function isAdult($fechaNacimiento)
 
     {
-        $fechastring=date_format($fechaNacimiento, 'Y-m-d');
-        dump($fechastring);
+        $fechastring=date_format($fechaNacimiento, 'd-m-Y');
         $then=strtotime($fechastring);
         $min = strtotime('+18 years', $then);
         if(time() < $min)  {

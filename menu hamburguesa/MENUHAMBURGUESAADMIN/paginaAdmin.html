@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="imagenlogo.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="paginaAdmin.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+
+    <!-- BOOSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+</head>
+
+<body>
+    <div class="container-fluid fill">
+        <div class="row caja">
+
+
+            <div class="col-md-3 menu">
+                <div class="row logos">
+                    <img class="logo" src="imagenlogo.png">
+                </div>
+
+                <!-- Menu hamburguesa -->
+                <nav class="navbar navbar-expand-lg navbar-light  hamburguesa">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  
+                            <form>
+                                <div class="form-check checkblock">
+                                    <input type="checkbox" class="form-check-input" id="jugador">
+                                    <label class="form-check-label" for="jugador">Jugador</label>
+                                </div>
+                                <div class="form-check checkblock">
+                                    <input type="checkbox" class="form-check-input" id="Entrenador">
+                                    <label class="form-check-label" for="Entrenador">Entrenador</label>
+                                </div>
+                                <div class="form-check checkblock">
+                                    <input type="checkbox" class="form-check-input" id="Tutor">
+                                    <label class="form-check-label" for="Tutor">Tutor</label>
+                                </div>
+                                <select class="selectpicker" multiple data-live-search="true">
+                                        <option>juvenil</option>
+                                        <option>cadete</option>
+                                        <option>infantil</option>
+                                </select>
+                                <div class="row">
+                                        <a href="https://www.google.es/" style="color:black;" class="button"><i class="fas fa-plus-circle fa-2x adminIcon"></i></a>
+                                        <a href="https://www.google.es/" style="color:black;" class="button"><i class="fas fa-ban fa-2x adminIcon"></i></a>
+                                        <a href="https://www.google.es/" style="color:black;" class="button"><i class="fas fa-pencil-alt fa-2x adminIcon"></i></a>
+                                        <a href="https://www.google.es/" style="color:black;" class="button"><i class="far fa-file-pdf fa-2x adminIcon"></i></a>
+                                    </div>
+                                    <div class="col-md-9 offset-md-2 col-sm-2 offset-sm-3 col-3 offset-3">
+                                            <button type="button" class="btn btn-primary btn-md">Cerrar sesion</button>
+                                        </div>
+                            </form>
+                      
+                        
+                    </div>
+                </nav>
+
+                <!-- Fin menu hamburguesa -->
+
+            </div>
+
+            <!-- ACABA MENU DE FILTROS Y LOGOUT -->
+
+            <div class="col-md-9  info" ; style="
+            padding-right: 0px;
+            padding-left: 0px;">
+
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/i18n/defaults-*.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+
+</html>
