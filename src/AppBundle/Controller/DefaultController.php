@@ -33,6 +33,8 @@ class DefaultController extends Controller
 
             //3b) Datos
             /*$user->setRoles(array('ROLE_USER'));*/
+            /*$datos = new Datos();
+            $datos.nif = $user.nif;*/
 
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
@@ -42,10 +44,7 @@ class DefaultController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            /*$datos = new Datos();
-            $datos.nif = $user.nif;*/
-
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('datos_new');
 
         }
 

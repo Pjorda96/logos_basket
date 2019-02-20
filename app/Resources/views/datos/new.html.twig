@@ -118,7 +118,11 @@
         <div class="row">
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>Equipo</h5>
-                <p>{{ dato.equipo ? dato.equipo : 0 }}</p>
+                <select name="equipo">
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                </select>
             </div>
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>Club</h5>
@@ -128,7 +132,11 @@
         <div class="row">
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>Categoria</h5>
-                <p>{{ dato.categoria }}</p>
+                <select name="categoria">
+                {% for categoria in categorias %}
+                    <option value="{{ categoria.categoria }}">{{ categoria.descripcion }}</option>
+                {% endfor %}
+                </select>
             </div>
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>Loteria</h5>
