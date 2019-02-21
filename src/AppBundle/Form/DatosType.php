@@ -52,16 +52,17 @@ class DatosType extends AbstractType
                 'required' => false))
             ->add('categoria', ChoiceType::class, array(
                 'label' => 'Categoría',
-                'required' => false), [
+                'required' => false,
                 'choices' => [
                     'In Stock' => true,
-                    'Out of Stock' => false],
-            ])
+                    'Out of Stock' => false
+                ],
+            ))
             ->add('equipo', ChoiceType::class, array(
                 'label' => 'Equipo',
-                'required' => false), [
+                'required' => false,
                 'choices' => ['A' => 'a', 'B' => 'b', 'C' => 'c'],
-            ])
+            ))
             ->add('loteria', CheckboxType::class, array(
                 'label' => 'Lotería',
                 'required' => false))

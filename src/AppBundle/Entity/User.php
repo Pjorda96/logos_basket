@@ -173,8 +173,8 @@ class User implements UserInterface
     public function setUsername($username)
     {
         $this->nif = $username;
-
         return $this;
+
     }
 
     public function __construct()
