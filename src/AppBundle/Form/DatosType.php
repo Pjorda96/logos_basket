@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use AppBundle\Entity\Category;
 
 class DatosType extends AbstractType
 {
@@ -32,6 +33,7 @@ class DatosType extends AbstractType
                 'label' => 'DNI'))
             ->add('fechaNacimiento', DateType::class, array(
                 'label' => 'Date',
+                'format' => 'dd-MM-yyyy',
                 'years' => range(date('1950'), date('Y'))
                 ))
             ->add('lugarNacimiento', TextType::class, array(
@@ -53,10 +55,7 @@ class DatosType extends AbstractType
             ->add('categoria', ChoiceType::class, array(
                 'label' => 'Categoría',
                 'required' => false,
-                'choices' => [
-                    'In Stock' => true,
-                    'Out of Stock' => false
-                ],
+                'choices' => $this->getCategories(),
             ))
             ->add('equipo', ChoiceType::class, array(
                 'label' => 'Equipo',
@@ -137,5 +136,11 @@ class DatosType extends AbstractType
         return 'appbundle_datos';
     }
 
+    private function getCategories()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository(Category::class)->findAll();
 
+        return $category;
+    }
 }

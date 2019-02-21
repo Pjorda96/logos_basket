@@ -1,153 +1,249 @@
 {% extends 'ficha.html.twig' %}
 {% block ficha %}
-    <div class="imagenusuario">
-        <!-- Imagen Usuario -->
-        <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario">
-    </div>
-    
-    <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>Nombre</h5>
-            <p>{{ dato.nombre }}</p>
-        </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>DNI</h5>
-            <p>{{ dato.dni }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>PrimerApellido</h5>
-            <p>{{ dato.apellido1 }}</p>
-        </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>Fecha Nacimiento</h5>
-            {# <p>{{ fechanac }}</p> #}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>SegundoApellido</h5>
-            <p>{{ dato.apellido2 }}</p>
-        </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>Lugar Nacimiento</h5>
-            <p>{{ dato.lugarNacimiento }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>SIP</h5>
-            <p>{{ dato.sip }}</p>
-        </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>Direccion</h5>
-            <p>{{ dato.direccion }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>CP</h5>
-            <p>{{ dato.cp }}</p>
-        </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>Poblacion</h5>
-            <p>{{ dato.poblacion }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>Email</h5>
-            <p>{{ dato.email }}</p>
-        </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
-            <h5>Telefono</h5>
-            <p>{{ dato.telefono ? dato.telefono : 0 }}</p>
-        </div>
-    </div>
-    {# {% if  dato.jugador == '1' %}
-        <label><input readonly type="checkbox" name="test"  checked="checked" />Soy Jugador</label>
-    {% else %}
-        <label><input readonly type="checkbox" name="test" readonly="readonly" />Soy Jugador</label>
-    {% endif %}
-    {% if dato.entrenador == '1' %}
-        <label><input type="checkbox" name="checkbox1" checked="checked" readonly="readonly" />Soy Entrenador</label>
-    {% else %}
-        <label><input type="checkbox" name="checkbox1" readonly="readonly" />Soy Entrenador</label>
-    {% endif %}
-    {% if dato.tutor == '1' %}
-        <label><input type="checkbox" name="checkbox2" checked="checked" readonly="readonly" /> Soy Tutor</label>
-    {% else %}
-        <label><input type="checkbox" name="checkbox2" readonly="readonly" />Soy Tutor</label>
-    {% endif %} #}
-
-        <hr>
-        <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>Titular</h5>
-                <p>{{ dato.titular ? dato.titular : 0 }}</p>
-            </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>DNI Titular</h5>
-                <p>{{ dato.dniTitular ? dato.dniTitular : 0 }}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>Direccion Titular</h5>
-                <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p>
-            </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>CP Titular</h5>
-                <p>{{ dato.cpTitular ? dato.cpTitular : 0 }}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>Poblacion Titular</h5>
-                <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p>
-            </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>IBAN </h5>
-                <p>{{ dato.iban ? dato.iban : 0 }}</p>
-            </div>
-        </div>
-
-    {% if dato.jugador %}
-        <hr>
-        <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>Equipo</h5>
-                <select name="equipo">
-                    <option value="a">A</option>
-                    <option value="b">B</option>
-                    <option value="c">C</option>
-                </select>
-            </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>Club</h5>
-                <p>{{ dato.club }}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>Categoria</h5>
-                <select name="categoria">
-                {% for categoria in categorias %}
+     {% for categoria in categorias %}
                     <option value="{{ categoria.categoria }}">{{ categoria.descripcion }}</option>
-                {% endfor %}
-                </select>
-            </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
-                <h5>Loteria</h5>
-                <p>{{ dato.loteria ? "Sí (+30€)" : "No (+0€)" }}</p>
-            </div>
+    {% endfor %}
+    <div
+        class="imagenusuario">
+        <!-- Imagen Usuario -->
+        <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario"></div>
+        <form>
+
+        <div class="row">
+         <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
+                    {{ form_label(form.jugador) }}
+                    {{ form_widget(form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador' }}) }}
+                    {{ form_errors(form.jugador) }}
+</div>
+    <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
+                       {{ form_label(form.entrenador) }}
+                    {{ form_widget(form.entrenador, {'attr': {'class': 'form-control centrar shadow-none','id':'entrenador' }}) }}
+                    {{ form_errors(form.entrenador) }}
+</div>
+<div class="col-md-4 col-sm-4  mb-4 mt-4 camposUsuario">
+                       {{ form_label(form.tutor) }}
+                    {{ form_widget(form.tutor, {'attr': {'class': 'form-control centrar shadow-none','id':'tutor' }}) }}
+                    {{ form_errors(form.tutor) }}
+</div>
         </div>
-    {% endif %}
-    <div class="col-md-12 col-sm-12 icons">
-        <i class="fas fa-upload fa-2x"></i>
-    </div>
-    <div class="text-center">
-        <button class="boton mb-4" type="submit">Enviar</button>
-    </div>
-{% endblock %}
+
+    
+      
+
+            <div class="row">
+                <div
+                    class="col-md-6 col-sm-6  camposUsuario">
+                    {# <p>{{ dato.nombre }}</p> #}
+                    <h5>
+                        {{ form_label(form.nombre) }}</h5>
+                    {{ form_widget(form.nombre, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}<br>
+                        {{ form_errors(form.nombre) }}
+                    </div>
+                    <div
+                        class="col-md-6 col-sm-6  camposUsuario">
+                        {# <p>{{ dato.dni }}</p> #}
+                        <h5>
+                            {{ form_label(form.DNI) }}</h5>
+                        {{ form_widget(form.DNI, {'attr': {'placeholder': 'DNI', 'class': 'form-control centrar' }}) }}<br>
+                            {{ form_errors(form.DNI) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6  camposUsuario">
+                            <h5>
+                                {{ form_label(form.apellido1) }}</h5>
+                            {{ form_widget(form.apellido1, {'attr': {'placeholder': 'Primer Apellido', 'class': 'form-control centrar' }}) }}<br>
+                                {{ form_errors(form.apellido1) }}
+                            </div>
+                            <div
+                                class="col-md-6 col-sm-6  camposUsuario">
+                                {# <p>{{ fechanac }}</p> #}
+                                <h5>
+                                    {{ form_label(form.fechaNacimiento) }}</h5>
+                                {{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'class': 'form-control centrar' }}) }}<br>
+                                    {{ form_errors(form.fechaNacimiento) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div
+                                    class="col-md-6 col-sm-6  camposUsuario">
+                                    {# <p>{{ dato.apellido2 }}</p> #}
+                                    <h5>
+                                        {{ form_label(form.apellido2) }}</h5>
+                                    {{ form_widget(form.apellido2, {'attr': {'placeholder': 'Segundo Apellido', 'class': 'form-control centrar' }}) }}<br>
+                                        {{ form_errors(form.apellido2) }}
+                                    </div>
+                                    <div
+                                        class="col-md-6 col-sm-6  camposUsuario">
+                                        {# <p>{{ dato.lugarNacimiento }}</p> #}
+                                        <h5>
+                                            {{ form_label(form.lugarNacimiento) }}</h5>
+                                        {{ form_widget(form.lugarNacimiento, {'attr': {'placeholder': 'Lugar nacimiento', 'class': 'form-control centrar' }}) }}<br>
+                                            {{ form_errors(form.lugarNacimiento) }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6  camposUsuario">
+                                            <h5>
+                                                {{ form_label(form.sip) }}</h5>
+                                            {{ form_widget(form.sip, {'attr': {'placeholder': 'SIP', 'class': 'form-control centrar' }}) }}<br>
+                                                {{ form_errors(form.sip) }}
+                                            </div>
+                                            <div class="col-md-6 col-sm-6  camposUsuario">
+                                                <h5>
+                                                    {{ form_label(form.direccion) }}</h5>
+                                                {{ form_widget(form.direccion, {'attr': {'placeholder': 'Direccion', 'class': 'form-control centrar' }}) }}<br>
+                                                    {{ form_errors(form.direccion) }}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6  camposUsuario">
+                                                    <h5>
+                                                        {{ form_label(form.cp) }}</h5>
+                                                    {{ form_widget(form.cp, {'attr': {'placeholder': 'CP', 'class': 'form-control centrar' }}) }}<br>
+                                                        {{ form_errors(form.cp) }}
+                                                    </div>
+                                                    <div
+                                                        class="col-md-6 col-sm-6  camposUsuario">
+                                                        {# <p>{{ dato.poblacion }}</p> #}
+                                                        <h5>
+                                                            {{ form_label(form.poblacion) }}</h5>
+                                                        {{ form_widget(form.poblacion, {'attr': {'placeholder': 'Poblacion', 'class': 'form-control centrar' }}) }}<br>
+                                                            {{ form_errors(form.poblacion) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div
+                                                            class="col-md-6 col-sm-6  camposUsuario">
+                                                            {# <p>{{ dato.email }}</p> #}
+                                                            <h5>
+                                                                {{ form_label(form.email) }}</h5>
+                                                            {{ form_widget(form.email, {'attr': {'placeholder': 'Correo electronico', 'class': 'form-control centrar' }}) }}<br>
+                                                                {{ form_errors(form.email) }}
+                                                            </div>
+                                                            <div
+                                                                class="col-md-6 col-sm-6  camposUsuario">
+                                                                {# <p>{{ dato.telefono ? dato.telefono : 0 }}</p> #}
+                                                                <h5>
+                                                                    {{ form_label(form.telefono) }}</h5>
+                                                                {{ form_widget(form.telefono, {'attr': {'placeholder': 'Telefono', 'class': 'form-control centrar' }}) }}<br>
+                                                                    {{ form_errors(form.telefono) }}
+                                                                </div>
+                                                            </div>
+                                                            <hr>
+                                                                <div class="row">
+                                                                    <div
+                                                                        class="col-md-6 col-sm-6  camposUsuario ">
+                                                                        {# <p>{{ dato.titular ? dato.titular : 0 }}</p> #}
+                                                                        <h5>
+                                                                            {{ form_label(form.titular) }}</h5>
+                                                                        {{ form_widget(form.titular, {'attr': {'placeholder': 'Titular', 'class': 'form-control centrar' }}) }}<br>
+                                                                            {{ form_errors(form.titular) }}
+                                                                        </div>
+                                                                        <div
+                                                                            class="col-md-6 col-sm-6  camposUsuario">
+                                                                            {# <p>{{ dato.dniTitular ? dato.dniTitular : 0 }}</p> #}
+                                                                            <h5>
+                                                                                {{ form_label(form.dni_titular) }}</h5>
+                                                                            {{ form_widget(form.dni_titular, {'attr': {'placeholder': 'DNI Titular', 'class': 'form-control centrar' }}) }}<br>
+                                                                                {{ form_errors(form.dni_titular) }}
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div
+                                                                                class="col-md-6 col-sm-6  camposUsuario">
+                                                                                {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
+                                                                                <h5>
+                                                                                    {{ form_label(form.direccion_titular) }}</h5>
+                                                                                {{ form_widget(form.direccion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}<br>
+                                                                                    {{ form_errors(form.direccion_titular) }}
+                                                                                </div>
+                                                                                <div
+                                                                                    class="col-md-6 col-sm-6  camposUsuario">
+                                                                                    {# <p>{{ dato.cpTitular ? dato.cpTitular : 0 }}</p> #}
+                                                                                    <h5>
+                                                                                        {{ form_label(form.cp_titular) }}</h5>
+                                                                                    {{ form_widget(form.cp_titular, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}<br>
+                                                                                        {{ form_errors(form.cp_titular) }}
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div
+                                                                                        class="col-md-6 col-sm-6  camposUsuario">
+                                                                                        {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
+                                                                                        <h5>
+                                                                                            {{ form_label(form.poblacion_titular) }}</h5>
+                                                                                        {{ form_widget(form.poblacion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}<br>
+                                                                                            {{ form_errors(form.poblacion_titular) }}
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="col-md-6 col-sm-6  camposUsuario">
+                                                                                            {# <p>{{ dato.iban ? dato.iban : 0 }}</p> #}
+                                                                                            <h5>
+                                                                                                {{ form_label(form.iban) }}</h5>
+                                                                                            {{ form_widget(form.iban, {'attr': {'placeholder': 'IBAN', 'class': 'form-control centrar' }}) }}<br>
+                                                                                                {{ form_errors(form.iban) }}
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <hr>
+                                                                                            <div class="row">
+                                                                                                <div class="col-md-6 col-sm-6  camposUsuario">
+                                                                                                    <h5>
+                                                                                                        {{ form_label(form.equipo) }}<h5>
+                                                                                                            {{ form_widget(form.equipo, {'attr': {'placeholder': 'Equipo', 'class': 'form-control centrar' }}) }}<br>
+                                                                                                                {{ form_errors(form.equipo) }}
+                                                                                                            </div>
+                                                                                                            {# CREAR SELECT  #}
+                                                                                                            <div class="col-md-6 col-sm-6  camposUsuario">
+                                                                                                                <h5>
+                                                                                                                    {{ form_label(form.categoria) }}<h5>
+                                                                                                                        {{ form_widget(form.categoria, {'attr': {'placeholder': 'Categoria', 'class': 'form-control centrar' }}) }}<br>
+                                                                                                                            {{ form_errors(form.categoria) }}
+                                                                                                                        </div>
+                                                                                                                             {# {% for categoria in categorias %}
+                                                                                                                                                 <option value="{{ categoria.categoria }}">{{ categoria.descripcion }}</option>
+                                                                                                                             {% endfor %} #}
+                                                                                                        </div>
+                                                                                                                        <hr>
+
+
+                                                                                                                            <div class="row">
+                                                                                                                                <div class="col-md-6 col-sm-6  camposUsuario">
+                                                                                                                                    {# <p>{{ dato.loteria ? "Sí (+30€)" : "No (+0€)" }}</p> #}
+                                                                                                                                    <h5>
+                                                                                                                                        {{ form_label(form.loteria) }}</h5>
+                                                                                                                                    {{ form_widget(form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control centrar shadow-none' }}) }}
+                                                                                                                                            {{ form_errors(form.loteria) }}
+                                                                                                                                    </div>
+                                                                                                                            
+
+                                                                                                                                    <div class="col-md-6 col-sm-6 icons camposUsuario centrar mt-4">
+                                                                                                                                        <i class="fas fa-upload fa-2x"></i>   
+                                                                                                                                    </div>
+
+                                                                                                                                    
+
+                                                                                                                            </div>
+                                                                                                                        
+                                                                                                                          
+                                                                                                        
+                                                                                                                                    
+
+                                                                                                                        
+                                                                                                                             <div class="row">
+                                                                                                                                      <div class="col-md-6 col-sm-6  camposUsuario">
+                                                                                                                                        <p>Si quieres la loteria, a pagar pichon (30€azos)</p>
+                                                                                                                                        <p>Si no la quieres, a pagar igualmente pichon (50€azos)</p>
+                                                                                                                                
+                                                                                                                                    </div>
+
+                                                                                                                                    <div class="col-md-6 col-sm-6 icons camposUsuario centrar">
+                                                                                                                                    <button class="boton mb-4" type="submit">Crear</button>
+                                                                                                                                    </div>
+                                                                                                                            </div>
+
+
+                                                                                                                               
+                                                                                                                            </div>
+                                                                                                                        </form>
+                                                                                                                    {% endblock %}
