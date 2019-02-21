@@ -39,22 +39,4 @@ class SecurityController extends Controller
     {
         return $this->render('admin.html.twig');
     }
-
-    /**
-     * @Route("/redirect", name="redirect")
-     */
-    public function redirectionAction(Request $request, UserInterface $user)
-    {
-        $dbUser = $this->getDoctrine()->getRepository('AppBundle:Datos')->find($user->getUsername());
-
-        dump($dbUser);
-
-        if (true) {
-            dump('hola');
-        } else if ($dbUser !== null) {
-            return $this->redirectToRoute('datos_show', array('id' => $dbUser.id));
-        } else {
-            return $this->redirectToRoute('datos_new');
-        }
-    }
 }
