@@ -56,6 +56,10 @@ class User implements UserInterface
     private $roles;
 
 
+    public function __construct()
+    {
+        $this->roles = array('ROLE_USER');
+    }
 
     /**
      * Get id
@@ -173,11 +177,6 @@ class User implements UserInterface
     public function setUsername($username)
     {
         $this->nif = $username;
-    }
-
-    public function __construct()
-    {
-        $this->roles = array('ROLE_TUTOR');
     }
 
 
