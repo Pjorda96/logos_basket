@@ -1,244 +1,256 @@
 {% extends 'ficha.html.twig' %}
 {% block ficha %}
     <div
-        class="imagenusuario">
+            class="imagenusuario">
         <!-- Imagen Usuario -->
         <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario"></div>
-        <form>
+    <form>
 
         <div class="row">
-         <div class="col-md-4 col-sm-4 mt-4  mb-4 camposUsuario">
-                    {{ form_label(edit_form.jugador) }}
-                    {{ form_widget(edit_form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador' }}) }}
-                    {{ form_errors(edit_form.jugador) }}
-</div>
-    <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
-                       {{ form_label(edit_form.entrenador) }}
-                    {{ form_widget(edit_form.entrenador, {'attr': {'class': 'form-control centrar shadow-none','id':'entrenador' }}) }}
-                    {{ form_errors(edit_form.entrenador) }}
-</div>
-<div class="col-md-4 col-sm-4  mb-4 mt-4 camposUsuario">
-                       {{ form_label(edit_form.tutor) }}
-                    {{ form_widget(edit_form.tutor, {'attr': {'class': 'form-control centrar shadow-none','id':'tutor' }}) }}
-                    {{ form_errors(edit_form.tutor) }}
-</div>
+            <div class="col-md-4 col-sm-4 mt-4  mb-4 camposUsuario">
+                {{ form_label(edit_form.jugador) }}
+                {{ form_widget(edit_form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador','onchange':'casillas()' }}) }}
+                {{ form_errors(edit_form.jugador) }}
+            </div>
+            <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
+                {{ form_label(edit_form.entrenador) }}
+                {{ form_widget(edit_form.entrenador, {'attr': {'class': 'form-control centrar shadow-none','id':'entrenador', 'onchange':'casillas()' }}) }}
+                {{ form_errors(edit_form.entrenador) }}
+            </div>
+            <div class="col-md-4 col-sm-4  mb-4 mt-4 camposUsuario">
+                {{ form_label(edit_form.tutor) }}
+                {{ form_widget(edit_form.tutor, {'attr': {'class': 'form-control centrar shadow-none','id':'tutor' }}) }}
+                {{ form_errors(edit_form.tutor) }}
+            </div>
         </div>
 
-    
-      
 
+        <div class="row">
+            <div
+                    class="col-md-6 col-sm-6  camposUsuario">
+                {# <p>{{ dato.nombre }}</p> #}
+                <h5>
+                    {{ form_label(edit_form.nombre) }}</h5>
+                {{ form_widget(edit_form.nombre, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}
+                <br>
+                {{ form_errors(edit_form.nombre) }}
+            </div>
+            <div
+                    class="col-md-6 col-sm-6  camposUsuario">
+                {# <p>{{ dato.dni }}</p> #}
+                <h5>
+                    {{ form_label(edit_form.DNI) }}</h5>
+                {{ form_widget(edit_form.DNI, {'attr': {'placeholder': 'DNI', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_errors(edit_form.DNI) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>
+                    {{ form_label(edit_form.apellido1) }}</h5>
+                {{ form_widget(edit_form.apellido1, {'attr': {'placeholder': 'Primer Apellido', 'class': 'form-control centrar' }}) }}
+                <br>
+                {{ form_errors(edit_form.apellido1) }}
+            </div>
+            <div
+                    class="col-md-6 col-sm-6  camposUsuario">
+                {# <p>{{ fechanac }}</p> #}
+                <h5>
+                    {{ form_label(edit_form.fechaNacimiento) }}</h5>
+                {{ form_widget(edit_form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'onchange':'titular()' }}) }}
+                <br>
+                {{ form_errors(edit_form.fechaNacimiento) }}
+            </div>
+        </div>
+        <div class="row">
+            <div
+                    class="col-md-6 col-sm-6  camposUsuario">
+                {# <p>{{ dato.apellido2 }}</p> #}
+                <h5>
+                    {{ form_label(edit_form.apellido2) }}</h5>
+                {{ form_widget(edit_form.apellido2, {'attr': {'placeholder': 'Segundo Apellido', 'class': 'form-control centrar' }}) }}
+                <br>
+                {{ form_errors(edit_form.apellido2) }}
+            </div>
+            <div
+                    class="col-md-6 col-sm-6  camposUsuario">
+                {# <p>{{ dato.lugarNacimiento }}</p> #}
+                <h5>
+                    {{ form_label(edit_form.lugarNacimiento) }}</h5>
+                {{ form_widget(edit_form.lugarNacimiento, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}
+                <br>
+                {{ form_errors(edit_form.lugarNacimiento) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>
+                    {{ form_label(edit_form.sip) }}</h5>
+                {{ form_widget(edit_form.sip, {'attr': {'placeholder': 'SIP', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_errors(edit_form.sip) }}
+            </div>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>
+                    {{ form_label(edit_form.direccion) }}</h5>
+                {{ form_widget(edit_form.direccion, {'attr': {'placeholder': 'Direccion', 'class': 'form-control centrar' }}) }}
+                <br>
+                {{ form_errors(edit_form.direccion) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <h5>
+                    {{ form_label(edit_form.cp) }}</h5>
+                {{ form_widget(edit_form.cp, {'attr': {'placeholder': 'CP', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_errors(edit_form.cp) }}
+            </div>
+            <div
+                    class="col-md-6 col-sm-6  camposUsuario">
+                {# <p>{{ dato.poblacion }}</p> #}
+                <h5>
+                    {{ form_label(edit_form.poblacion) }}</h5>
+                {{ form_widget(edit_form.poblacion, {'attr': {'placeholder': 'Poblacion', 'class': 'form-control centrar' }}) }}
+                <br>
+                {{ form_errors(edit_form.poblacion) }}
+            </div>
+        </div>
+        <div class="row">
+            <div
+                    class="col-md-6 col-sm-6  camposUsuario">
+                {# <p>{{ dato.email }}</p> #}
+                <h5>
+                    {{ form_label(edit_form.email) }}</h5>
+                {{ form_widget(edit_form.email, {'attr': {'placeholder': 'Email', 'class': 'form-control centrar' }}) }}
+                <br>
+                {{ form_errors(edit_form.email) }}
+            </div>
+            <div
+                    class="col-md-6 col-sm-6  camposUsuario">
+                {# <p>{{ dato.telefono ? dato.telefono : 0 }}</p> #}
+                <h5>
+                    {{ form_label(edit_form.telefono) }}</h5>
+                {{ form_widget(edit_form.telefono, {'attr': {'placeholder': 'Telefono', 'class': 'form-control centrar' }}) }}
+                <br>
+                {{ form_errors(edit_form.telefono) }}
+            </div>
+        </div>
+        <hr id="titularHr">
+        <div id="titularInfo">
             <div class="row">
                 <div
-                    class="col-md-6 col-sm-6  camposUsuario">
-                    {# <p>{{ dato.nombre }}</p> #}
+                        class="col-md-6 col-sm-6  camposUsuario ">
+                    {# <p>{{ dato.titular ? dato.titular : 0 }}</p> #}
                     <h5>
-                        {{ form_label(edit_form.nombre) }}</h5>
-                    {{ form_widget(edit_form.nombre, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}<br>
-                        {{ form_errors(edit_form.nombre) }}
-                    </div>
-                    <div
+                        {{ form_label(edit_form.titular) }}</h5>
+                    {{ form_widget(edit_form.titular, {'attr': {'placeholder': 'Titular', 'class': 'form-control centrar' }}) }}
+                    <br>
+                    {{ form_errors(edit_form.titular) }}
+                </div>
+                <div
                         class="col-md-6 col-sm-6  camposUsuario">
-                        {# <p>{{ dato.dni }}</p> #}
-                        <h5>
-                            {{ form_label(edit_form.DNI) }}</h5>
-                        {{ form_widget(edit_form.DNI, {'attr': {'placeholder': 'DNI', 'class': 'form-control centrar' }}) }}<br>
-                            {{ form_errors(edit_form.DNI) }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6  camposUsuario">
-                            <h5>
-                                {{ form_label(edit_form.apellido1) }}</h5>
-                            {{ form_widget(edit_form.apellido1, {'attr': {'placeholder': 'Primer Apellido', 'class': 'form-control centrar' }}) }}<br>
-                                {{ form_errors(edit_form.apellido1) }}
-                            </div>
-                            <div
-                                class="col-md-6 col-sm-6  camposUsuario">
-                                {# <p>{{ fechanac }}</p> #}
-                                <h5>
-                                    {{ form_label(edit_form.fechaNacimiento) }}</h5>
-                                {{ form_widget(edit_form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'class': 'form-control centrar' }}) }}<br>
-                                    {{ form_errors(edit_form.fechaNacimiento) }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div
-                                    class="col-md-6 col-sm-6  camposUsuario">
-                                    {# <p>{{ dato.apellido2 }}</p> #}
-                                    <h5>
-                                        {{ form_label(edit_form.apellido2) }}</h5>
-                                    {{ form_widget(edit_form.apellido2, {'attr': {'placeholder': 'Segundo Apellido', 'class': 'form-control centrar' }}) }}<br>
-                                        {{ form_errors(edit_form.apellido2) }}
-                                    </div>
-                                    <div
-                                        class="col-md-6 col-sm-6  camposUsuario">
-                                        {# <p>{{ dato.lugarNacimiento }}</p> #}
-                                        <h5>
-                                            {{ form_label(edit_form.lugarNacimiento) }}</h5>
-                                        {{ form_widget(edit_form.lugarNacimiento, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}<br>
-                                            {{ form_errors(edit_form.lugarNacimiento) }}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6  camposUsuario">
-                                            <h5>
-                                                {{ form_label(edit_form.sip) }}</h5>
-                                            {{ form_widget(edit_form.sip, {'attr': {'placeholder': 'SIP', 'class': 'form-control centrar' }}) }}<br>
-                                                {{ form_errors(edit_form.sip) }}
-                                            </div>
-                                            <div class="col-md-6 col-sm-6  camposUsuario">
-                                                <h5>
-                                                    {{ form_label(edit_form.direccion) }}</h5>
-                                                {{ form_widget(edit_form.direccion, {'attr': {'placeholder': 'Direccion', 'class': 'form-control centrar' }}) }}<br>
-                                                    {{ form_errors(edit_form.direccion) }}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6  camposUsuario">
-                                                    <h5>
-                                                        {{ form_label(edit_form.cp) }}</h5>
-                                                    {{ form_widget(edit_form.cp, {'attr': {'placeholder': 'CP', 'class': 'form-control centrar' }}) }}<br>
-                                                        {{ form_errors(edit_form.cp) }}
-                                                    </div>
-                                                    <div
-                                                        class="col-md-6 col-sm-6  camposUsuario">
-                                                        {# <p>{{ dato.poblacion }}</p> #}
-                                                        <h5>
-                                                            {{ form_label(edit_form.poblacion) }}</h5>
-                                                        {{ form_widget(edit_form.poblacion, {'attr': {'placeholder': 'Poblacion', 'class': 'form-control centrar' }}) }}<br>
-                                                            {{ form_errors(edit_form.poblacion) }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div
-                                                            class="col-md-6 col-sm-6  camposUsuario">
-                                                            {# <p>{{ dato.email }}</p> #}
-                                                            <h5>
-                                                                {{ form_label(edit_form.email) }}</h5>
-                                                            {{ form_widget(edit_form.email, {'attr': {'placeholder': 'Email', 'class': 'form-control centrar' }}) }}<br>
-                                                                {{ form_errors(edit_form.email) }}
-                                                            </div>
-                                                            <div
-                                                                class="col-md-6 col-sm-6  camposUsuario">
-                                                                {# <p>{{ dato.telefono ? dato.telefono : 0 }}</p> #}
-                                                                <h5>
-                                                                    {{ form_label(edit_form.telefono) }}</h5>
-                                                                {{ form_widget(edit_form.telefono, {'attr': {'placeholder': 'Telefono', 'class': 'form-control centrar' }}) }}<br>
-                                                                    {{ form_errors(edit_form.telefono) }}
-                                                                </div>
-                                                            </div>
-                                                            <hr>
-                                                                <div class="row">
-                                                                    <div
-                                                                        class="col-md-6 col-sm-6  camposUsuario ">
-                                                                        {# <p>{{ dato.titular ? dato.titular : 0 }}</p> #}
-                                                                        <h5>
-                                                                            {{ form_label(edit_form.titular) }}</h5>
-                                                                        {{ form_widget(edit_form.titular, {'attr': {'placeholder': 'Titular', 'class': 'form-control centrar' }}) }}<br>
-                                                                            {{ form_errors(edit_form.titular) }}
-                                                                        </div>
-                                                                        <div
-                                                                            class="col-md-6 col-sm-6  camposUsuario">
-                                                                            {# <p>{{ dato.dniTitular ? dato.dniTitular : 0 }}</p> #}
-                                                                            <h5>
-                                                                                {{ form_label(edit_form.dni_titular) }}</h5>
-                                                                            {{ form_widget(edit_form.dni_titular, {'attr': {'placeholder': 'DNI Titular', 'class': 'form-control centrar' }}) }}<br>
-                                                                                {{ form_errors(edit_form.dni_titular) }}
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div
-                                                                                class="col-md-6 col-sm-6  camposUsuario">
-                                                                                {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
-                                                                                <h5>
-                                                                                    {{ form_label(edit_form.direccion_titular) }}</h5>
-                                                                                {{ form_widget(edit_form.direccion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}<br>
-                                                                                    {{ form_errors(edit_form.direccion_titular) }}
-                                                                                </div>
-                                                                                <div
-                                                                                    class="col-md-6 col-sm-6  camposUsuario">
-                                                                                    {# <p>{{ dato.cpTitular ? dato.cpTitular : 0 }}</p> #}
-                                                                                    <h5>
-                                                                                        {{ form_label(edit_form.cp_titular) }}</h5>
-                                                                                    {{ form_widget(edit_form.cp_titular, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}<br>
-                                                                                        {{ form_errors(edit_form.cp_titular) }}
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div
-                                                                                        class="col-md-6 col-sm-6  camposUsuario">
-                                                                                        {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
-                                                                                        <h5>
-                                                                                            {{ form_label(edit_form.poblacion_titular) }}</h5>
-                                                                                        {{ form_widget(edit_form.poblacion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}<br>
-                                                                                            {{ form_errors(edit_form.poblacion_titular) }}
-                                                                                        </div>
-                                                                                        <div
-                                                                                            class="col-md-6 col-sm-6  camposUsuario">
-                                                                                            {# <p>{{ dato.iban ? dato.iban : 0 }}</p> #}
-                                                                                            <h5>
-                                                                                                {{ form_label(edit_form.iban) }}</h5>
-                                                                                            {{ form_widget(edit_form.iban, {'attr': {'placeholder': 'IBAN', 'class': 'form-control centrar' }}) }}<br>
-                                                                                                {{ form_errors(edit_form.iban) }}
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <hr>
-                                                                                            <div class="row">
-                                                                                                <div class="col-md-6 col-sm-6  camposUsuario">
-                                                                                                    <h5>
-                                                                                                        {{ form_label(edit_form.equipo) }}<h5>
-                                                                                                            {{ form_widget(edit_form.equipo, {'attr': {'placeholder': 'Equipo', 'class': 'form-control centrar' }}) }}<br>
-                                                                                                                {{ form_errors(edit_form.equipo) }}
-                                                                                                            </div>
-                                                                                                            {# CREAR SELECT  #}
-                                                                                                            <div class="col-md-6 col-sm-6  camposUsuario">
-                                                                                                                <h5>
-                                                                                                                    {{ form_label(edit_form.categoria) }}<h5>
-                                                                                                                        {{ form_widget(edit_form.categoria, {'attr': {'placeholder': 'Categoria', 'class': 'form-control centrar' }}) }}<br>
-                                                                                                                            {{ form_errors(edit_form.categoria) }}
-                                                                                                                        </div>
-                                                                                                        </div>
-                                                                                                                        <hr>
+                    {# <p>{{ dato.dniTitular ? dato.dniTitular : 0 }}</p> #}
+                    <h5>
+                        {{ form_label(edit_form.dni_titular) }}</h5>
+                    {{ form_widget(edit_form.dni_titular, {'attr': {'placeholder': 'DNI Titular', 'class': 'form-control centrar' }}) }}
+                    <br>
+                    {{ form_errors(edit_form.dni_titular) }}
+                </div>
+            </div>
+            <div class="row">
+                <div
+                        class="col-md-6 col-sm-6  camposUsuario">
+                    {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
+                    <h5>
+                        {{ form_label(edit_form.direccion_titular) }}</h5>
+                    {{ form_widget(edit_form.direccion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}
+                    <br>
+                    {{ form_errors(edit_form.direccion_titular) }}
+                </div>
+                <div
+                        class="col-md-6 col-sm-6  camposUsuario">
+                    {# <p>{{ dato.cpTitular ? dato.cpTitular : 0 }}</p> #}
+                    <h5>
+                        {{ form_label(edit_form.cp_titular) }}</h5>
+                    {{ form_widget(edit_form.cp_titular, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}
+                    <br>
+                    {{ form_errors(edit_form.cp_titular) }}
+                </div>
+            </div>
+            <div class="row">
+                <div
+                        class="col-md-6 col-sm-6  camposUsuario">
+                    {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
+                    <h5>
+                        {{ form_label(edit_form.poblacion_titular) }}</h5>
+                    {{ form_widget(edit_form.poblacion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}
+                    <br>
+                    {{ form_errors(edit_form.poblacion_titular) }}
+                </div>
+                <div
+                        class="col-md-6 col-sm-6  camposUsuario">
+                    {# <p>{{ dato.iban ? dato.iban : 0 }}</p> #}
+                    <h5>
+                        {{ form_label(edit_form.iban) }}</h5>
+                    {{ form_widget(edit_form.iban, {'attr': {'placeholder': 'IBAN', 'class': 'form-control centrar' }}) }}
+                    <br>
+                    {{ form_errors(edit_form.iban) }}
+                </div>
+            </div>
+        </div>
+        <hr id="hrJugador">
+        <div id="jugadorInfo">
+            <div class="row">
+                <div class="col-md-6 col-sm-6  camposUsuario">
+                    <h5>
+                        {{ form_label(edit_form.equipo) }}</h5>
+                            {{ form_widget(edit_form.equipo, {'attr': {'placeholder': 'Equipo', 'class': 'form-control centrar' }}) }}
+                            <br>
+                            {{ form_errors(edit_form.equipo) }}
+                </div>
+                {# CREAR SELECT  #}
+                <div class="col-md-6 col-sm-6  camposUsuario">
+                    <h5>
+                        {{ form_label(edit_form.categoria) }}</h5>
+                            {{ form_widget(edit_form.categoria, {'attr': {'placeholder': 'Categoria', 'class': 'form-control centrar' }}) }}
+                            <br>
+                            {{ form_errors(edit_form.categoria) }}
+                </div>
+            </div>
+        </div>
+        <hr>
 
 
-                                                                                                                            <div class="row">
-                                                                                                                                <div class="col-md-6 col-sm-6  camposUsuario">
-                                                                                                                                    {# <p>{{ dato.loteria ? "Sí (+30€)" : "No (+0€)" }}</p> #}
-                                                                                                                                    <h5>
-                                                                                                                                        {{ form_label(edit_form.loteria) }}</h5>
-                                                                                                                                    {{ form_widget(edit_form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control centrar shadow-none' }}) }}
-                                                                                                                                            {{ form_errors(edit_form.loteria) }}
-                                                                                                                                    </div>
-                                                                                                                            
-
-                                                                                                                                    <div class="col-md-6 col-sm-6 icons camposUsuario centrar mt-4">
-                                                                                                                                        <i class="fas fa-upload fa-2x"></i>   
-                                                                                                                                    </div>
-
-                                                                                                                                    
-
-                                                                                                                            </div>
-                                                                                                                        
-                                                                                                                          
-                                                                                                        
-                                                                                                                                    
-
-                                                                                                                        
-                                                                                                                             <div class="row">
-                                                                                                                                      <div class="col-md-6 col-sm-6  camposUsuario">
-                                                                                                                                        <p>Si quieres la loteria, a pagar pichon (30€azos)</p>
-                                                                                                                                        <p>Si no la quieres, a pagar igualmente pichon (50€azos)</p>
-                                                                                                                                
-                                                                                                                                    </div>
-
-                                                                                                                                    <div class="col-md-6 col-sm-6 icons camposUsuario centrar">
-                                                                                                                                    <button class="boton mb-4" type="submit">Actualizar</button>
-                                                                                                                                    </div>
-                                                                                                                            </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                {# <p>{{ dato.loteria ? "Sí (+30€)" : "No (+0€)" }}</p> #}
+                <h5>
+                    {{ form_label(edit_form.loteria) }}</h5>
+                {{ form_widget(edit_form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control centrar shadow-none' }}) }}
+                {{ form_errors(edit_form.loteria) }}
+            </div>
 
 
-                                                                                                                               
-                                                                                                                            </div>
-                                                                                                                        </form>
-                                                                                                                    {% endblock %}
-                                                                                                                
+            <div class="col-md-6 col-sm-6 icons camposUsuario centrar mt-4">
+                <i class="fas fa-upload fa-2x"></i>
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6  camposUsuario">
+                <p>Si quieres la loteria, a pagar pichon (30€azos)</p>
+                <p>Si no la quieres, a pagar igualmente pichon (50€azos)</p>
+
+            </div>
+
+            <div class="col-md-6 col-sm-6 icons camposUsuario centrar">
+                <button class="boton mb-4" type="submit">Actualizar</button>
+            </div>
+        </div>
+
+
+
+    </form>
+{% endblock %}
