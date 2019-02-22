@@ -2,8 +2,12 @@
 {% block ficha %}
     <div
         class="imagenusuario">
-        <!-- Imagen Usuario -->
-        <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario"></div>
+         <!-- Imagen Usuario -->
+        {% if dato.image is same as(null) %}
+            <img  alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
+        {% else %}
+            <img  alt="Foto de perfil" src="../../img/users/{{ dato.image }}"/>
+        {% endif %}
         <form>
 
             <div class="row">

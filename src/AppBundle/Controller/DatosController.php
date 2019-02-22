@@ -33,7 +33,7 @@ class DatosController extends Controller
         $form = $this->createForm(DatosType::class, $dato);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $dato->getImage() != null) {
             /*****Imagen*****/
             $fotoFile= $dato->getImage();
             $fileName = $this->generateUniqueFileName().'.'.$fotoFile->guessExtension();
@@ -45,11 +45,13 @@ class DatosController extends Controller
             $dato->setImage($fileName);
             /*****Imagen*****/
 
-            $em->persist($dato);
+            
+        }
+
+        $em->persist($dato);
             $em->flush();
 
             return $this->redirectToRoute('datos_show', array('id' => $dato->getId()));
-        }
 
         return $this->render('datos/new.html.twig', array(
             'dato' => $dato,
@@ -75,9 +77,11 @@ class DatosController extends Controller
         $adult =  $this->isAdult($fechaNacimiento);
 
         $dato->getImage() !== null ?
-        $image = base64_encode(stream_get_contents($dato->getImage())) :
+       // $image = base64_encode(stream_get_contents($dato->getImage())) :
+        $image = $dato->getImage() :
         $image = null;
        //$img_str = 'image/png;base64,'.$image;
+       
 
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
