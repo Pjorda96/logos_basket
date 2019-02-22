@@ -4,11 +4,11 @@
     <div class="imagenusuario">
         <!-- Imagen Usuario -->
         {% if image is same as(null) %}
-            <img  alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
+            <img alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
         {% else %}
             <img  alt="Foto de perfil" src="../../img/users/{{ image }}"/>
         {% endif %}
-        
+
     </div>
     <div class="row">
         <div class="col-md-6 col-sm-6  camposUsuario">
