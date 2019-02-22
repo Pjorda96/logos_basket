@@ -34,6 +34,17 @@ class DatosController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /*****Imagen*****/
+            $fotoFile= $dato->getImage();
+            $fileName = $this->generateUniqueFileName().'.'.$fotoFile->guessExtension();
+            // moves the file to the directory where brochures are stored
+            $fotoFile->move(
+                $this->getParameter('img_directory'),
+                $fileName
+            );
+            $dato->setImage($fileName);
+            /*****Imagen*****/
+
             $em->persist($dato);
             $em->flush();
 
@@ -91,6 +102,17 @@ class DatosController extends Controller
 
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            /*****Imagen*****/
+            $fotoFile= $user->getImage();
+            $fileName = $this->generateUniqueFileName().'.'.$fotoFile->guessExtension();
+            // moves the file to the directory where brochures are stored
+            $fotoFile->move(
+                $this->getParameter('img_directory'),
+                $fileName
+            );
+            $user->setImage($fileName);
+            /*****Imagen*****/
+
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('datos_show', array('id' => $user->getId()));
         }
