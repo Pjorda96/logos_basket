@@ -41,7 +41,6 @@
                             <div class="row">
                                 <div
                                     class="col-md-6 col-sm-6  camposUsuario">
-                                    {# <p>{{ dato.apellido2 }}</p> #}
                                     <h5>
                                         {{ form_label(form.apellido2) }}</h5>
                                     {{ form_widget(form.apellido2, {'attr': {'placeholder': 'Segundo Apellido', 'class': 'form-control centrar' }}) }}<br>
@@ -49,7 +48,6 @@
                                     </div>
                                     <div
                                         class="col-md-6 col-sm-6  camposUsuario">
-                                        {# <p>{{ dato.lugarNacimiento }}</p> #}
                                         <h5>
                                             {{ form_label(form.lugarNacimiento) }}</h5>
                                         {{ form_widget(form.lugarNacimiento, {'attr': {'placeholder': 'Lugar nacimiento', 'class': 'form-control centrar' }}) }}<br>
@@ -79,7 +77,6 @@
                                                     </div>
                                                     <div
                                                         class="col-md-6 col-sm-6  camposUsuario">
-                                                        {# <p>{{ dato.poblacion }}</p> #}
                                                         <h5>
                                                             {{ form_label(form.poblacion) }}</h5>
                                                         {{ form_widget(form.poblacion, {'attr': {'placeholder': 'Poblacion', 'class': 'form-control centrar' }}) }}<br>
@@ -89,7 +86,6 @@
                                                     <div class="row">
                                                         <div
                                                             class="col-md-6 col-sm-6  camposUsuario">
-                                                            {# <p>{{ dato.email }}</p> #}
                                                             <h5>
                                                                 {{ form_label(form.email) }}</h5>
                                                             {{ form_widget(form.email, {'attr': {'placeholder': 'Correo electronico', 'class': 'form-control centrar' }}) }}<br>
@@ -97,7 +93,6 @@
                                                             </div>
                                                             <div
                                                                 class="col-md-6 col-sm-6  camposUsuario">
-                                                                {# <p>{{ dato.telefono ? dato.telefono : 0 }}</p> #}
                                                                 <h5>
                                                                     {{ form_label(form.telefono) }}</h5>
                                                                 {{ form_widget(form.telefono, {'attr': {'placeholder': 'Telefono', 'class': 'form-control centrar' }}) }}<br>
@@ -126,7 +121,6 @@
                                                                 <div class="row">
                                                                     <div
                                                                         class="col-md-6 col-sm-6  camposUsuario ">
-                                                                        {# <p>{{ dato.titular ? dato.titular : 0 }}</p> #}
                                                                         <h5>
                                                                             {{ form_label(form.titular) }}</h5>
                                                                         {{ form_widget(form.titular, {'attr': {'placeholder': 'Titular', 'class': 'form-control centrar' }}) }}<br>
@@ -134,7 +128,6 @@
                                                                         </div>
                                                                         <div
                                                                             class="col-md-6 col-sm-6  camposUsuario">
-                                                                            {# <p>{{ dato.dniTitular ? dato.dniTitular : 0 }}</p> #}
                                                                             <h5>
                                                                                 {{ form_label(form.dni_titular) }}</h5>
                                                                             {{ form_widget(form.dni_titular, {'attr': {'placeholder': 'DNI Titular', 'class': 'form-control centrar' }}) }}<br>
@@ -144,15 +137,14 @@
                                                                         <div class="row">
                                                                             <div
                                                                                 class="col-md-6 col-sm-6  camposUsuario">
-                                                                                {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
+                                                                               
                                                                                 <h5>
                                                                                     {{ form_label(form.direccion_titular) }}</h5>
                                                                                 {{ form_widget(form.direccion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}<br>
                                                                                     {{ form_errors(form.direccion_titular) }}
                                                                                 </div>
-                                                                                <div
-                                                                                    class="col-md-6 col-sm-6  camposUsuario">
-                                                                                    {# <p>{{ dato.cpTitular ? dato.cpTitular : 0 }}</p> #}
+                                                                                <div class="col-md-6 col-sm-6  camposUsuario">
+                                                                                    
                                                                                     <h5>
                                                                                         {{ form_label(form.cp_titular) }}</h5>
                                                                                     {{ form_widget(form.cp_titular, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}<br>
@@ -160,17 +152,15 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row">
-                                                                                    <div
-                                                                                        class="col-md-6 col-sm-6  camposUsuario">
-                                                                                        {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
+                                                                                    <div class="col-md-6 col-sm-6  camposUsuario">
+                                                                                       
                                                                                         <h5>
                                                                                             {{ form_label(form.poblacion_titular) }}</h5>
                                                                                         {{ form_widget(form.poblacion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}<br>
                                                                                             {{ form_errors(form.poblacion_titular) }}
                                                                                         </div>
-                                                                                        <div
-                                                                                            class="col-md-6 col-sm-6  camposUsuario">
-                                                                                            {# <p>{{ dato.iban ? dato.iban : 0 }}</p> #}
+                                                                                        <div class="col-md-6 col-sm-6  camposUsuario">
+                                                                                           
                                                                                             <h5>
                                                                                                 {{ form_label(form.iban) }}</h5>
                                                                                             {{ form_widget(form.iban, {'attr': {'placeholder': 'IBAN', 'class': 'form-control centrar' }}) }}<br>
@@ -187,16 +177,14 @@
                                                                                                             {{ form_widget(form.equipo, {'attr': {'placeholder': 'Equipo', 'class': 'form-control centrar' }}) }}<br>
                                                                                                                 {{ form_errors(form.equipo) }}
                                                                                                             </div>
-                                                                                                            {# CREAR SELECT  #}
+                                                                                                           
                                                                                                             <div class="col-md-6 col-sm-6  camposUsuario">
                                                                                                                 <h5>
                                                                                                                     {{ form_label(form.categoria) }}<h5>
                                                                                                                         {{ form_widget(form.categoria, {'attr': {'placeholder': 'Categoria', 'class': 'form-control centrar' }}) }}<br>
                                                                                                                             {{ form_errors(form.categoria) }}
                                                                                                                         </div>
-                                                                                                                             {# {% for categoria in categorias %}
-                                                                                                                                                 <option value="{{ categoria.categoria }}">{{ categoria.descripcion }}</option>
-                                                                                                                             {% endfor %} #}
+                                                                                                                            
                                                                                                         </div>
                                                                                         </div>
                                                                                                                         <hr>
@@ -204,7 +192,7 @@
 
                                                                                                                             <div class="row">
                                                                                                                                 <div class="col-md-6 col-sm-6  camposUsuario">
-                                                                                                                                    {# <p>{{ dato.loteria ? "Sí (+30€)" : "No (+0€)" }}</p> #}
+                                                                                                                                    
                                                                                                                                     <h5>
                                                                                                                                         {{ form_label(form.loteria) }}</h5>
                                                                                                                                     {{ form_widget(form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control centrar shadow-none' }}) }}
