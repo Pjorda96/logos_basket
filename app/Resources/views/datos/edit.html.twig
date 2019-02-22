@@ -9,16 +9,13 @@
             <div class="row">
                 <div
                     class="col-md-6 col-sm-6  camposUsuario">
-                {# <p>{{ dato.nombre }}</p> #}
                 <h5>
                     {{ form_label(edit_form.nombre) }}</h5>
                 {{ form_widget(edit_form.nombre, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}
                 <br>
                 {{ form_errors(edit_form.nombre) }}
             </div>
-            <div
-                    class="col-md-6 col-sm-6  camposUsuario">
-                {# <p>{{ dato.dni }}</p> #}
+            <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>
                     {{ form_label(edit_form.DNI) }}</h5>
                 {{ form_widget(edit_form.DNI, {'attr': {'placeholder': 'DNI', 'class': 'form-control centrar' }}) }}<br>
@@ -35,10 +32,10 @@
             </div>
             <div
                     class="col-md-6 col-sm-6  camposUsuario">
-                {# <p>{{ fechanac }}</p> #}
+              
                 <h5>
                     {{ form_label(edit_form.fechaNacimiento) }}</h5>
-                {{ form_widget(edit_form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'onchange':'titular()' }}) }}
+                {{ form_widget(edit_form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento','class':'input-append date', 'onchange':'titular()' }}) }}
                 <br>
                 {{ form_errors(edit_form.fechaNacimiento) }}
             </div>
@@ -46,18 +43,17 @@
         <div class="row">
             <div
                     class="col-md-6 col-sm-6  camposUsuario">
-                {# <p>{{ dato.apellido2 }}</p> #}
-                <h5>
-                    {{ form_label(edit_form.apellido2) }}</h5>
+           
+                
+                   <h5> {{ form_label(edit_form.apellido2) }}</h5>
                 {{ form_widget(edit_form.apellido2, {'attr': {'placeholder': 'Segundo Apellido', 'class': 'form-control centrar' }}) }}
                 <br>
                 {{ form_errors(edit_form.apellido2) }}
             </div>
-            <div
-                    class="col-md-6 col-sm-6  camposUsuario">
-                {# <p>{{ dato.lugarNacimiento }}</p> #}
-                <h5>
-                    {{ form_label(edit_form.lugarNacimiento) }}</h5>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+             
+               
+                   <h5>  {{ form_label(edit_form.lugarNacimiento) }}</h5>
                 {{ form_widget(edit_form.lugarNacimiento, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}
                 <br>
                 {{ form_errors(edit_form.lugarNacimiento) }}
@@ -87,29 +83,24 @@
             </div>
             <div
                     class="col-md-6 col-sm-6  camposUsuario">
-                {# <p>{{ dato.poblacion }}</p> #}
-                <h5>
-                    {{ form_label(edit_form.poblacion) }}</h5>
+                 <h5>   {{ form_label(edit_form.poblacion) }}</h5>
                 {{ form_widget(edit_form.poblacion, {'attr': {'placeholder': 'Poblacion', 'class': 'form-control centrar' }}) }}
                 <br>
                 {{ form_errors(edit_form.poblacion) }}
             </div>
         </div>
         <div class="row">
-            <div
-                    class="col-md-6 col-sm-6  camposUsuario">
-                {# <p>{{ dato.email }}</p> #}
-                <h5>
-                    {{ form_label(edit_form.email) }}</h5>
+            <div class="col-md-6 col-sm-6  camposUsuario">
+              
+                
+                  <h5>  {{ form_label(edit_form.email) }}</h5>
                 {{ form_widget(edit_form.email, {'attr': {'placeholder': 'Email', 'class': 'form-control centrar' }}) }}
                 <br>
                 {{ form_errors(edit_form.email) }}
             </div>
             <div
                     class="col-md-6 col-sm-6  camposUsuario">
-                {# <p>{{ dato.telefono ? dato.telefono : 0 }}</p> #}
-                <h5>
-                    {{ form_label(edit_form.telefono) }}</h5>
+                <h5>{{ form_label(edit_form.telefono) }}</h5>
                 {{ form_widget(edit_form.telefono, {'attr': {'placeholder': 'Telefono', 'class': 'form-control centrar' }}) }}
                 <br>
                 {{ form_errors(edit_form.telefono) }}
@@ -136,60 +127,48 @@
         <hr id="titularHr">
         <div id="titularInfo">
             <div class="row">
-                <div
-                        class="col-md-6 col-sm-6  camposUsuario ">
-                    {# <p>{{ dato.titular ? dato.titular : 0 }}</p> #}
-                    <h5>
-                        {{ form_label(edit_form.titular) }}</h5>
+                <div class="col-md-6 col-sm-6  camposUsuario ">
+            
+                    <h5>{{ form_label(edit_form.titular) }}</h5>
                     {{ form_widget(edit_form.titular, {'attr': {'placeholder': 'Titular', 'class': 'form-control centrar' }}) }}
                     <br>
                     {{ form_errors(edit_form.titular) }}
                 </div>
-                <div
-                        class="col-md-6 col-sm-6  camposUsuario">
-                    {# <p>{{ dato.dniTitular ? dato.dniTitular : 0 }}</p> #}
-                    <h5>
-                        {{ form_label(edit_form.dni_titular) }}</h5>
+                <div class="col-md-6 col-sm-6  camposUsuario">
+                  
+                    <h5>{{ form_label(edit_form.dni_titular) }}</h5>
                     {{ form_widget(edit_form.dni_titular, {'attr': {'placeholder': 'DNI Titular', 'class': 'form-control centrar' }}) }}
                     <br>
                     {{ form_errors(edit_form.dni_titular) }}
                 </div>
             </div>
             <div class="row">
-                <div
-                        class="col-md-6 col-sm-6  camposUsuario">
-                    {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
-                    <h5>
-                        {{ form_label(edit_form.direccion_titular) }}</h5>
+                <div class="col-md-6 col-sm-6  camposUsuario">
+                   
+                    <h5>{{ form_label(edit_form.direccion_titular) }}</h5>
                     {{ form_widget(edit_form.direccion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}
                     <br>
                     {{ form_errors(edit_form.direccion_titular) }}
                 </div>
-                <div
-                        class="col-md-6 col-sm-6  camposUsuario">
-                    {# <p>{{ dato.cpTitular ? dato.cpTitular : 0 }}</p> #}
-                    <h5>
-                        {{ form_label(edit_form.cp_titular) }}</h5>
+                <div class="col-md-6 col-sm-6  camposUsuario">
+                  
+                    <h5>{{ form_label(edit_form.cp_titular) }}</h5>
                     {{ form_widget(edit_form.cp_titular, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}
                     <br>
                     {{ form_errors(edit_form.cp_titular) }}
                 </div>
             </div>
             <div class="row">
-                <div
-                        class="col-md-6 col-sm-6  camposUsuario">
-                    {# <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p> #}
-                    <h5>
-                        {{ form_label(edit_form.poblacion_titular) }}</h5>
+                <div class="col-md-6 col-sm-6  camposUsuario">
+                    
+                    <h5>{{ form_label(edit_form.poblacion_titular) }}</h5>
                     {{ form_widget(edit_form.poblacion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control centrar' }}) }}
                     <br>
                     {{ form_errors(edit_form.poblacion_titular) }}
                 </div>
-                <div
-                        class="col-md-6 col-sm-6  camposUsuario">
-                    {# <p>{{ dato.iban ? dato.iban : 0 }}</p> #}
-                    <h5>
-                        {{ form_label(edit_form.iban) }}</h5>
+                <div class="col-md-6 col-sm-6  camposUsuario">
+                   
+                    <h5>{{ form_label(edit_form.iban) }}</h5>
                     {{ form_widget(edit_form.iban, {'attr': {'placeholder': 'IBAN', 'class': 'form-control centrar' }}) }}
                     <br>
                     {{ form_errors(edit_form.iban) }}
@@ -206,7 +185,6 @@
                             <br>
                             {{ form_errors(edit_form.equipo) }}
                 </div>
-                {# CREAR SELECT  #}
                 <div class="col-md-6 col-sm-6  camposUsuario">
                     <h5>
                         {{ form_label(edit_form.categoria) }}</h5>
@@ -222,8 +200,7 @@
         <div class="row">
             <div class="col-md-6 col-sm-6  camposUsuario">
                 {# <p>{{ dato.loteria ? "Sí (+30€)" : "No (+0€)" }}</p> #}
-                <h5>
-                    {{ form_label(edit_form.loteria) }}</h5>
+                <h5>{{ form_label(edit_form.loteria) }}</h5>
                 {{ form_widget(edit_form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control centrar shadow-none' }}) }}
                 {{ form_errors(edit_form.loteria) }}
             </div>
