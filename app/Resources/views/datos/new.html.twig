@@ -34,7 +34,7 @@
                                 class="col-md-6 col-sm-6  camposUsuario">
                                 <h5>
                                     {{ form_label(form.fechaNacimiento) }}</h5>
-                                {{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'class': 'centrar' }}) }}<br>
+                                {{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'class': 'centrar', 'onchange':'titular()' }}) }}<br>
                                     {{ form_errors(form.fechaNacimiento) }}
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                                                         <div class="row">
          <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
                     {{ form_label(form.jugador) }}
-                    {{ form_widget(form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador' }}) }}
+                    {{ form_widget(form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador', 'onchange':'casillas()' }}) }}
                     {{ form_errors(form.jugador) }}
 </div>
     <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
@@ -121,7 +121,8 @@
                     {{ form_errors(form.tutor) }}
 </div>
         </div>
-                                                            <hr>
+                                                        <hr id="titularHr">
+                                                            <div id="titularInfo">
                                                                 <div class="row">
                                                                     <div
                                                                         class="col-md-6 col-sm-6  camposUsuario ">
@@ -176,7 +177,9 @@
                                                                                                 {{ form_errors(form.iban) }}
                                                                                             </div>
                                                                                         </div>
-                                                                                        <hr>
+                                                            </div>
+                                                                                        <hr id="hrJugador">
+                                                                                        <div id="jugadorInfo">
                                                                                             <div class="row">
                                                                                                 <div class="col-md-6 col-sm-6  camposUsuario">
                                                                                                     <h5>
@@ -195,6 +198,7 @@
                                                                                                                                                  <option value="{{ categoria.categoria }}">{{ categoria.descripcion }}</option>
                                                                                                                              {% endfor %} #}
                                                                                                         </div>
+                                                                                        </div>
                                                                                                                         <hr>
 
 
