@@ -1,51 +1,26 @@
 {% extends 'ficha.html.twig' %}
 {% block ficha %}
-     {% for categoria in categorias %}
-                    <option value="{{ categoria.categoria }}">{{ categoria.descripcion }}</option>
-    {% endfor %}
     <div
         class="imagenusuario">
         <!-- Imagen Usuario -->
         <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario"></div>
         <form>
 
-        <div class="row">
-         <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
-                    {{ form_label(form.jugador) }}
-                    {{ form_widget(form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador' }}) }}
-                    {{ form_errors(form.jugador) }}
-</div>
-    <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
-                       {{ form_label(form.entrenador) }}
-                    {{ form_widget(form.entrenador, {'attr': {'class': 'form-control centrar shadow-none','id':'entrenador' }}) }}
-                    {{ form_errors(form.entrenador) }}
-</div>
-<div class="col-md-4 col-sm-4  mb-4 mt-4 camposUsuario">
-                       {{ form_label(form.tutor) }}
-                    {{ form_widget(form.tutor, {'attr': {'class': 'form-control centrar shadow-none','id':'tutor' }}) }}
-                    {{ form_errors(form.tutor) }}
-</div>
-        </div>
-
-    
-      
 
             <div class="row">
                 <div
                     class="col-md-6 col-sm-6  camposUsuario">
-                    {# <p>{{ dato.nombre }}</p> #}
                     <h5>
                         {{ form_label(form.nombre) }}</h5>
                     {{ form_widget(form.nombre, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}<br>
                         {{ form_errors(form.nombre) }}
                     </div>
-                    <div
-                        class="col-md-6 col-sm-6  camposUsuario">
-                        {# <p>{{ dato.dni }}</p> #}
-                        <h5>
+                    <div class="col-md-6 col-sm-6  camposUsuario">
+                    <h5>
                             {{ form_label(form.DNI) }}</h5>
                         {{ form_widget(form.DNI, {'attr': {'placeholder': 'DNI', 'class': 'form-control centrar' }}) }}<br>
                             {{ form_errors(form.DNI) }}
+                        
                         </div>
                     </div>
                     <div class="row">
@@ -57,10 +32,9 @@
                             </div>
                             <div
                                 class="col-md-6 col-sm-6  camposUsuario">
-                                {# <p>{{ fechanac }}</p> #}
                                 <h5>
                                     {{ form_label(form.fechaNacimiento) }}</h5>
-                                {{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'class': 'form-control centrar' }}) }}<br>
+                                {{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'class': 'centrar' }}) }}<br>
                                     {{ form_errors(form.fechaNacimiento) }}
                                 </div>
                             </div>
@@ -130,6 +104,23 @@
                                                                     {{ form_errors(form.telefono) }}
                                                                 </div>
                                                             </div>
+                                                        <div class="row">
+         <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
+                    {{ form_label(form.jugador) }}
+                    {{ form_widget(form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador' }}) }}
+                    {{ form_errors(form.jugador) }}
+</div>
+    <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
+                       {{ form_label(form.entrenador) }}
+                    {{ form_widget(form.entrenador, {'attr': {'class': 'form-control centrar shadow-none','id':'entrenador' }}) }}
+                    {{ form_errors(form.entrenador) }}
+</div>
+<div class="col-md-4 col-sm-4  mb-4 mt-4 camposUsuario">
+                       {{ form_label(form.tutor) }}
+                    {{ form_widget(form.tutor, {'attr': {'class': 'form-control centrar shadow-none','id':'tutor' }}) }}
+                    {{ form_errors(form.tutor) }}
+</div>
+        </div>
                                                             <hr>
                                                                 <div class="row">
                                                                     <div

@@ -6,23 +6,7 @@
         <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario"></div>
         <form>
 
-        <div class="row">
-         <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
-                    {{ form_label(edit_form.jugador) }}
-                    {{ form_widget(edit_form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador' }}) }}
-                    {{ form_errors(edit_form.jugador) }}
-</div>
-    <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
-                       {{ form_label(edit_form.entrenador) }}
-                    {{ form_widget(edit_form.entrenador, {'attr': {'class': 'form-control centrar shadow-none','id':'entrenador' }}) }}
-                    {{ form_errors(edit_form.entrenador) }}
-</div>
-<div class="col-md-4 col-sm-4  mb-4 mt-4 camposUsuario">
-                       {{ form_label(edit_form.tutor) }}
-                    {{ form_widget(edit_form.tutor, {'attr': {'class': 'form-control centrar shadow-none','id':'tutor' }}) }}
-                    {{ form_errors(edit_form.tutor) }}
-</div>
-        </div>
+       
 
     
       
@@ -135,6 +119,24 @@
                 <br>
                 {{ form_errors(edit_form.telefono) }}
             </div>
+        </div>
+
+         <div class="row">
+         <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
+                    {{ form_label(edit_form.jugador) }}
+                    {{ form_widget(edit_form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador' }}) }}
+                    {{ form_errors(edit_form.jugador) }}
+</div>
+    <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
+                       {{ form_label(edit_form.entrenador) }}
+                    {{ form_widget(edit_form.entrenador, {'attr': {'class': 'form-control centrar shadow-none','id':'entrenador' }}) }}
+                    {{ form_errors(edit_form.entrenador) }}
+</div>
+<div class="col-md-4 col-sm-4  mb-4 mt-4 camposUsuario">
+                       {{ form_label(edit_form.tutor) }}
+                    {{ form_widget(edit_form.tutor, {'attr': {'class': 'form-control centrar shadow-none','id':'tutor' }}) }}
+                    {{ form_errors(edit_form.tutor) }}
+</div>
         </div>
         <hr id="titularHr">
         <div id="titularInfo">
