@@ -9,7 +9,7 @@
         <div class="row">
          <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
                     {{ form_label(edit_form.jugador) }}
-                    {{ form_widget(edit_form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador' }}) }}
+                    {{ form_widget(edit_form.jugador, {'attr': {'class': 'form-control centrar shadow-none','id':'jugador', 'onchange':'casillas()' }}) }}
                     {{ form_errors(edit_form.jugador) }}
 </div>
     <div class="col-md-4 col-sm-4 mt-4 mb-4 camposUsuario">
