@@ -30,12 +30,10 @@
                 <br>
                 {{ form_errors(edit_form.apellido1) }}
             </div>
-            <div
-                    class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  camposUsuario">
               
-                <h5>
-                    {{ form_label(edit_form.fechaNacimiento) }}</h5>
-                {{ form_widget(edit_form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento','class':'input-append date', 'onchange':'titular()' }}) }}
+                <h5>{{ form_label(edit_form.fechaNacimiento) }}</h5>
+                {{ form_widget(edit_form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento','class':'select form-control', 'onchange':'titular()' }}) }}
                 <br>
                 {{ form_errors(edit_form.fechaNacimiento) }}
             </div>
