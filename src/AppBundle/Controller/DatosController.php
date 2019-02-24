@@ -33,21 +33,17 @@ class DatosController extends Controller
         $form = $this->createForm(DatosType::class, $dato);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid() && $dato->getImage() != null) {
+        if ($form->isSubmitted() && $form->isValid()) {
             /*****Imagen*****/
             $fotoFile = $dato->getImage();
-            $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
-            // moves the file to the directory where brochures are stored
-            $fotoFile->move(
-                $this->getParameter('img_directory'),
-                $fileName
-            );
-            $dato->setImage($fileName);
+            $this->fotoFile($fotoFile, $dato);
             /*****Imagen*****/
-        }
 
-        $em->persist($dato);
-        $em->flush();
+            $em->persist($dato);
+            $em->flush();
+
+            return $this->redirectToRoute('datos_show', array('id' => $dato->getId()));
+        }
 
         return $this->render('datos/new.html.twig', array(
             'dato' => $dato,
@@ -102,16 +98,11 @@ class DatosController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             /*****Imagen*****/
             $fotoFile = $user->getImage();
-            $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
-            // moves the file to the directory where brochures are stored
-            $fotoFile->move(
-                $this->getParameter('img_directory'),
-                $fileName
-            );
-            $user->setImage($fileName);
+            $this->fotoFile($fotoFile, $user);
             /*****Imagen*****/
 
             $this->getDoctrine()->getManager()->flush();
+
             return $this->redirectToRoute('datos_show', array('id' => $user->getId()));
         }
 
@@ -128,7 +119,7 @@ class DatosController extends Controller
      * @Route("/{id}", name="datos_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Datos $dato, $id, UserInterface $user)
+    public function deleteAction(Request $request, $id, UserInterface $user)
     {
         $em = $this->getDoctrine()->getManager();
         $em->getRepository(Datos::class)->delete($id);
@@ -165,4 +156,17 @@ class DatosController extends Controller
         return md5(uniqid());
     }
 
+    private function fotoFile($fotoFile, $dato)
+    {
+        if ($fotoFile !== null) {
+            $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
+
+            // moves the file to the directory where brochures are stored
+            $fotoFile->move(
+                $this->getParameter('img_directory'),
+                $fileName
+            );
+            $dato->setImage($fileName);
+        }
+    }
 }

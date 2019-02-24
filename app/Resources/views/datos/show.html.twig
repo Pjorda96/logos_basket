@@ -3,7 +3,7 @@
 {% block ficha %}
     <div class="imagenusuario">
         <!-- Imagen Usuario -->
-        {% if image is same as(null) %}
+        {% if dato.image is same as(null) %}
             <img alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
         {% else %}
             <img alt="Foto de perfil" src="../../img/users/{{ image }}"/>
@@ -71,21 +71,6 @@
             <p>{{ dato.telefono ? dato.telefono : 0 }}</p>
         </div>
     </div>
-    {# {% if  dato.jugador == '1' %}
-        <label><input readonly type="checkbox" name="test"  checked="checked" />Soy Jugador</label>
-    {% else %}
-        <label><input readonly type="checkbox" name="test" readonly="readonly" />Soy Jugador</label>
-    {% endif %}
-    {% if dato.entrenador == '1' %}
-        <label><input type="checkbox" name="checkbox1" checked="checked" readonly="readonly" />Soy Entrenador</label>
-    {% else %}
-        <label><input type="checkbox" name="checkbox1" readonly="readonly" />Soy Entrenador</label>
-    {% endif %}
-    {% if dato.tutor == '1' %}
-        <label><input type="checkbox" name="checkbox2" checked="checked" readonly="readonly" /> Soy Tutor</label>
-    {% else %}
-        <label><input type="checkbox" name="checkbox2" readonly="readonly" />Soy Tutor</label>
-    {% endif %} #}
 
     {% if adult %}
         <hr>
@@ -145,13 +130,12 @@
         </div>
     {% endif %}
 
-    <div class="col-md-12 col-sm-12 icons">
+    <div class="col-md-12 col-sm-12 icons mb-4">
         <a href="{{ path('datos_new', { 'id': dato.id }) }}"><i class="fas fa-plus-circle fa-2x"></i></a>
         <a href="{{ path('datos_delete', { 'id': dato.id }) }}"><i class="fas fa-ban fa-2x"></i></a>
         <a href="{{ path('datos_edit', { 'id': dato.id }) }}"><i class="fas fa-pencil-alt fa-2x"></i></a>
-        <i class="fas fa-upload fa-2x"></i>
     </div>
-    <div class="text-center">
+    {#<div class="text-center">
         <button class="boton mb-4" type="submit">Enviar</button>
-    </div>
+    </div>#}
 {% endblock %}
