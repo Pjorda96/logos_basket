@@ -71,10 +71,9 @@ class DatosController extends Controller
         $fechastring = date_format($fechaNacimiento, 'd-m-Y');
         $adult = $this->isAdult($fechaNacimiento);
 
-        $dato->getImage() !== null ?
-            // $image = base64_encode(stream_get_contents($dato->getImage())) :
+        /*$dato->getImage() !== null ?
             $image = $dato->getImage() :
-            $image = null;
+            $image = null;*/
         //$img_str = 'image/png;base64,'.$image;
 
 
@@ -82,7 +81,7 @@ class DatosController extends Controller
             'dato' => $dato,
             'fechanac' => $fechastring,
             'adult' => $adult,
-            'image' => $image,
+            /*'image' => $image,*/
         ));
     }
 
