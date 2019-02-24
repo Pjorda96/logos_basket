@@ -35,8 +35,8 @@ class DatosController extends Controller
 
         if ($form->isSubmitted() && $form->isValid() && $dato->getImage() != null) {
             /*****Imagen*****/
-            $fotoFile= $dato->getImage();
-            $fileName = $this->generateUniqueFileName().'.'.$fotoFile->guessExtension();
+            $fotoFile = $dato->getImage();
+            $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
             // moves the file to the directory where brochures are stored
             $fotoFile->move(
                 $this->getParameter('img_directory'),
@@ -44,19 +44,14 @@ class DatosController extends Controller
             );
             $dato->setImage($fileName);
             /*****Imagen*****/
-
-            
         }
 
         $em->persist($dato);
-            $em->flush();
-
-            return $this->redirectToRoute('datos_show', array('id' => $dato->getId()));
+        $em->flush();
 
         return $this->render('datos/new.html.twig', array(
             'dato' => $dato,
             'form' => $form->createView(),
-            'categorias' => $category,
         ));
     }
 
@@ -74,14 +69,14 @@ class DatosController extends Controller
 
         $fechaNacimiento = $em->getRepository(Datos::class)->findOneById($id)->getFechaNacimiento();
         $fechastring = date_format($fechaNacimiento, 'd-m-Y');
-        $adult =  $this->isAdult($fechaNacimiento);
+        $adult = $this->isAdult($fechaNacimiento);
 
         $dato->getImage() !== null ?
-       // $image = base64_encode(stream_get_contents($dato->getImage())) :
-        $image = $dato->getImage() :
-        $image = null;
-       //$img_str = 'image/png;base64,'.$image;
-       
+            // $image = base64_encode(stream_get_contents($dato->getImage())) :
+            $image = $dato->getImage() :
+            $image = null;
+        //$img_str = 'image/png;base64,'.$image;
+
 
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
@@ -107,8 +102,8 @@ class DatosController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             /*****Imagen*****/
-            $fotoFile= $user->getImage();
-            $fileName = $this->generateUniqueFileName().'.'.$fotoFile->guessExtension();
+            $fotoFile = $user->getImage();
+            $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
             // moves the file to the directory where brochures are stored
             $fotoFile->move(
                 $this->getParameter('img_directory'),
@@ -150,12 +145,11 @@ class DatosController extends Controller
      * @return boolean
      */
     private function isAdult($fechaNacimiento)
-
     {
-        $fechastring=date_format($fechaNacimiento, 'd-m-Y');
-        $then=strtotime($fechastring);
+        $fechastring = date_format($fechaNacimiento, 'd-m-Y');
+        $then = strtotime($fechastring);
         $min = strtotime('+18 years', $then);
-        if(time() < $min)  {
+        if (time() < $min) {
             return false;
         }
         return true;

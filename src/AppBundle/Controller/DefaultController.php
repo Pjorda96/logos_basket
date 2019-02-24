@@ -20,7 +20,7 @@ class DefaultController extends Controller
      */
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
-        $date =  $this->Time();
+        $date = $this->Time();
         // 1) build the form
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -49,8 +49,7 @@ class DefaultController extends Controller
 
         }
 
-        return $this->render(
-            'registro.html.twig',array(
+        return $this->render('registro.html.twig', array(
             'tiempo' => $date,
             'form' => $form->createView()
         ));
@@ -68,7 +67,7 @@ class DefaultController extends Controller
         if (true) {
             dump('hola');
         } else if ($dbUser !== null) {
-            return $this->redirectToRoute('datos_show', array('id' => $dbUser.id));
+            return $this->redirectToRoute('datos_show', array('id' => $dbUser . id));
         } else {
             return $this->redirectToRoute('datos_new');
         }
@@ -82,10 +81,10 @@ class DefaultController extends Controller
      */
     private function Time()
     {
-        $time= new \DateTime("now");
-        $timestringed= date_format($time, 'Y-m-d');
+        $time = new \DateTime("now");
+        $timestringed = date_format($time, 'Y-m-d');
         return $timestringed;
     }
 
-    
+
 }

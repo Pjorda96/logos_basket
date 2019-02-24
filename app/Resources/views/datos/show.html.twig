@@ -6,7 +6,8 @@
         {% if image is same as(null) %}
             <img alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
         {% else %}
-            <img  alt="Foto de perfil" src="../../img/users/{{ image }}"/>
+            <img alt="Foto de perfil" src="../../img/users/{{ image }}"/>
+            {#<img alt="Foto de perfil" src="{{ asset('img/users/'. image) }}"/>#}
         {% endif %}
 
     </div>
