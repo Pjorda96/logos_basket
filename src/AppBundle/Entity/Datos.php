@@ -239,10 +239,9 @@ class Datos
 
 
     /**
-     * @var resource
-     * @Assert\File(maxSize="10000000")
-     * @Assert\File(mimeTypes={ "image/png", "image/jpeg" }) 
-     * @ORM\Column(name="image", type="blob", nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=50, nullable=true)
      */
     private $image;
 
@@ -1048,7 +1047,7 @@ class Datos
        /**
      * Set image
      *
-     * @param blob $image
+     * @param string
      *      
      * @return Datos
      */
@@ -1062,27 +1061,10 @@ class Datos
     /**
      * Get image
      *
-     * @return blob
+     * @return string
      */
     public function getImage()
     {
         return $this->image;
     }
-
-
-
-    public function upload()
-    {
-        if (null === $this->image) {
-            return;
-        }
-    
-        //$strm = fopen($this->file,'rb');
-        $strm = fopen($this->image->getRealPath(),'rb');
-        $this->setImage(stream_get_contents($strm));
-    }
-
-    
-
-    
 }

@@ -131,5 +131,17 @@ hr{
 
 
 
+.select > select{
+    margin-right: 1rem;
+    margin-left: 1rem;
+    box-shadow: none;
+    border: none;
+    border-color: none;
 
+}
+
+.select > select:focus{
+ outline:none;
+    
+}
 
