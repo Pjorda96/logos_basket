@@ -5,11 +5,13 @@
         <!-- Imagen Usuario -->
         <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario">
     </div>
-    <form>
+    <div>
+        {{ form_start(form) }}
         <div class="row">
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>{{ form_label(form.nombre) }}</h5>
-                {{ form_widget(form.nombre, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_widget(form.nombre, {'attr': {'placeholder': 'Nombre', 'class': 'form-control centrar' }}) }}
+                <br>
                 {{ form_errors(form.nombre) }}
             </div>
             <div class="col-md-6 col-sm-6  camposUsuario">
@@ -22,24 +24,28 @@
         <div class="row">
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>{{ form_label(form.apellido1) }}</h5>
-                {{ form_widget(form.apellido1, {'attr': {'placeholder': 'Primer Apellido', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_widget(form.apellido1, {'attr': {'placeholder': 'Primer Apellido', 'class': 'form-control centrar' }}) }}
+                <br>
                 {{ form_errors(form.apellido1) }}
             </div>
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>{{ form_label(form.fechaNacimiento) }}</h5>
-                {{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'class': 'select form-control', 'onchange':'titular()' }}) }}<br>
+                {{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'class': 'select form-control', 'onchange':'titular()' }}) }}
+                <br>
                 {{ form_errors(form.fechaNacimiento) }}
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>{{ form_label(form.apellido2) }}</h5>
-                {{ form_widget(form.apellido2, {'attr': {'placeholder': 'Segundo Apellido', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_widget(form.apellido2, {'attr': {'placeholder': 'Segundo Apellido', 'class': 'form-control centrar' }}) }}
+                <br>
                 {{ form_errors(form.apellido2) }}
             </div>
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>{{ form_label(form.lugarNacimiento) }}</h5>
-                {{ form_widget(form.lugarNacimiento, {'attr': {'placeholder': 'Lugar nacimiento', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_widget(form.lugarNacimiento, {'attr': {'placeholder': 'Lugar nacimiento', 'class': 'form-control centrar' }}) }}
+                <br>
                 {{ form_errors(form.lugarNacimiento) }}
             </div>
         </div>
@@ -51,7 +57,8 @@
             </div>
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>{{ form_label(form.direccion) }}</h5>
-                {{ form_widget(form.direccion, {'attr': {'placeholder': 'Direccion', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_widget(form.direccion, {'attr': {'placeholder': 'Direccion', 'class': 'form-control centrar' }}) }}
+                <br>
                 {{ form_errors(form.direccion) }}
             </div>
         </div>
@@ -63,19 +70,22 @@
             </div>
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>{{ form_label(form.poblacion) }}</h5>
-                {{ form_widget(form.poblacion, {'attr': {'placeholder': 'Poblacion', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_widget(form.poblacion, {'attr': {'placeholder': 'Poblacion', 'class': 'form-control centrar' }}) }}
+                <br>
                 {{ form_errors(form.poblacion) }}
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>{{ form_label(form.email) }}</h5>
-                {{ form_widget(form.email, {'attr': {'placeholder': 'Correo electronico', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_widget(form.email, {'attr': {'placeholder': 'Correo electronico', 'class': 'form-control centrar' }}) }}
+                <br>
                 {{ form_errors(form.email) }}
             </div>
             <div class="col-md-6 col-sm-6  camposUsuario">
                 <h5>{{ form_label(form.telefono) }}</h5>
-                {{ form_widget(form.telefono, {'attr': {'placeholder': 'Telefono', 'class': 'form-control centrar' }}) }}<br>
+                {{ form_widget(form.telefono, {'attr': {'placeholder': 'Telefono', 'class': 'form-control centrar' }}) }}
+                <br>
                 {{ form_errors(form.telefono) }}
             </div>
         </div>
@@ -183,5 +193,6 @@
                 <button class="boton mb-4" type="submit">Crear</button>
             </div>
         </div>
-    </form>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
