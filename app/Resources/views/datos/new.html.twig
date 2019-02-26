@@ -173,11 +173,11 @@
 
         <div class="row">
             <div class="col-md-6 col-sm-6  align-self-center">
-                <h5>{{ form_label(form.loteria) }}</h5>
+                <h5 class="text-center">{{ form_label(form.loteria) }}</h5>
                 {{ form_widget(form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control align-self-center shadow-none', 'onchange':'loteria()' }}) }}
                 {{ form_errors(form.loteria) }}
-                <p id="loteriaSi">Si (150€)</p>
-                <p id="loteriaNo">No (30€)</p>
+                <p id="loteriaSi" class="text-center">Si (150€)</p>
+                <p id="loteriaNo" class="text-center">No (30€)</p>
             </div>
 
             <div class="col-md-6 col-sm-6 icons align-self-center align-self-center mt-4">
