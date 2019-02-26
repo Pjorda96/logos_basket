@@ -6,69 +6,78 @@
     <div class="container-fluid fill">
         <div class="row caja">
 
-
-            <div class="col-md-2 menu">
+            <div class="col-md-3 menu">
                 <div class="row logos">
-                    <img class="logo" src="{{ asset('img/imagenlogo.png') }}">
+                    <img alt="Logo" class="logo" src="{{ asset('img/imagenlogo.png') }}">
                 </div>
 
-                <div class="row filtro1">
-                    <form>
-                        <div class="form-check checkblock">
-                            <input type="checkbox" class="form-check-input" id="jugador">
-                            <label class="form-check-label" for="jugador">Jugador</label>
-                        </div>
-                        <div class="form-check checkblock">
-                            <input type="checkbox" class="form-check-input" id="Entrenador">
-                            <label class="form-check-label" for="Entrenador">Entrenador</label>
-                        </div>
-                        <div class="form-check checkblock">
-                            <input type="checkbox" class="form-check-input" id="Tutor">
-                            <label class="form-check-label" for="Tutor">Tutor</label>
-                        </div>
-                    </form>
-                </div>
+                <!-- Menu hamburguesa -->
+                <nav class="navbar navbar-expand-lg navbar-light  hamburguesa">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-                <div class="row filtro1">
-
-               <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+                        <form>
+                            <div class="form-check checkblock">
+                                <input type="checkbox" class="form-check-input" id="jugador">
+                                <label class="form-check-label" for="jugador">Jugador</label>
+                            </div>
+                            <div class="form-check checkblock">
+                                <input type="checkbox" class="form-check-input" id="Entrenador">
+                                <label class="form-check-label" for="Entrenador">Entrenador</label>
+                            </div>
+                            <div class="form-check checkblock">
+                                <input type="checkbox" class="form-check-input" id="Tutor">
+                                <label class="form-check-label" for="Tutor">Tutor</label>
+                            </div>
 
 
+                            <div class="row filtro1">
 
-                <select class="selectpicker" multiple data-live-search="true">
-                {# CREAR UN FOR PARA QUE RECORRA LOS CAMPOS DE LA BASE DE DATOS Y LOS MUESTRE #}
-                <option>Alevin</option>
-                <option>Cadete</option>
-                <option>Manu Es Gay</option>
-                <option>Pablo también</option>
-                </select>
-                </div>
-
-                <div class="row ">
-                    <i class="fas fa-plus-circle fa-2x adminIcon"></i>
-                    <i class="fas fa-ban fa-2x adminIcon"></i>
-                    <i class="fas fa-pencil-alt fa-2x adminIcon"></i>
-                    <i class="far fa-file-pdf fa-2x adminIcon"></i>
-                </div>
+                                <link rel="stylesheet"
+                                      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+                                <link rel="stylesheet"
+                                      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 
+                                <select class="selectpicker" multiple data-live-search="true">
+                                    {# CREAR UN FOR PARA QUE RECORRA LOS CAMPOS DE LA BASE DE DATOS Y LOS MUESTRE #}
+                                    <option>Alevin</option>
+                                    <option>Cadete</option>
+                                    <option>Manu Es Gay</option>
+                                    <option>Pablo también</option>
+                                </select>
+                            </div>
 
-                <div class="row logout">
-                    <div class="col-md-1 offset-md-3 col-sm-1 offset-sm-3 col-1 offset-3">
-                        <button type="button" class="btn btn-danger">Cerrar sesión</button>
+                            <div class="row">
+                                <a href="https://www.google.es/" style="color:black;" class="button"><i
+                                            class="fas fa-plus-circle fa-2x adminIcon"></i></a>
+                                <a href="https://www.google.es/" style="color:black;" class="button"><i
+                                            class="fas fa-ban fa-2x adminIcon"></i></a>
+                                <a href="https://www.google.es/" style="color:black;" class="button"><i
+                                            class="fas fa-pencil-alt fa-2x adminIcon"></i></a>
+                                <a href="https://www.google.es/" style="color:black;" class="button"><i
+                                            class="far fa-file-pdf fa-2x adminIcon"></i></a>
+                            </div>
+
+                            <div class="col-md-9 offset-md-2 col-sm-2 offset-sm-3 col-3 offset-3">
+                                <a href="{{ path('logout') }}" class="btn btn-primary">Cerrar sesion</a>
+                            </div>
+                        </form>
+
+
                     </div>
+                </nav>
 
-
-                </div>
+                <!-- Fin menu hamburguesa -->
             </div>
 
-            <!-- ACABA MENU DE FILTROS Y LOGOUT -->
-
-            <div class="col-md-10  info" style="padding-right: 0px; padding-left: 0px;">
+            <div class="col-md-9  info" style="padding-right: 0px; padding-left: 0px;">
 
                 <table class="table table-hover table-dark">
                     <thead>
