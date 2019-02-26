@@ -32,7 +32,8 @@ security:
             form_login:
                 login_path: /security/login
                 check_path: /security/login
-                default_target_path: /redirect
+                username_parameter: _nif
+                default_target_path: /security/redirect
                 always_use_default_target_path: true
             logout:
                 path:   /logout
