@@ -1,7 +1,7 @@
 {% extends 'ficha.html.twig' %}
 
 {% block ficha %}
-    <div class="imagenusuario">
+    <div class="imagenusuario mb-4">
         <!-- Imagen Usuario -->
         {% if dato.image is same as(null) %}
             <img alt="Foto de perfil por defecto" src="{{ asset('img/usuario.png') }}"/>
