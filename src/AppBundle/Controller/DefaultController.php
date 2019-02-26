@@ -32,11 +32,6 @@ class DefaultController extends Controller
             $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
 
-            //3b) Datos
-            /*$user->setRoles(array('ROLE_USER'));*/
-            /*$datos = new Datos();
-            $datos.nif = $user.nif;*/
-
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -45,9 +40,7 @@ class DefaultController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            /*return $this->redirectToRoute('datos_new');*/
-            /*$this->redirectionAction($user);*/
-            if ($this->getDoctrine()->getRepository('AppBundle:Datos')->find($user->getUsername())) {
+            if ($this->getDoctrine()->getRepository('AppBundle:Datos')->find($user->getUsername()) === null) {
                 return $this->redirectToRoute('datos_new');
             }
 
@@ -59,6 +52,22 @@ class DefaultController extends Controller
             'tiempo' => $date,
             'form' => $form->createView()
         ));
+    }
+
+    /**
+     * @Route("/redirect", name="redirect")
+     */
+    public function redirectionAction(Request $request, UserInterface $user)
+    {
+        $dbUser = $this->getDoctrine()->getRepository('AppBundle:Datos')->find($user->getUsername());
+
+        dump($dbUser);
+
+        if ($dbUser === null) {
+            return $this->redirectToRoute('datos_new');
+        }
+
+        return $this->redirectToRoute('datos_show', array('id' => $dbUser->getId()));
     }
 
     /**
