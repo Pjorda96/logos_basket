@@ -11,11 +11,19 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ asset('js/popper.min.js') }}"></script>
         <script src="{{ asset('js/fechaCheck.js') }}"></script>
         <script src="{{ asset('js/newAndEdit.js') }}"></script>
+        {% block javascripts %}
+            <script>
+                let body=document.body
+                body.onload = casillas();
+                body.onload = titular();
+                body.onload = loteria();
+            </script>
+        {% endblock %}
     </body>
 </html>

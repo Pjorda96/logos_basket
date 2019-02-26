@@ -8,8 +8,9 @@ let fechaNacMonth=document.getElementById('appbundle_datos_fechaNacimiento_month
 let fechaNacDay=document.getElementById('appbundle_datos_fechaNacimiento_day');
 let divTitular=document.getElementById('titularInfo');
 let titularHr=document.getElementById('titularHr');
-
-
+let loteriaBox=document.getElementById('appbundle_datos_loteria');
+let messageLoteriaSi=document.getElementById('loteriaSi');
+let messageLoteriaNo=document.getElementById('loteriaNo');
 function casillas(){
     console.log(jugadorbox.checked, entrenadorbox.checked, tutorbox.checked);
     console.log(jugadorInfo);
@@ -19,6 +20,16 @@ function casillas(){
     }else{
         jugadorInfo.style.display='none';
         jugadorHr.style.display='none';
+    }
+}
+
+function loteria() {
+    if (loteriaBox.checked==true){
+        messageLoteriaSi.style.display='block';
+        messageLoteriaNo.style.display='none';
+    }else{
+        messageLoteriaSi.style.display='none';
+        messageLoteriaNo.style.display='block';
     }
 }
 
