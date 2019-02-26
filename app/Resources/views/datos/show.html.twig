@@ -4,69 +4,68 @@
     <div class="imagenusuario">
         <!-- Imagen Usuario -->
         {% if dato.image is same as(null) %}
-            <img alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
+            <img alt="Foto de perfil por defecto" src="{{ asset('img/usuario.png') }}"/>
         {% else %}
-            <img alt="Foto de perfil" src="../../img/users/{{ image }}"/>
-            {#<img alt="Foto de perfil" src="{{ asset('img/users/'. image) }}"/>#}
+            <img alt="Foto de perfil" src="{{ asset('img/users/'. image) }}"/>
         {% endif %}
     </div>
 
     <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>Nombre</h5>
             <p>{{ dato.nombre }}</p>
         </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>DNI</h5>
             <p>{{ dato.dni }}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>PrimerApellido</h5>
             <p>{{ dato.apellido1 }}</p>
         </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>Fecha Nacimiento</h5>
             <p>{{ fechanac }}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>SegundoApellido</h5>
             <p>{{ dato.apellido2 }}</p>
         </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>Lugar Nacimiento</h5>
             <p>{{ dato.lugarNacimiento }}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>SIP</h5>
             <p>{{ dato.sip }}</p>
         </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>Direccion</h5>
             <p>{{ dato.direccion }}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>CP</h5>
             <p>{{ dato.cp }}</p>
         </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>Poblacion</h5>
             <p>{{ dato.poblacion }}</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>Email</h5>
             <p>{{ dato.email }}</p>
         </div>
-        <div class="col-md-6 col-sm-6  camposUsuario">
+        <div class="col-md-6 col-sm-6  align-self-center">
             <h5>Telefono</h5>
             <p>{{ dato.telefono ? dato.telefono : 0 }}</p>
         </div>
@@ -75,31 +74,31 @@
     {% if adult %}
         <hr>
         <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>Titular</h5>
                 <p>{{ dato.titular ? dato.titular : 0 }}</p>
             </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>DNI Titular</h5>
                 <p>{{ dato.dniTitular ? dato.dniTitular : 0 }}</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>Direccion Titular</h5>
                 <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p>
             </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>CP Titular</h5>
                 <p>{{ dato.cpTitular ? dato.cpTitular : 0 }}</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>Poblacion Titular</h5>
                 <p>{{ dato.direccionTitular ? dato.direccionTitular : 0 }}</p>
             </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>IBAN </h5>
                 <p>{{ dato.iban ? dato.iban : 0 }}</p>
             </div>
@@ -109,23 +108,23 @@
     {% if dato.jugador %}
         <hr>
         <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>Equipo</h5>
                 <p>{{ dato.equipo ? dato.equipo : 0 }}</p>
             </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>Club</h5>
                 <p>{{ dato.club }}</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>Categoria</h5>
                 <p>{{ dato.categoria }}</p>
             </div>
-            <div class="col-md-6 col-sm-6  camposUsuario">
+            <div class="col-md-6 col-sm-6  align-self-center">
                 <h5>Loteria</h5>
-                <p>{{ dato.loteria ? "Sí (+30€)" : "No (+0€)" }}</p>
+                <p>{{ dato.loteria ? "Sí (+150€)" : "No (+30€)" }}</p>
             </div>
         </div>
     {% endif %}

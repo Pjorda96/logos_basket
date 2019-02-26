@@ -48,7 +48,6 @@ footer {
     font-family: 'Raleway', Arial, sans-serif;
     text-transform: uppercase;
     /* padding-top: 10px; */
-
     color: white;
     font-weight: bold;
 }
@@ -71,7 +70,6 @@ img {
     /* border-radius:0px ; */
     background-color: aliceblue;
     display: inline-block;
-
 }
 
 #iconos {
@@ -84,11 +82,6 @@ img {
     height: 110px;
     margin-top: 30px;
     margin-left: 45%;
-
-}
-
-.camposUsuario {
-    text-align: center;
 }
 
 .cuadroExteriorInfo {
@@ -98,7 +91,6 @@ img {
     margin: 50px 0 50px 0;
     border-radius: 10px 10px 10px 10px;
     background-color: rgba(231, 220, 220, 0.712);
-
 }
 
 .icons {
@@ -107,7 +99,6 @@ img {
 }
 
 .boton {
-
     border-radius: 20px 20px 20px 20px;
     background-color: #FE5E00;
     width: 50%;
@@ -117,31 +108,20 @@ img {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 18px;
-
-
 }
 
 hr{
     background-color: black;
 }
 
-.centrar{
-    text-align: center;
-}
-
-
-
 .select > select{
     margin-right: 1rem;
     margin-left: 1rem;
     box-shadow: none;
     border: none;
-    border-color: none;
-
 }
 
 .select > select:focus{
  outline:none;
-    
 }
 

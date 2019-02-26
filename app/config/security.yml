@@ -11,7 +11,7 @@ security:
         our_db_provider:
             entity:
                 class: AppBundle:User
-                property: dni
+                property: nif
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -32,13 +32,14 @@ security:
             form_login:
                 login_path: /security/login
                 check_path: /security/login
+                username_parameter: _nif
                 default_target_path: /redirect
                 always_use_default_target_path: true
             logout:
                 path:   /logout
                 target: /
 
-    #access_control:
-        #- { path: ^/security/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        #- { path: ^/datos, roles: ROLE_USER }
-        #- { path: ^/security, roles: ROLE_ADMIN }
+    access_control:
+        - { path: ^/security/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/datos, roles: ROLE_USER }
+        - { path: ^/security, roles: ROLE_ADMIN }

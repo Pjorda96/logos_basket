@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Dato controller.
@@ -27,7 +28,6 @@ class DatosController extends Controller
     public function newAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $category = $em->getRepository(Category::class)->findAll();
 
         $dato = new Datos();
         $form = $this->createForm(DatosType::class, $dato);
@@ -36,7 +36,9 @@ class DatosController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             /*****Imagen*****/
             $fotoFile = $dato->getImage();
-            $this->fotoFile($fotoFile, $dato);
+            if ($fotoFile !== null) {
+                $this->fotoFile($fotoFile, $dato);
+            }
             /*****Imagen*****/
 
             $em->persist($dato);
@@ -98,7 +100,9 @@ class DatosController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             /*****Imagen*****/
             $fotoFile = $user->getImage();
-            $this->fotoFile($fotoFile, $user);
+            if ($fotoFile !== null) {
+                $this->fotoFile($fotoFile, $user);
+            }
             /*****Imagen*****/
 
             $this->getDoctrine()->getManager()->flush();
@@ -156,7 +160,13 @@ class DatosController extends Controller
         return md5(uniqid());
     }
 
-    private function fotoFile($fotoFile, $dato)
+    /**
+     * Move image from temporary dir to im_directory
+     *
+     * @param $fotoFile
+     * @param $dato
+     */
+    private function fotoFile(File $fotoFile, $dato)
     {
         if ($fotoFile !== null) {
             $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();

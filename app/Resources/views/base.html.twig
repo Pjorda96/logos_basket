@@ -5,17 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Logos{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/imagenlogo.ico') }}" />
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ asset('js/popper.min.js') }}"></script>
         <script src="{{ asset('js/fechaCheck.js') }}"></script>
         <script src="{{ asset('js/newAndEdit.js') }}"></script>
+        {% block javascripts %}
+            <script>
+                let body=document.body
+                body.onload = casillas();
+                body.onload = titular();
+                body.onload = loteria();
+            </script>
+        {% endblock %}
     </body>
 </html>
