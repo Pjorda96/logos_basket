@@ -180,14 +180,15 @@
             <div class="col-md-6 col-sm-6  align-self-center">
                 {# <p>{{ dato.loteria ? "Sí (+30€)" : "No (+0€)" }}</p> #}
                 <h5>{{ form_label(edit_form.loteria) }}</h5>
-                {{ form_widget(edit_form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control align-self-center shadow-none' }}) }}
+                {{ form_widget(edit_form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control align-self-center shadow-none', 'onchange':'loteria()' }}) }}
                 {{ form_errors(edit_form.loteria) }}
-                <p>Si (150€)</p>
-                <p>No (30€)</p>
+                <p id="loteriaSi">Si (150€)</p>
+                <p id="loteriaNo">No (30€)</p>
             </div>
 
             <div class="col-md-6 col-sm-6 icons align-self-center align-self-center mt-4">
                 <i class="fas fa-upload fa-2x"></i>
+
             </div>
         </div>
 
