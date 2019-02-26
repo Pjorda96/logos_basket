@@ -8,27 +8,27 @@
     <div>
         {{ form_start(form) }}
         <div class="row">
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.nombre) }}</h5>
-                {{ form_widget(form.nombre, {'attr': {'placeholder': 'Nombre', 'class': 'form-control align-self-center' }}) }}
+                {{ form_widget(form.nombre, {'attr': {'placeholder': 'Nombre', 'class': 'form-control text-center' }}) }}
                 <br>
                 {{ form_errors(form.nombre) }}
             </div>
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.DNI) }}</h5>
-                {{ form_widget(form.DNI, {'attr': {'placeholder': 'DNI', 'class': 'form-control align-self-center' }}) }}<br>
+                {{ form_widget(form.DNI, {'attr': {'placeholder': 'DNI', 'class': 'form-control text-center' }}) }}<br>
                 {{ form_errors(form.DNI) }}
 
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.apellido1) }}</h5>
-                {{ form_widget(form.apellido1, {'attr': {'placeholder': 'Primer Apellido', 'class': 'form-control align-self-center' }}) }}
+                {{ form_widget(form.apellido1, {'attr': {'placeholder': 'Primer Apellido', 'class': 'form-control text-center' }}) }}
                 <br>
                 {{ form_errors(form.apellido1) }}
             </div>
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.fechaNacimiento) }}</h5>
                 {{ form_widget(form.fechaNacimiento, {'attr': {'placeholder': 'Fecha Nacimiento', 'class': 'select form-control', 'onchange':'titular()' }}) }}
                 <br>
@@ -36,116 +36,116 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.apellido2) }}</h5>
-                {{ form_widget(form.apellido2, {'attr': {'placeholder': 'Segundo Apellido', 'class': 'form-control align-self-center' }}) }}
+                {{ form_widget(form.apellido2, {'attr': {'placeholder': 'Segundo Apellido', 'class': 'form-control text-center' }}) }}
                 <br>
                 {{ form_errors(form.apellido2) }}
             </div>
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.lugarNacimiento) }}</h5>
-                {{ form_widget(form.lugarNacimiento, {'attr': {'placeholder': 'Lugar nacimiento', 'class': 'form-control align-self-center' }}) }}
+                {{ form_widget(form.lugarNacimiento, {'attr': {'placeholder': 'Lugar nacimiento', 'class': 'form-control text-center' }}) }}
                 <br>
                 {{ form_errors(form.lugarNacimiento) }}
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.sip) }}</h5>
-                {{ form_widget(form.sip, {'attr': {'placeholder': 'SIP', 'class': 'form-control align-self-center' }}) }}<br>
+                {{ form_widget(form.sip, {'attr': {'placeholder': 'SIP', 'class': 'form-control text-center' }}) }}<br>
                 {{ form_errors(form.sip) }}
             </div>
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.direccion) }}</h5>
-                {{ form_widget(form.direccion, {'attr': {'placeholder': 'Direccion', 'class': 'form-control align-self-center' }}) }}
+                {{ form_widget(form.direccion, {'attr': {'placeholder': 'Direccion', 'class': 'form-control text-center' }}) }}
                 <br>
                 {{ form_errors(form.direccion) }}
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.cp) }}</h5>
-                {{ form_widget(form.cp, {'attr': {'placeholder': 'CP', 'class': 'form-control align-self-center' }}) }}<br>
+                {{ form_widget(form.cp, {'attr': {'placeholder': 'CP', 'class': 'form-control text-center' }}) }}<br>
                 {{ form_errors(form.cp) }}
             </div>
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.poblacion) }}</h5>
-                {{ form_widget(form.poblacion, {'attr': {'placeholder': 'Poblacion', 'class': 'form-control align-self-center' }}) }}
+                {{ form_widget(form.poblacion, {'attr': {'placeholder': 'Poblacion', 'class': 'form-control text-center' }}) }}
                 <br>
                 {{ form_errors(form.poblacion) }}
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.email) }}</h5>
-                {{ form_widget(form.email, {'attr': {'placeholder': 'Correo electronico', 'class': 'form-control align-self-center' }}) }}
+                {{ form_widget(form.email, {'attr': {'placeholder': 'Correo electronico', 'class': 'form-control text-center' }}) }}
                 <br>
                 {{ form_errors(form.email) }}
             </div>
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(form.telefono) }}</h5>
-                {{ form_widget(form.telefono, {'attr': {'placeholder': 'Telefono', 'class': 'form-control align-self-center' }}) }}
+                {{ form_widget(form.telefono, {'attr': {'placeholder': 'Telefono', 'class': 'form-control text-center' }}) }}
                 <br>
                 {{ form_errors(form.telefono) }}
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-4 mt-4 mb-4 align-self-center">
+            <div class="col-md-4 col-sm-4 mt-4 mb-4 text-center">
                 {{ form_label(form.jugador) }}
-                {{ form_widget(form.jugador, {'attr': {'class': 'form-control align-self-center shadow-none','id':'jugador', 'onchange':'casillas()' }}) }}
+                {{ form_widget(form.jugador, {'attr': {'class': 'form-control text-center shadow-none','id':'jugador', 'onchange':'casillas()' }}) }}
                 {{ form_errors(form.jugador) }}
             </div>
-            <div class="col-md-4 col-sm-4 mt-4 mb-4 align-self-center">
+            <div class="col-md-4 col-sm-4 mt-4 mb-4 text-center">
                 {{ form_label(form.entrenador) }}
-                {{ form_widget(form.entrenador, {'attr': {'class': 'form-control align-self-center shadow-none','id':'entrenador' }}) }}
+                {{ form_widget(form.entrenador, {'attr': {'class': 'form-control text-center shadow-none','id':'entrenador' }}) }}
                 {{ form_errors(form.entrenador) }}
             </div>
-            <div class="col-md-4 col-sm-4  mb-4 mt-4 align-self-center">
+            <div class="col-md-4 col-sm-4  mb-4 mt-4 text-center">
                 {{ form_label(form.tutor) }}
-                {{ form_widget(form.tutor, {'attr': {'class': 'form-control align-self-center shadow-none','id':'tutor' }}) }}
+                {{ form_widget(form.tutor, {'attr': {'class': 'form-control text-center shadow-none','id':'tutor' }}) }}
                 {{ form_errors(form.tutor) }}
             </div>
         </div>
         <hr id="titularHr">
         <div id="titularInfo">
             <div class="row">
-                <div class="col-md-6 col-sm-6  align-self-center ">
+                <div class="col-md-6 col-sm-6  text-center ">
                     <h5>{{ form_label(form.titular) }}</h5>
-                    {{ form_widget(form.titular, {'attr': {'placeholder': 'Titular', 'class': 'form-control align-self-center' }}) }}
+                    {{ form_widget(form.titular, {'attr': {'placeholder': 'Titular', 'class': 'form-control text-center' }}) }}
                     <br>
                     {{ form_errors(form.titular) }}
                 </div>
-                <div class="col-md-6 col-sm-6  align-self-center">
+                <div class="col-md-6 col-sm-6  text-center">
                     <h5>{{ form_label(form.dni_titular) }}</h5>
-                    {{ form_widget(form.dni_titular, {'attr': {'placeholder': 'DNI Titular', 'class': 'form-control align-self-center' }}) }}
+                    {{ form_widget(form.dni_titular, {'attr': {'placeholder': 'DNI Titular', 'class': 'form-control text-center' }}) }}
                     <br>
                     {{ form_errors(form.dni_titular) }}
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-sm-6  align-self-center">
+                <div class="col-md-6 col-sm-6  text-center">
                     <h5>{{ form_label(form.direccion_titular) }}</h5>
-                    {{ form_widget(form.direccion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control align-self-center' }}) }}
+                    {{ form_widget(form.direccion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control text-center' }}) }}
                     <br>
                     {{ form_errors(form.direccion_titular) }}
                 </div>
-                <div class="col-md-6 col-sm-6  align-self-center">
+                <div class="col-md-6 col-sm-6  text-center">
                     <h5>{{ form_label(form.cp_titular) }}</h5>
-                    {{ form_widget(form.cp_titular, {'attr': {'placeholder': 'Nombre', 'class': 'form-control align-self-center' }}) }}
+                    {{ form_widget(form.cp_titular, {'attr': {'placeholder': 'Nombre', 'class': 'form-control text-center' }}) }}
                     <br>
                     {{ form_errors(form.cp_titular) }}
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-sm-6  align-self-center">
+                <div class="col-md-6 col-sm-6  text-center">
                     <h5>{{ form_label(form.poblacion_titular) }}</h5>
-                    {{ form_widget(form.poblacion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control align-self-center' }}) }}
+                    {{ form_widget(form.poblacion_titular, {'attr': {'placeholder': 'Direccion Titular', 'class': 'form-control text-center' }}) }}
                     <br>
                     {{ form_errors(form.poblacion_titular) }}
                 </div>
-                <div class="col-md-6 col-sm-6  align-self-center">
+                <div class="col-md-6 col-sm-6  text-center">
                     <h5>{{ form_label(form.iban) }}</h5>
-                    {{ form_widget(form.iban, {'attr': {'placeholder': 'IBAN', 'class': 'form-control align-self-center' }}) }}
+                    {{ form_widget(form.iban, {'attr': {'placeholder': 'IBAN', 'class': 'form-control text-center' }}) }}
                     <br>
                     {{ form_errors(form.iban) }}
                 </div>
@@ -154,16 +154,16 @@
         <hr id="hrJugador">
         <div id="jugadorInfo">
             <div class="row">
-                <div class="col-md-6 col-sm-6  align-self-center">
+                <div class="col-md-6 col-sm-6  text-center">
                     <h5>{{ form_label(form.equipo) }}</h5>
-                    {{ form_widget(form.equipo, {'attr': {'placeholder': 'Equipo', 'class': 'form-control align-self-center' }}) }}
+                    {{ form_widget(form.equipo, {'attr': {'placeholder': 'Equipo', 'class': 'form-control text-center' }}) }}
                     <br>
                     {{ form_errors(form.equipo) }}
                 </div>
                 {# CREAR SELECT  #}
-                <div class="col-md-6 col-sm-6  align-self-center">
+                <div class="col-md-6 col-sm-6  text-center">
                     <h5>{{ form_label(form.categoria) }}</h5>
-                    {{ form_widget(form.categoria, {'attr': {'placeholder': 'Categoria', 'class': 'form-control align-self-center' }}) }}
+                    {{ form_widget(form.categoria, {'attr': {'placeholder': 'Categoria', 'class': 'form-control text-center' }}) }}
                     <br>
                     {{ form_errors(form.categoria) }}
                 </div>
@@ -172,25 +172,25 @@
         <hr>
 
         <div class="row">
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
                 <h5 class="text-center">{{ form_label(form.loteria) }}</h5>
-                {{ form_widget(form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control align-self-center shadow-none', 'onchange':'loteria()' }}) }}
+                {{ form_widget(form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control text-center shadow-none', 'onchange':'loteria()' }}) }}
                 {{ form_errors(form.loteria) }}
                 <p id="loteriaSi" class="text-center">Si (150€)</p>
                 <p id="loteriaNo" class="text-center">No (30€)</p>
             </div>
 
-            <div class="col-md-6 col-sm-6 icons align-self-center align-self-center mt-4">
+            <div class="col-md-6 col-sm-6 icons text-center text-center mt-4">
                 <i class="fas fa-upload fa-2x"></i>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-sm-6  align-self-center">
+            <div class="col-md-6 col-sm-6  text-center">
 
             </div>
 
-            <div class="col-md-6 col-sm-6 icons align-self-center align-self-center">
+            <div class="col-md-6 col-sm-6 icons text-center text-center">
                 <button class="boton mb-4" type="submit">Crear</button>
             </div>
         </div>
