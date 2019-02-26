@@ -59,15 +59,23 @@ class DefaultController extends Controller
      */
     public function redirectionAction(Request $request, UserInterface $user)
     {
-        $dbUser = $this->getDoctrine()->getRepository('AppBundle:Datos')->find($user->getUsername());
+        $usuario = $this->getDoctrine()->getRepository(User::class)->findOneByNif($user->getUsername());
+        dump($usuario);
+        /*$rol = $usuario->getRoles();
+        $rol = json_decode($rol);*/
+        /*dump($rol);*/
+        /*if ($rol === 'ROLE_ADMIN') {*/
+        if (false) {
+            return $this->redirectToRoute('admin');
+        } else {
+            $dbUser = $this->getDoctrine()->getRepository(Datos::class)->find($user->getUsername());
 
-        dump($dbUser);
+            if ($dbUser === null) {
+                return $this->redirectToRoute('datos_new');
+            }
 
-        if ($dbUser === null) {
-            return $this->redirectToRoute('datos_new');
+            return $this->redirectToRoute('datos_show', array('id' => $dbUser->getId()));
         }
-
-        return $this->redirectToRoute('datos_show', array('id' => $dbUser->getId()));
     }
 
     /**
