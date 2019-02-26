@@ -36,7 +36,9 @@ class DatosController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             /*****Imagen*****/
             $fotoFile = $dato->getImage();
-            $this->fotoFile($fotoFile, $dato);
+            if ($fotoFile !== null) {
+                $this->fotoFile($fotoFile, $dato);
+            }
             /*****Imagen*****/
 
             $em->persist($dato);
@@ -98,7 +100,9 @@ class DatosController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             /*****Imagen*****/
             $fotoFile = $user->getImage();
-            $this->fotoFile($fotoFile, $user);
+            if ($fotoFile !== null) {
+                $this->fotoFile($fotoFile, $user);
+            }
             /*****Imagen*****/
 
             $this->getDoctrine()->getManager()->flush();
