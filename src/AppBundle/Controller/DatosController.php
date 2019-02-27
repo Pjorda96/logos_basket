@@ -37,7 +37,14 @@ class DatosController extends Controller
             /*****Imagen*****/
             $fotoFile = $dato->getImage();
             if ($fotoFile !== null) {
-                $this->fotoFile($fotoFile, $dato);
+                $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
+    
+                // moves the file to the directory where brochures are stored
+                $fotoFile->move(
+                    $this->getParameter('img_directory'),
+                    $fileName
+                );
+                $dato->setImage($fileName);
             }
             /*****Imagen*****/
 
@@ -69,17 +76,11 @@ class DatosController extends Controller
         $fechastring = date_format($fechaNacimiento, 'd-m-Y');
         $adult = $this->isAdult($fechaNacimiento);
 
-        /*$dato->getImage() !== null ?
-            $image = $dato->getImage() :
-            $image = null;*/
-        //$img_str = 'image/png;base64,'.$image;
-
 
         return $this->render('datos/show.html.twig', array(
             'dato' => $dato,
             'fechanac' => $fechastring,
-            'adult' => $adult,
-            /*'image' => $image,*/
+            'adult' => $adult
         ));
     }
 
@@ -101,7 +102,14 @@ class DatosController extends Controller
             /*****Imagen*****/
             $fotoFile = $user->getImage();
             if ($fotoFile !== null) {
-                $this->fotoFile($fotoFile, $user);
+                $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
+    
+                // moves the file to the directory where brochures are stored
+                $fotoFile->move(
+                    $this->getParameter('img_directory'),
+                    $fileName
+                );
+                $user->setImage($fileName);
             }
             /*****Imagen*****/
 

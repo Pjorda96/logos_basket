@@ -250,6 +250,7 @@ class Datos
     {
         $this->club = 'Logos Basket Sedaví';
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->confirmado = false;
     }
 
     /**

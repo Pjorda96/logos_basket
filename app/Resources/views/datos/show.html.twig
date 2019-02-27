@@ -8,9 +8,9 @@
     <div class="imagenusuario mb-4">
         <!-- Imagen Usuario -->
         {% if dato.image is same as(null) %}
-            <img alt="Foto de perfil por defecto" src="{{ asset('img/usuario.png') }}"/>
+            <img  alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
         {% else %}
-            <img alt="Foto de perfil" src="{{ asset('img/users/'. image) }}"/>
+            <img  alt="Foto de perfil" src="../../img/users/{{ dato.image }}"/>
         {% endif %}
     </div>
 
