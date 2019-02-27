@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Category controller.
  *
- * @Route("categoria")
+ * @Route("category")
  */
 class CategoryController extends Controller
 {

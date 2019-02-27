@@ -28,9 +28,7 @@
             <a href="{{ path('category_edit', { 'id': category.id }) }}">Edit</a>
         </li>
         <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a href="{{ path('category_delete', { 'id': category.id }) }}">Delete</a>
         </li>
     </ul>
 {% endblock %}

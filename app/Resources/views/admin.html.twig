@@ -5,37 +5,36 @@
 {% block body %}
     <div class="container-fluid fill">
         <div class="row caja">
-
-            <div class="col-md-3 menu">
+            <div class="col-md-3 col-lg-2 menu">
                 <div class="row logos">
                     <img alt="Logo" class="logo" src="{{ asset('img/imagenlogo.png') }}">
                 </div>
 
                 <!-- Menu hamburguesa -->
-                <nav class="navbar navbar-expand-lg navbar-light  hamburguesa">
+                <nav class="navbar navbar-expand-lg navbar-dark hamburguesa">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <form>
                             <div class="form-check checkblock">
                                 <input type="checkbox" class="form-check-input" id="jugador">
-                                <label class="form-check-label" for="jugador">Jugador</label>
+                                <label class="form-check-label" for="jugador" style="color: white">Jugador</label>
                             </div>
                             <div class="form-check checkblock">
                                 <input type="checkbox" class="form-check-input" id="Entrenador">
-                                <label class="form-check-label" for="Entrenador">Entrenador</label>
+                                <label class="form-check-label" for="Entrenador" style="color: white">Entrenador</label>
                             </div>
                             <div class="form-check checkblock">
                                 <input type="checkbox" class="form-check-input" id="Tutor">
-                                <label class="form-check-label" for="Tutor">Tutor</label>
+                                <label class="form-check-label" for="Tutor" style="color: white">Tutor</label>
                             </div>
 
 
                             <div class="row filtro1">
-
+                                {#Select Bootstrap#}
                                 <link rel="stylesheet"
                                       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
                                 <link rel="stylesheet"
@@ -43,85 +42,77 @@
                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+                                {#Select Bootstrap#}
 
 
-                                <select class="selectpicker" multiple data-live-search="true">
-                                    {# CREAR UN FOR PARA QUE RECORRA LOS CAMPOS DE LA BASE DE DATOS Y LOS MUESTRE #}
-                                    <option>Alevin</option>
-                                    <option>Cadete</option>
-                                    <option>Manu Es Gay</option>
-                                    <option>Pablo también</option>
+                                <label for="category"></label>
+                                <select class="selectpicker" multiple data-live-search="true" id="category">
+                                    {% for category in categories %}
+                                        <option>{{ category }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
 
                             <div class="row">
-                                <a href="https://www.google.es/" style="color:black;" class="button"><i
-                                            class="fas fa-plus-circle fa-2x adminIcon"></i></a>
-                                <a href="https://www.google.es/" style="color:black;" class="button"><i
-                                            class="fas fa-ban fa-2x adminIcon"></i></a>
-                                <a href="https://www.google.es/" style="color:black;" class="button"><i
-                                            class="fas fa-pencil-alt fa-2x adminIcon"></i></a>
-                                <a href="https://www.google.es/" style="color:black;" class="button"><i
-                                            class="far fa-file-pdf fa-2x adminIcon"></i></a>
+                                <a href="#"><i class="fas fa-plus-circle fa-2x adminIcon"></i></a>
+                                <a href="#"><i class="fas fa-ban fa-2x adminIcon"></i></a>
+                                <a href="#"><i class="fas fa-pencil-alt fa-2x adminIcon"></i></a>
+                                <a href="#"><i class="far fa-file-pdf fa-2x adminIcon" style="color:red;"></i></a>
                             </div>
 
-                            <div class="col-md-9 offset-md-2 col-sm-2 offset-sm-3 col-3 offset-3">
+                            <div class="ml-4 mt-3">
                                 <a href="{{ path('logout') }}" class="btn btn-primary">Cerrar sesion</a>
                             </div>
                         </form>
-
-
                     </div>
                 </nav>
 
                 <!-- Fin menu hamburguesa -->
             </div>
 
-            <div class="col-md-9  info" style="padding-right: 0px; padding-left: 0px;">
+            <div class="col-md-9 col-lg-10" style="padding-right: 0; padding-left: 0;">
 
-                <table class="table table-hover table-dark">
+                <table class="table table-hover table-light">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">NIF</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Equipo</th>
+                        <th scope="col">Opciones</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
 
+                        {% if fichas is same as ([]) %}
+                            <tr>
+                                <td></td>
+                                <td>No se han encontrado datos.</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        {% endif %}
+
+                        {% for ficha in fichas %}
+                            <tr>
+                                <th scope="row">{{ ficha.id }}</th>
+                                <td>{{ ficha.nombre }}</td>
+                                <td>{{ ficha.apellido1 }} {{ ficha.apellido2 }}</td>
+                                <td>{{ ficha.dni }}</td>
+                                <td>{{ ficha.email }}</td>
+                                <td>{{ ficha.categoria }}</td>
+                                <td>{{ ficha.equipo }}</td>
+                                <td>
+                                    <a href="{{ path('datos_show', { 'id': ficha.id }) }}" class="mr-2"><i class="fas fa-eye"></i></a>
+                                    <a href="{{ path('datos_delete', { 'id': ficha.id }) }}" class="mr-2"><i class="fas fa-trash"></i></a>
+                                    <a href="{{ path('datos_edit', { 'id': ficha.id }) }}"><i class="fas fa-pencil-alt"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

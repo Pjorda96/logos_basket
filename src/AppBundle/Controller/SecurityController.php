@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Datos;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,6 +39,12 @@ class SecurityController extends Controller
      */
     public function adminAction(Request $request)
     {
-        return $this->render('admin.html.twig');
+        $categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+        $fichas = $this->getDoctrine()->getRepository(Datos::class)->findAll();
+
+        return $this->render('admin.html.twig', array(
+            'categories' => $categories,
+            'fichas' => $fichas
+        ));
     }
 }
