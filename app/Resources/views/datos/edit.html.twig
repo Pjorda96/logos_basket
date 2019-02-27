@@ -1,6 +1,7 @@
 {% extends 'ficha.html.twig' %}
 
 {% block ficha %}
+    {{ form_start(edit_form) }}
     <a href="{{ path('logout') }}" title="Cerrar sesion" class="icon-block mr-1 mt-1 logout">
         <i class="fas fa-sign-out-alt fa-3x " ></i>
     </a>
@@ -21,7 +22,6 @@
     </div>
 
     <div>
-        {{ form_start(edit_form) }}
         <div class="row">
             <div class="col-md-6 col-sm-6  text-center">
                 <h5>{{ form_label(edit_form.nombre) }}</h5>
@@ -212,6 +212,6 @@
                 <button class="boton mb-4" type="submit">Actualizar</button>
             </div>
         </div>
-        {{ form_end(edit_form) }}
     </div>
+    {{ form_end(edit_form) }}
 {% endblock %}
