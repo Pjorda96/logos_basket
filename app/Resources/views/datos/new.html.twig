@@ -6,9 +6,9 @@
         <i class="fas fa-sign-out-alt fa-3x " ></i>
     </a>
 
-    <div class="imagenusuario mb-4">
+    <div class="imagenusuario mb-4 text-center">
         <!-- Imagen Usuario -->
-        <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario">
+        <img src="{{ asset('img/usuario.png') }}" class="rounded mx-auto" alt="imagen del usuario">
         <div class = "imagen_perfil">{{ form_widget(form.image, {'attr': {'class': 'form-control text-center' }}) }}</div>
         <br>
         {{ form_errors(form.image) }}

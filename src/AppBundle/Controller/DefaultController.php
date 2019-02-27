@@ -60,7 +60,7 @@ class DefaultController extends Controller
     public function redirectionAction(Request $request, UserInterface $user)
     {
         $usuario = $this->getDoctrine()->getRepository(User::class)->findOneByNif($user->getUsername());
-        dump($usuario);
+        //dump($usuario);
         /*$rol = $usuario->getRoles();
         $rol = json_decode($rol);*/
         /*dump($rol);*/

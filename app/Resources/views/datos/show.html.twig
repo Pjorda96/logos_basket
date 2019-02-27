@@ -5,12 +5,12 @@
         <i class="fas fa-sign-out-alt fa-3x " ></i>
     </a>
 
-    <div class="imagenusuario mb-4">
+    <div class="imagenusuario mb-4 text-center">
         <!-- Imagen Usuario -->
         {% if dato.image is same as(null) %}
-            <img  alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
+            <img  alt="Foto de perfil" src="{{ asset('img/usuario.png') }}" class="mx-auto"/>
         {% else %}
-            <img  alt="Foto de perfil" src="../../img/users/{{ dato.image }}"/>
+            <img  alt="Foto de perfil" src="../../img/users/{{ dato.image }}" class="mx-auto"/>
         {% endif %}
     </div>
 
