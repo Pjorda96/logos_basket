@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-label-group pass">
                             <label for="fechaNac">Fecha de Nacimiento</label><br>
-                            <input onchange="dateCheck()" type="date" id="fechaNac" name="fechaNac" required min="1930-01-01" max="{{ tiempo }} "/>
+                            <input class='form-control' onchange="dateCheck()" type="date" id="fechaNac" name="fechaNac" required min="1930-01-01" max="{{ tiempo }} "/>
 
                             <p id="advertencia" style="display: none">No se pueden registrar menores</p>
                         </div>
