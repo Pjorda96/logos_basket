@@ -113,8 +113,9 @@
                 {{ form_errors(form.tutor) }}
             </div>
         </div>
-        <hr id="titularHr">
+
         <div id="titularInfo">
+            <hr>
             <div class="row">
                 <div class="col-md-6 col-sm-6  text-center ">
                     <h5>{{ form_label(form.titular) }}</h5>
@@ -158,8 +159,8 @@
                 </div>
             </div>
         </div>
-        <hr id="hrJugador">
         <div id="jugadorInfo">
+            <hr>
             <div class="row">
                 <div class="col-md-6 col-sm-6  text-center">
                     <h5>{{ form_label(form.equipo) }}</h5>
@@ -167,7 +168,6 @@
                     <br>
                     {{ form_errors(form.equipo) }}
                 </div>
-                {# CREAR SELECT  #}
                 <div class="col-md-6 col-sm-6  text-center">
                     <h5>{{ form_label(form.categoria) }}</h5>
                     {{ form_widget(form.categoria, {'attr': {'placeholder': 'Categoria', 'class': 'form-control text-center' }}) }}
@@ -183,8 +183,8 @@
                 <h5 class="text-center">{{ form_label(form.loteria) }}</h5>
                 {{ form_widget(form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control text-center shadow-none', 'onchange':'loteria()' }}) }}
                 {{ form_errors(form.loteria) }}
-                <p id="loteriaSi" class="text-center">Si (150€)</p>
-                <p id="loteriaNo" class="text-center">No (30€)</p>
+                <p id="loteriaSi" class="text-center">Sí (+20€)</p>
+                <p id="loteriaNo" class="text-center">No (+0€)</p>
             </div>
 
             <div class="col-md-6 col-sm-6 icons text-center text-center mt-4">
@@ -193,11 +193,11 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-sm-6  text-center">
+            {#<div class="col-md-6 col-sm-6  text-center">
 
-            </div>
+            </div>#}
 
-            <div class="col-md-6 col-sm-6 icons text-center text-center">
+            <div class="col-sm-6 offset-sm-6 icons text-center text-center">
                 <button class="boton mb-4" type="submit">Crear</button>
             </div>
         </div>

@@ -2,29 +2,24 @@ let jugadorbox=document.getElementById('appbundle_datos_jugador');
 let entrenadorbox=document.getElementById('appbundle_datos_entrenador');
 let tutorbox=document.getElementById('appbundle_datos_tutor');
 let jugadorInfo=document.getElementById('jugadorInfo');
-let jugadorHr=document.getElementById('hrJugador');
 let fechaNacYear=document.getElementById('appbundle_datos_fechaNacimiento_year');
 let fechaNacMonth=document.getElementById('appbundle_datos_fechaNacimiento_month');
 let fechaNacDay=document.getElementById('appbundle_datos_fechaNacimiento_day');
 let divTitular=document.getElementById('titularInfo');
-let titularHr=document.getElementById('titularHr');
 let loteriaBox=document.getElementById('appbundle_datos_loteria');
 let messageLoteriaSi=document.getElementById('loteriaSi');
 let messageLoteriaNo=document.getElementById('loteriaNo');
+
 function casillas(){
-    console.log(jugadorbox.checked, entrenadorbox.checked, tutorbox.checked);
-    console.log(jugadorInfo);
-    if (jugadorbox.checked==true){
+    if (jugadorbox.checked === true){
         jugadorInfo.style.display='block';
-        jugadorHr.style.display='block';
     }else{
         jugadorInfo.style.display='none';
-        jugadorHr.style.display='none';
     }
 }
 
 function loteria() {
-    if (loteriaBox.checked==true){
+    if (loteriaBox.checked === true){
         messageLoteriaSi.style.display='block';
         messageLoteriaNo.style.display='none';
     }else{
@@ -51,10 +46,8 @@ function titular(){
 
 
     if (fechaDatedCliente > fechaDated) {
-        divTitular.style.display='block';
-        titularHr.style.display='block';
-    }else{
         divTitular.style.display='none';
-        titularHr.style.display='none';
+    }else{
+        divTitular.style.display='block';
     }
 }

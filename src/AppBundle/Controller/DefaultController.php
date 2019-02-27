@@ -16,6 +16,14 @@ use Symfony\Component\Validator\Constraints\DateTime;
 class DefaultController extends Controller
 {
     /**
+     * @Route("/", name="homepage")
+     */
+    public function indexAction(Request $request)
+    {
+        return $this->redirectToRoute('login');
+    }
+
+    /**
      * @Route("/registro", name="user_registration")
      */
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
@@ -68,7 +76,7 @@ class DefaultController extends Controller
         if (false) {
             return $this->redirectToRoute('admin');
         } else {
-            $dbUser = $this->getDoctrine()->getRepository(Datos::class)->find($user->getUsername());
+            $dbUser = $this->getDoctrine()->getRepository(Datos::class)->findOneByDni($user->getUsername());
 
             if ($dbUser === null) {
                 return $this->redirectToRoute('datos_new');
