@@ -8,7 +8,9 @@
 
     <div class="imagenusuario mb-4 text-center">
         <!-- Imagen Usuario -->
-        <button onclick="clickImagen()" class="btn_oculto mt-5"><img src="{{ asset('img/usuario.png') }}" class="rounded mx-auto" alt="imagen del usuario"></button>
+        <button onclick="clickImagen()" class="btn_oculto mt-5">
+            <img src="{{ asset('img/usuario.png') }}" class="rounded mx-auto" alt="imagen del usuario">
+        </button>
         <br>
         {{ form_errors(form.image) }}
 
