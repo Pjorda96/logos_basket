@@ -8,11 +8,15 @@
 
     <div class="imagenusuario mb-4 text-center">
         <!-- Imagen Usuario -->
-        <img src="{{ asset('img/usuario.png') }}" class="rounded mx-auto" alt="imagen del usuario">
-        <div class = "imagen_perfil">{{ form_widget(form.image, {'attr': {'class': 'form-control text-center' }}) }}</div>
+        <button onclick="clickImagen()" class="btn_oculto mt-5"><img src="{{ asset('img/usuario.png') }}" class="rounded mx-auto" alt="imagen del usuario"></button>
         <br>
         {{ form_errors(form.image) }}
+
+        <div style="display: none">
+            {{ form_widget(form.image) }}
+        </div>
     </div>
+
     <div>
         <div class="row">
             <div class="col-md-6 col-sm-6  text-center">
@@ -25,7 +29,6 @@
                 <h5>{{ form_label(form.DNI) }}</h5>
                 {{ form_widget(form.DNI, {'attr': {'placeholder': 'DNI', 'class': 'form-control text-center' }}) }}<br>
                 {{ form_errors(form.DNI) }}
-
             </div>
         </div>
         <div class="row">
@@ -188,7 +191,13 @@
             </div>
 
             <div class="col-md-6 col-sm-6 icons text-center text-center mt-4">
-                <i class="fas fa-upload fa-2x"></i>
+                <button onclick="clickDocs()" class="btn_oculto"><i class="fas fa-upload fa-2x"></i></button>
+                <br>
+                {{ form_errors(form.documentos) }}
+
+                <div style="display: none">
+                    {{ form_widget(form.documentos) }}
+                </div>
             </div>
         </div>
 
@@ -203,4 +212,17 @@
         </div>
     </div>
     {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        function clickImagen() {
+          document.getElementById('appbundle_datos_image').click();
+        }
+    </script>
+    <script>
+      function clickDocs() {
+        document.getElementById('appbundle_datos_documentos').click();
+      }
+    </script>
 {% endblock %}

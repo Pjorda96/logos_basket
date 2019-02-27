@@ -80,7 +80,6 @@ footer {
 .imagenusuario img {
     width: 110px;
     height: 110px;
-    margin-top: 30px;
 }
 
 .cuadroExteriorInfo {
@@ -132,10 +131,13 @@ hr{
 
 }
 
-.btn_imagen{
+.btn_oculto {
+    background-color: transparent;
+    border: 0;
+}
 
-    color: pink;
-
+.btn_oculto:hover {
+    cursor: pointer;
 }
 
 .imagen_perfil > input{
@@ -160,5 +162,4 @@ hr{
     text-align:center
 
 }
-
 
