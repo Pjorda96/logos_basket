@@ -45,8 +45,6 @@ function titular(){
 
     let fechaParsed = fechaActualSplited[3] + "-" + fechaActualSplited[1] + "-" + fechaActualSplited[2];
     let fechaCliente= fechaNacYear.value + "-" + fechaNacMonth.value + "-" + fechaNacDay.value;
-    console.log(fechaCliente);
-    console.log(fechaParsed);
     let fechaDated = new Date(fechaParsed);
     let fechaDatedCliente= new Date(fechaCliente);
 
