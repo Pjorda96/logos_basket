@@ -198,8 +198,8 @@
                 <h5 class="text-center">{{ form_label(edit_form.loteria) }}</h5>
                 {{ form_widget(edit_form.loteria, {'attr': {'placeholder': 'Loteria', 'class': 'form-control text-center shadow-none', 'onchange':'loteria()' }}) }}
                 {{ form_errors(edit_form.loteria) }}
-                <p id="loteriaSi" class="text-center">Si (150€)</p>
-                <p id="loteriaNo" class="text-center">No (30€)</p>
+                <p id="loteriaSi" class="text-center">Sí (+20€)</p>
+                <p id="loteriaNo" class="text-center">No (+0€)</p>
             </div>
 
             <div class="col-md-6 col-sm-6 icons text-center text-center mt-4">
@@ -215,11 +215,11 @@
 
 
         <div class="row">
-            <div class="col-md-6 col-sm-6 icons text-center text-center">
+            {#<div class="col-sm-6 icons text-center text-center">
                 <button class="boton mb-4" type="submit">Confirmar</button>
-            </div>
+            </div>#}
 
-            <div class="col-md-6 col-sm-6 icons text-center text-center">
+            <div class="col-sm-6 offset-sm-6 icons text-center text-center">
                 <button class="boton mb-4" type="submit">Actualizar</button>
             </div>
         </div>
