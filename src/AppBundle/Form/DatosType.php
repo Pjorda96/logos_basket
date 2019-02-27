@@ -111,10 +111,7 @@ class DatosType extends AbstractType
                         'mimeTypesMessage' => 'Seleccione una imagen válida',
                         ])
                 ]
-            ))
-            ->add('confirmado', CheckboxType::class, array(
-                'label' => 'Confirmación',
-                'required' => false));
+            ));
 
             
     }/**
