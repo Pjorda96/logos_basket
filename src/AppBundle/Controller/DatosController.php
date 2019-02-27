@@ -37,7 +37,14 @@ class DatosController extends Controller
             /*****Imagen*****/
             $fotoFile = $dato->getImage();
             if ($fotoFile !== null) {
-                $this->fotoFile($fotoFile, $dato);
+                $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
+    
+                // moves the file to the directory where brochures are stored
+                $fotoFile->move(
+                    $this->getParameter('img_directory'),
+                    $fileName
+                );
+                $dato->setImage($fileName);
             }
             /*****Imagen*****/
 
@@ -95,7 +102,14 @@ class DatosController extends Controller
             /*****Imagen*****/
             $fotoFile = $user->getImage();
             if ($fotoFile !== null) {
-                $this->fotoFile($fotoFile, $user);
+                $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
+    
+                // moves the file to the directory where brochures are stored
+                $fotoFile->move(
+                    $this->getParameter('img_directory'),
+                    $fileName
+                );
+                $user->setImage($fileName);
             }
             /*****Imagen*****/
 
