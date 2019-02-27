@@ -124,6 +124,14 @@ hr{
 .select > select:focus{
  outline:none;
 }
+.logout{
+    color: black;
+    float: right;
+}
+.logout:hover {
+    color: red;
+
+}
 
 .btn_imagen{
 

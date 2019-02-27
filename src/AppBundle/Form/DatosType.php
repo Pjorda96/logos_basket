@@ -24,38 +24,49 @@ class DatosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nombre', TextType::class, array(
-                'label' => 'Nombre'))
+            'label' => 'Nombre'
+        ))
             ->add('apellido1', TextType::class, array(
-                'label' => 'Primer apellido'))
+                'label' => 'Primer apellido'
+            ))
             ->add('apellido2', TextType::class, array(
                 'label' => 'Segundo apellido',
-                'required' => false))
+                'required' => false
+            ))
             ->add('DNI', TextType::class, array(
-                'label' => 'DNI'))
+                'label' => 'DNI'
+            ))
             ->add('fechaNacimiento', DateType::class, array(
                 'label' => 'Date',
                 'format' => 'dd-MM-yyyy',
                 'years' => range(date('1950'), date('Y'))
-                ))
+            ))
             ->add('lugarNacimiento', TextType::class, array(
-                'label' => 'Lugar de nacimiento'))
+                'label' => 'Lugar de nacimiento'
+            ))
             ->add('sip', TextType::class, array(
-                'label' => 'SIP'))
+                'label' => 'SIP'
+            ))
             ->add('direccion', TextType::class, array(
-                'label' => 'Dirección'))
+                'label' => 'Dirección'
+            ))
             ->add('cp', NumberType::class, array(
-                'label' => 'Código Postal'))
+                'label' => 'Código Postal'
+            ))
             ->add('poblacion', TextType::class, array(
-                'label' => 'Población'))
+                'label' => 'Población'
+            ))
             ->add('email', EmailType::class, array(
                 'label' => 'Email',
-                'required' => false))
+                'required' => false
+            ))
             ->add('telefono', NumberType::class, array(
                 'label' => 'Teléfono',
-                'required' => false))
+                'required' => false
+            ))
             ->add('categoria', EntityType::class, array(
                 'label' => 'Categoría',
-                'class'=>Category::class,
+                'class' => Category::class,
                 'required' => false
             ))
             ->add('equipo', ChoiceType::class, array(
@@ -65,57 +76,67 @@ class DatosType extends AbstractType
             ))
             ->add('loteria', CheckboxType::class, array(
                 'label' => 'Lotería',
-                'required' => false))
+                'required' => false
+            ))
             ->add('titular', TextType::class, array(
                 'label' => 'Titular',
-                'required' => false))
+                'required' => false
+            ))
             ->add('dni_titular', TextType::class, array(
                 'label' => 'DNI',
-                'required' => false))
+                'required' => false
+            ))
             ->add('direccion_titular', TextType::class, array(
                 'label' => 'Dirección',
-                'required' => false))
+                'required' => false
+            ))
             ->add('cp_titular', NumberType::class, array(
                 'label' => 'Código Postal',
-                'required' => false))
+                'required' => false
+            ))
             ->add('poblacion_titular', TextType::class, array(
                 'label' => 'Población',
-                'required' => false))
+                'required' => false
+            ))
             ->add('iban', TextType::class, array(
                 'label' => 'IBAN',
-                'required' => false))
+                'required' => false
+            ))
             ->add('jugador', CheckboxType::class, array(
                 'label' => 'Jugador',
-                'required' => false))
+                'required' => false
+            ))
             ->add('entrenador', CheckboxType::class, array(
                 'label' => 'Entrenador',
-                'required' => false))
+                'required' => false
+            ))
             ->add('tutor', CheckboxType::class, array(
                 'label' => 'Tutor',
-                'required' => false))
+                'required' => false
+            ))
             ->add('documentos', FileType::class, array(
                 'data_class' => null,
                 'label' => 'Documentos',
-                'required' => false))
+                'required' => false
+            ))
             ->add('image', FileType::class, array(
                 'data_class' => null,
-                'attr' => ['class' => 'btn_imagen'],
-                'label' => 'Foto de perfil',                
+                'label' => 'Foto de perfil',
                 'required' => false,
                 'constraints' => [
                     new File([
                         'maxSize' => '5M',
                         'mimeTypes' => [
-                            "image/png", 
+                            "image/png",
                             "image/jpeg",
                         ],
                         'mimeTypesMessage' => 'Seleccione una imagen válida',
-                        ])
+                    ])
                 ]
             ));
+    }
 
-            
-    }/**
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
@@ -124,7 +145,6 @@ class DatosType extends AbstractType
             'data_class' => 'AppBundle\Entity\Datos'
         ));
     }
-
 
 
     /**

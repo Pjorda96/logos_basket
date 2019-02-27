@@ -1,6 +1,10 @@
 {% extends 'ficha.html.twig' %}
 
 {% block ficha %}
+    <a href="{{ path('logout') }}" title="Cerrar sesion" class="icon-block mr-1 mt-1 logout">
+        <i class="fas fa-sign-out-alt fa-3x " ></i>
+    </a>
+
     <div class="imagenusuario mb-4">
         <!-- Imagen Usuario -->
 
@@ -199,6 +203,8 @@
                 <button class="boton mb-4" type="submit">Crear</button>
             </div>
         </div>
+
+
         {{ form_end(form) }}
     </div>
 {% endblock %}
