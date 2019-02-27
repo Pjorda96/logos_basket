@@ -5,15 +5,14 @@
         <!-- Imagen Usuario -->
         {% if dato.image is same as(null) %}
             <img alt="Foto de perfil" src="{{ asset('img/usuario.png') }}"/>
-            {{ form_widget(edit_form.image, {'attr': {'class': 'form-control text-center' }}) }}
-            <br>
-            {{ form_errors(edit_form.image) }}
         {% else %}
-            <img alt="Foto de perfil" src="{{ asset('img/users/'. image) }}"/>
-            {{ form_widget(edit_form.image, {'attr': {'class': 'form-control text-center' }}) }}
-            <br>
-            {{ form_errors(edit_form.image) }}
+            <img  alt="Foto de perfil" src="../../img/users/{{ dato.image }}"/>
         {% endif %}
+        
+        <div class="imagen_perfil">{{ form_widget(edit_form.image, {'attr': {'class': 'form-control text-center' }}) }}</div>
+        <br>
+        {{ form_errors(edit_form.image) }}
+          
     </div>
 
     <div>

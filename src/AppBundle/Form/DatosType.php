@@ -99,6 +99,7 @@ class DatosType extends AbstractType
                 'required' => false))
             ->add('image', FileType::class, array(
                 'data_class' => null,
+                'attr' => ['class' => 'btn_imagen'],
                 'label' => 'Foto de perfil',                
                 'required' => false,
                 'constraints' => [

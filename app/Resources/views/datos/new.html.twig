@@ -3,10 +3,12 @@
 {% block ficha %}
     <div class="imagenusuario mb-4">
         <!-- Imagen Usuario -->
-        <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario">
-        {{ form_widget(form.image, {'attr': {'class': 'form-control text-center' }}) }}
-        <br>
-        {{ form_errors(form.image) }}
+
+        <img src="{{ asset('img/usuario.png') }}" class="rounded" alt="imagen del usuario"></img>                 
+
+        
+
+        
     </div>
     <div>
         {{ form_start(form) }}
